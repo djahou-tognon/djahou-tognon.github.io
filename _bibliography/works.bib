@@ -1,0 +1,25 @@
+@string{aps = {American Physical Society,}}
+
+@article{ParaExpOpt,
+abbr={ParaExpOpt},
+title={A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems},
+author={Felix Kwok and Djahou N. Tognon},
+abstract={We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations.  Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems. The algorithm yields a linear system whose matrix-vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the special cases of the heat and wave equations. Numerical experiments are provided to illustrate the efficiency of our preconditioners.},
+journal={Proceeding in 63 rd IEEE Conference on Decision and Control},
+location={Milan, Italy},
+year={2024},
+month={December},
+url={https://inria.hal.science/hal-04612018},
+arxiv={2406.11478},
+}
+
+@article{NGSFP,
+abbr={NGSFP},
+title={A Dynamical Neural Galerkin Scheme for Filtering Problems},
+author={Aghili, Joubine and Atokple Zialesi, Joy and Billaud-Friess, Marie and Garnier, Guillaume and Mula, Olga and Djahou N. Tognon},
+abstract={This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements, and the knowledge that the dynamics are governed by a physical PDE model with unknown parameters. We present a filtering algorithm where the reconstruction of the dynamics is done with neural network approximations whose weights are dynamically updated using observational data. In addition to the estimate of the state, we also obtain time-dependent parameter estimations of the PDE parameters governing the observed evolution. We illustrate the behavior of the method in a one-dimensional KdV equation involving the transport of solutions with local support. Our numerical investigation reveals the importance of the location and number of the observations. In particular, it suggests to consider dynamical sensor placement.},
+year={2024},
+month={January},
+url={https://hal.science/hal-04430730},
+arxiv={2401.17748}
+}

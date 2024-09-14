@@ -1,12 +1,36 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+title: Teaching
+description: Teaching experience throughout my PhD.
 nav: true
-nav_order: 6
+nav_order: 4
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
-
-Organize your courses by years, topics, or universities, however you like!
+<div class="teaching">
+            <div class="university">
+            Sorbonne University (2023-)
+            </div>
+            <div class="describ_teaching">
+            <ul>
+                <li class="course_title">Programmation Python pour les mathématiques </li>
+                    <ul>
+                        <li>Lecturer : Julien Guillod </li>
+                        <li>Semester : 2024 Spring </li>
+                        <li> Departement : Faculté de Mathématiques (UFR 929) </li>
+                        <li> Level : Bachelor </li>
+                    </ul>
+            </ul>
+            </div>
+            <div class="describ_teaching">
+            <ul>
+                <li class="course_title">Probabilités et statistiques </li>
+                    <ul>
+                    <li>Lecturer : Nathalie Ayi</li>
+                    <li>Semester : 2024 Spring </li>
+                    <li> Departement : Polytech Sorbonne (UFR 933) </li>
+                    <li> Level : engineer </li>
+                    </ul>
+            </ul>
+            </div>     
+</div>

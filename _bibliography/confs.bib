@@ -1,0 +1,103 @@
+
+
+
+@article{DD2022,
+abbr={DD27},
+title={Analysis of the ParaOpt algorithm},
+author={Djahou N. Tognon},
+abstract={The time parallel solution of optimality systems arising in PDE contrained optimization can be computed by applying any suitable time parallel algorithm to solve the forward and backward evolution problems arising in the optimization loop.  Various strategies have been derived from a new time parallel algorithm, namely ParaOpt, which is a two-level parareal method for the coupled forward and backward partial differential equations. In this talk, we  present the convergence analysis of the algorithm applied to a specific linear optimal control problem, corresponding to unstable systems.},
+journal={27 th Internatiional Conference on Domain Decomposition Methods},
+location={Prague, Czech Republic},
+year={2022},
+month={July},
+website={https://https://www.dd27.cz/},
+}
+@article{CANUM2022,
+abbr={CANUM 2022},
+title={Convergence analysis of ParaOpt algorithm for unstable systems},
+author={Djahou N. Tognon},
+abstract={ Parallel solving of optimality systems arising in partial differential equations (PDE) constrained optimization can be performed by applying suitable time parallel algorithm to solve the forward and backward evolution problems derived from the optimality system.  In this talk, we consider a recent time parallel algorithm, namely the ParaOpt algorithm, which is a two-level parareal method for the coupled forward and backward equations. We  present a convergence analysis of this algorithm in the case of unstable systems.},
+journal={45eme Congrès National d’Analyse Numérique},
+location={Evian-les-Bains, France},
+year={2022},
+month={June},
+website={https://canum2020.math.cnrs.fr/},
+}
+@article{CIMMUL2023,
+abbr={CIMMUL2023},
+title={Two time Parallel algorithms for solving optimality systems},
+abstract={Time parallel algorithm is a method to solve time-dependent problems parallel in time. It divides the main problem in sub-problems in time direction and executes them in parallel to get individual outputs that are combined together to obtain the final desired solution. Because of the advent of computers with several computing cores and clusters that enable to perform many computing tasks simultaneously, the research over such algorithm has undergone particular development over the last decades. As a result, Parareal, ParaExp and many others algorithms have been developed for solving evolution problems. In this talk, we present two time parallel algorithms, the first based on Parareal and the second on ParaExp for solving an optimality system that rises from partial differential equations (PDEs) constrained optimization.
+},
+author={Djahou N. Tognon},
+journal={Seminar at Centre Interdisciplinaire en Modélisation Mathématiques de l'Université Laval (CIMMUL)},
+location={Québec, Canada},
+year={2023},
+month={November},
+website={https://cimmul.fsg.ulaval.ca/event/seminaire-du-cimmul-norbert-tognon/}
+}
+@article{CEMRACS2023,
+abbr={CEMRACS2023},
+title={Data assimilation methods with Neural Galerkin schemes},
+author={Djahou N. Tognon},
+journal={CEMRACS 2023 on Scientific Machine Learning (SciML) at Centre International de Rencontres Mathématiques (CIRM)},
+location={Marseille, France},
+year={2023},
+month={August},
+website={http://smai.emath.fr/cemracs/cemracs23/index.html}
+}
+
+@article{CMCMM2023,
+abbr={CMCMM2023},
+title={Paraopt algorithm and Runge Kutta methods},
+author={Djahou N. Tognon},
+abstract={In this talk, we present the convergence analysis of Paraopt algorithm applied to a linear optimal control problem. The Paraopt algorithm is a parallel in time method for solving a optimality system arising in partial differential equations (PDEs) constrained optimization. This solving required two time integration methods and depends in crucial way on a quadrature formula and a Runge-Kutta method. We use an operator norm analysis to show that the convergence rate depends on the discretization parameters and the smaller of the orders of the time integration methods. We illustrate this by some numerical examples.},
+journal={21st Copper Mountain Conference On Multigrid Methods},
+location={Colorado, USA},
+year={2023},
+month={April},
+website={https://grandmaster.colorado.edu/copper/2023/},
+}
+
+
+
+
+
+@article{CDC2024,
+abbr={CDC2024},
+title={A Parallel in time algorithm based on ParaExp for Optimal control problems},
+abstract={We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations.  Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems. The algorithm yields a linear system whose matrix-vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the special cases of the heat and wave equations. Numerical experiments are provided to illustrate the efficiency of our preconditioners.},
+author={Djahou N. Tognon},
+journal={63th IEEE Conference on Decision and Control},
+location={Milan, Italy},
+year={2024},
+month={December},
+website={https://cdc2024.ieeecss.org/}
+}
+@article{PosterCANUM2024,
+abbr={PosterCANUM2024},
+title={A Parallel in time algorithm based on ParaExp for Optimal control problems},
+abstract={In this poster, we will present a new parallel-in-time algorithm for solving optimal control problems constrained by partial differential equations. This approach, based on a deep understanding
+of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution
+of homogeneous problems using exponential propagation with the local solutions of inhomogeneous
+problems. The algorithm yields a linear system whose matrix vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the
+special cases of the heat and wave equations. We provide some numerical experiments to illustrate
+the efficiency of our preconditioners.},
+author={Djahou N. Tognon},
+journal={Poster at 46eme Congrèe National d'Analyse Numérique },
+location={Le-Bois-Plage-en-Ré, Ile de Ré, France},
+year={2024},
+month={May},
+website={https://canum2024.math.cnrs.fr/fr/},
+poster="simple-poster.pdf"
+}
+@article{Hamburg2024,
+abbr={Hamburg2024},
+title={A scalar inverse problem with Neural Galerkin Scheme},
+abstract={Neural networks trained with machine learning techniques are currently attracting great attention as nonlinear approximation methods to solve forward and inverse problems involving high-dimensional partial differential equations (PDEs). In a recent paper, Neural Galerkin scheme has been proposed to solve PDEs by means of deep learning. In this approach, the deep learning process generates the training data samples with an active learning process for the numerical approximation. We apply this approach in this talk to tackle a parameter estimation problem and propose an algorithm based on Neural Galerkin scheme to estimate a scalar coefficient involved in a non-linear PDE problem. We provide numerical results with Korteweg-de Vries (KdV) equation in one dimension.},
+author={Djahou N. Tognon},
+journal={Seminar at Institute of Mathematics, Hamburg University of Technology (TUHH) },
+location={Hamburg, Germany},
+year={2024},
+month={January},
+website={https://www.mat.tuhh.de/veranstaltungen/vortraege/vortraege_en.php?page_number=2}
+}

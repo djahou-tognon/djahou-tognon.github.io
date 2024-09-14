@@ -383,11 +383,11 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2.5rem;
 
     a {
       i::before {
-        color: var(--global-text-color);
+        color: var(--global-text-color-light);
         transition-property: all 0.2s ease-in-out;
       }
 
@@ -1303,4 +1303,187 @@ ninja-keys::part(ninja-input-wrapper) {
 ::highlight(search) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
+}
+
+
+/* Research CSS*/
+.area{
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: flex-start; /* Aligner à gauche (facultatif) */
+  justify-content: center; /* Centrer verticalement (facultatif) */
+  margin: 0 auto;    /* Centre le conteneur horizontalement */
+  padding: 10px;      /*Ajoute un espacement interne au conteneur */
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour de l'image */
+  height: 150px;
+}
+
+.areapicture {
+    width: 22%;        /* La largeur du conteneur sera 80% de la page */
+    height: 90%;
+   /* max-width: 000px;   La taille maximale du conteneur est de 600px */
+    margin: 0 auto;    /* Centre le conteneur horizontalement */
+    /*border: 2px solid #ccc; /* Ajoute une bordure au conteneur 
+    padding: 10px;      Ajoute un espacement interne au conteneur */
+    text-align: center;
+}
+
+/* Styles pour l'image */
+.areaimag{
+    width: 100%;      /* L'image prend 100% de la largeur du conteneur */
+    height: 100%;     /* La hauteur s'ajuste en fonction de la largeur pour garder les proportions */
+    display: block;   /* Pour éliminer les espaces en ligne autour de l'image */
+    border-radius: 0px; /* Ajoute des coins arrondis à l'image */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour de l'image */
+}
+
+
+
+.research_area{
+  width: 72%;        /* La largeur du conteneur sera 80% de la page */
+  height: 100%;
+ /* max-width: 000px;   La taille maximale du conteneur est de 600px */
+  margin: 0 auto;    /* Centre le conteneur horizontalement */
+  /*border: 2px solid #ccc; /* Ajoute une bordure au conteneur 
+  padding: 10px;      Ajoute un espacement interne au conteneur */
+  text-align: left;
+}
+.title_area{
+  font-weight: bold;
+}
+.describ_area{
+ color: var(--global-text-color-light);
+ font-size: 85%;
+}
+
+.teaching{
+  display: flex;
+  flex-direction: column;
+   /*align-items: flex-start; Aligner à gauche (facultatif) */
+  justify-content: center; /* Centrer verticalement (facultatif) */
+  margin: 0 auto;    /* Centre le conteneur horizontalement */
+  padding: 10px;      /*Ajoute un espacement interne au conteneur */
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour de l'image */
+  height: auto;
+
+}
+
+.title_teaching{
+  font-weight: bold;
+  text-align: center;
+}
+
+.describ_teaching{
+  color: var(--global-text-color-light);
+  font-size: 90%;
+  text-align: left;
+ }
+
+ .course_title{
+  font-weight: bold;
+ }
+ .university{
+  font-weight: bold;
+  text-align: left;
+ }
+
+ /* Download cv*/
+
+
+form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:  #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style des labels */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--global-text-color-light);
+}
+
+/* Style des champs de texte */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color:  #f9f9f9;
+  box-sizing: border-box;
+}
+
+/* Style des boutons */
+form button[type="submit"] {
+  background-color: #45a049;
+  color: var(--global-text-color);
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--global-hover-color);/*#45a049;*/
+}
+
+/* Style pour les messages d'erreur ou de succès */
+form .error {
+  color: red;
+  font-weight: bold;
+}
+
+form .success {
+  color: green;
+  font-weight: bold;
+}
+
+/* Style du texte d'introduction */
+.intro-text {
+  text-align: center;
+  font-size: 18px;
+  color: var(--global-text-color-light);
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style de la zone de texte */
+form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+/* Style réactif pour petits écrans */
+@media (max-width: 600px) {
+  form {
+      padding: 10px;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form textarea,
+  form button[type="submit"] {
+      font-size: 14px;
+      padding: 10px;
+  }
+}
+
+.intro-text{
+  color : var(--global-text-color);
+  font-weight: bold;
 }
