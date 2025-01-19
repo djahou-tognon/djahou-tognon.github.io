@@ -6,10 +6,26 @@ description: Teaching experience throughout my PhD.
 nav: true
 nav_order: 4
 ---
+<div class="teaching">
+            <div class="university">
+            Sorbonne University (2024-2025)
+            </div>
+            <div class="describ_teaching">
+            <ul>
+                <li class="course_title">Equations Différentielles Linéaires, Méthodes Numériques </li>
+                    <ul>
+                        <li>Lecturer : Corentin Audiard </li>
+                        <li>Semester : 2025 Spring </li>
+                        <li> Departement : Faculté de Mathématiques (UFR 929) </li>
+                        <li> Level : Bachelor </li>
+                    </ul>
+            </ul>
+            </div>  
+</div>
 
 <div class="teaching">
             <div class="university">
-            Sorbonne University (2023-)
+            Sorbonne University (2023-2024)
             </div>
             <div class="describ_teaching">
             <ul>
