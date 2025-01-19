@@ -16,7 +16,7 @@ nav_order: 4
                     <ul>
                         <li>Lecturer : Corentin Audiard </li>
                         <li>Semester : 2025 Spring </li>
-                        <li> Departement : Faculté de Mathématiques (UFR 929) </li>
+                        <li> Department : Faculté de Mathématiques (UFR 929) </li>
                         <li> Level : Bachelor </li>
                     </ul>
             </ul>
@@ -33,7 +33,7 @@ nav_order: 4
                     <ul>
                         <li>Lecturer : Julien Guillod </li>
                         <li>Semester : 2024 Spring </li>
-                        <li> Departement : Faculté de Mathématiques (UFR 929) </li>
+                        <li> Department : Faculté de Mathématiques (UFR 929) </li>
                         <li> Level : Bachelor </li>
                     </ul>
             </ul>
@@ -44,7 +44,7 @@ nav_order: 4
                     <ul>
                     <li>Lecturer : Nathalie Ayi</li>
                     <li>Semester : 2024 Spring </li>
-                    <li> Departement : Polytech Sorbonne (UFR 933) </li>
+                    <li> Department : Polytech Sorbonne (UFR 933) </li>
                     <li> Level : engineer </li>
                     </ul>
             </ul>
