@@ -1,18 +1,30 @@
 @string{aps = {American Physical Society,}}
 
-@article{ParaOptUnstable,
-abbr={ParaOptUnstable},
+@article{POUS,
+abbr={POUS},
 title={ParaOpt for Unstable Systems},
 author={Djahou N. Tognon},
-abstract={ParaOpt is a two-level time-parallel method to solve the coupled forward/backward Euler-Lagrange system arising from partial differential equations (PDEs) constrained optimization. In this work, we present a convergence analysis of this algorithm in the case where the system under consideration is unstable. We complete this theoretical study with numerical experiments, where the properties of the algorithm are investigated on linear and nonlinear examples.},
-month={February},
+abstract={ParaOpt is a two-level time-parallel method to solve the coupled forward/backward Euler-Lagrange
+ system arising from partial differential equations (PDEs) constrained optimization. 
+ In this work, we present a convergence analysis of this algorithm in the case where the 
+ system under consideration is unstable. We complete this theoretical study with numerical experiments,
+  where the properties of the algorithm are investigated on linear and nonlinear examples.},
+year={2025},
+month={February}
 }
 
-@article{ParaExpOpt,
-abbr={ParaExpOpt},
+@article{PEOS,
+abbr={PEOS},
 title={A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems},
 author={Felix Kwok and Djahou N. Tognon},
-abstract={We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations.  Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems. The algorithm yields a linear system whose matrix-vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the special cases of the heat and wave equations. Numerical experiments are provided to illustrate the efficiency of our preconditioners.},
+abstract={We propose a new parallel-in-time algorithm for solving optimal control problems
+ constrained by discretized partial differential equations.  Our approach, which is based 
+ on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition 
+ in which we combine the solution of homogeneous problems using exponential propagation with 
+ the local solutions of inhomogeneous problems. The algorithm yields a linear system whose 
+ matrix-vector product can be fully performed in parallel. We then propose a preconditioner 
+ to speed up the convergence of GMRES in the special cases of the heat and wave equations. 
+ Numerical experiments are provided to illustrate the efficiency of our preconditioners.},
 journal={Proceeding in 63 rd IEEE Conference on Decision and Control},
 location={Milan, Italy},
 year={2024},
