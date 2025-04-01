@@ -1,7 +1,27 @@
 @string{aps = {American Physical Society,}}
 
-@article{3,
-abbr={3},
+
+@article{PinT-RK,
+abbr={PinT-RK},
+title={ParaOpt for Unstable Systems},
+author={Kwok, Felix and Salomon, Julien and Tognon, Djahou N.},
+abstract={ParaOpt is a time parallel method based on Parareal for solving optimality systems arising in optimal control problems.
+ The method was presented in [M.J.~Gander, F.~Kwok and J.~Salomon, \emph{SIAM J.~Sci.~Comput.,} 42 (2020), A2773--A2802] 
+ together with a convergence analysis in the case where implicit Euler is used to discretize the differential equations 
+ governing the system dynamics. However, its convergence behaviour for higher order time discretizations has not been considered. 
+ In this paper, we use an operator norm analysis to prove that the convergence rate of ParaOpt  applied to a linear-quadratic 
+ optimal control problem has the same order as the Runge-Kutta time integration method used, provided that a few auxiliary order 
+ conditions are satisfied. We illustrate our theoretical results with numerical examples, before showing an additional test case 
+ not covered by our analysis, namely, a nonlinear optimal control problem	involving a Schr\"odinger type system.},
+year={2025},
+month={March},
+url={https://hal.science/hal-05014759},
+pdf={https://hal.science/hal-05014759}
+}
+
+
+@article{PinT-US,
+abbr={PinT-US},
 title={ParaOpt for Unstable Systems},
 author={Djahou N. Tognon},
 abstract={ParaOpt is a two-level time-parallel method to solve the coupled forward/backward Euler-Lagrange
@@ -15,10 +35,10 @@ url={https://inria.hal.science/hal-04966081},
 pdf={https://inria.hal.science/hal-04966081}
 }
 
-@article{2,
-abbr={2},
+@article{PinT-OCP,
+abbr={PinT-OCP},
 title={A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems},
-author={Felix Kwok and Djahou N. Tognon},
+author={Kwok, Felix  and Tognon,Djahou N. },
 abstract={We propose a new parallel-in-time algorithm for solving optimal control problems
  constrained by discretized partial differential equations.  Our approach, which is based 
  on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition 
@@ -35,8 +55,8 @@ url={https://inria.hal.science/hal-04612018},
 pdf={https://inria.hal.science/hal-04612018}
 }
 
-@article{1,
-abbr={1},
+@article{NGS-FP,
+abbr={NGS-FP},
 title={A Dynamical Neural Galerkin Scheme for Filtering Problems},
 author={Aghili, Joubine and Atokple Zialesi, Joy and Billaud-Friess, Marie and Garnier, Guillaume and Mula, Olga and Djahou N. Tognon},
 abstract={This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements, and the knowledge that the dynamics are governed by a physical PDE model with unknown parameters. We present a filtering algorithm where the reconstruction of the dynamics is done with neural network approximations whose weights are dynamically updated using observational data. In addition to the estimate of the state, we also obtain time-dependent parameter estimations of the PDE parameters governing the observed evolution. We illustrate the behavior of the method in a one-dimensional KdV equation involving the transport of solutions with local support. Our numerical investigation reveals the importance of the location and number of the observations. In particular, it suggests to consider dynamical sensor placement.},
