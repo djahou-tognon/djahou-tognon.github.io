@@ -38,4 +38,14 @@ I am passionate about developing computational methods that push the boundaries 
 Here is my <a href="{{ site.baseurl }}/demandecv" title="download cv"> cv </a>in english.
 <!--{{ site.baseurl }}/assets/pdf/cv.pdf-->
 
-__My PhD defense will take place on June, 30 at Sorbonne Université, Jacques-Louis Lions Laboratory, at "Tour 16, Couloir 15-16, Salle 309, UPMC"__. __Here is the online link to join the presentation :[(online room)](https://inria.webex.com/inria/j.php?MTID=m0035933dee6f997c62f431e86052c9dd)__.
+__Ma soutenance de thèse aura lieu le 30 juin à 23h30 à Sorbonne Université, Laboratoire Jacques-Louis Lions, Tour 16, Couloir 15-16, Salle 309, UPMC. Cliquez sur :["lien de la salle en ligne"](https://inria.webex.com/inria/j.php?MTID=m50cbb4bb2fa74f83a9c88b4085048bcb) pour rejoindre la soutenance.__
+
+__Vous pouvez aussi utiliser :__ 
+Numéro de la réunion (code d’accès) : 2741 278 3696
+Mot de passe de la réunion : eFQcCRPr332
+
+__My PhD defense will take place on June 30 at 11:30 a.m. at Sorbonne Université, Jacques-Louis Lions Laboratory, at Tour 16, Couloir 15-16, Salle 309, UPMC. Click on: ["online room link"](https://inria.webex.com/inria/j.php?MTID=m50cbb4bb2fa74f83a9c88b4085048bcb) to join the defense.__
+
+__You can also use:__ 
+Room number (code d’accès) : 2741 278 3696
+Password : eFQcCRPr332
