@@ -27,7 +27,8 @@ Previously from April 2022 to june 2025, I was a Ph. D. candidate at INRIA Paris
 My research focuses on __High-Performance Computing (HPC)__, with a particular emphasis on the development of __parallel-in-time algorithms [(PinT)](https://parallel-in-time.org/)__ and the analysis of their convergence behavior for solving time-dependent partial differential equations (PDEs) constrained optimization problems. In addition to my work in HPC, I am exploring the intersection of scientific computing and machine learning, known as __Scientific Machine Learning (SciML)__. My goal is to leverage SciML techniques to enhance the efficiency and accuracy of solving complex PDEs, contributing to advances in both computational mathematics and machine learning. <!--I am also interested in domain decomposition methods in general and computational fluid dynamics.-->
 
 I am passionate about developing computational methods that push the boundaries of performance and scalability, with the broader goal of solving challenging real-world problems through mathematical modeling and simulation.
-
+  
 
 <!--Here is my <a href="{{ site.baseurl }}/demandecv" title="download cv"> cv </a>in english.
 {{ site.baseurl }}/assets/pdf/cv.pdf-->
+ 
