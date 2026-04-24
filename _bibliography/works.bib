@@ -53,11 +53,21 @@ pdf={https://hal.science/hal-05014759}
 abbr={PinT-US},
 title={ParaOpt for Unstable Systems},
 author={Djahou N. Tognon},
-abstract={ParaOpt is a two-level time-parallel method to solve the coupled forward/backward Euler-Lagrange
- system arising from partial differential equations (PDEs) constrained optimization. 
- In this work, we present a convergence analysis of this algorithm in the case where the 
- system under consideration is unstable. We complete this theoretical study with numerical experiments,
-  where the properties of the algorithm are investigated on linear and nonlinear examples.},
+abstract={We present a convergence analysis of the ParaOpt algorithm 
+applied to linear optimal control problems where the linear operator 
+involved in the constraint -- namely, a linear ordinary differential 
+equation (ODE) -- has at least one positive eigenvalue, 
+which usually corresponds to unstable  systems. 
+When the control problem is discretized using the 
+explicit Euler scheme, the resulting formulation can 
+be expressed as a stationary iterative method, 
+in which a coarse Jacobian approximation acts as a preconditioner. 
+An explicit bound on the spectral radius of the corresponding 
+iteration matrix is proposed, depending on the discretization 
+parameters as well as on the smallest negative and largest 
+positive eigenvalues of the considered linear operator. 
+Our theoretical results are completed by numerical experiments 
+performed on both linear and nonlinear examples.},
 year={2025},
 month={February},
 url={https://inria.hal.science/hal-04966081},
