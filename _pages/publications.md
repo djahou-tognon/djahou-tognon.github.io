@@ -6,17 +6,17 @@ description: Publications related to my PhD.
 nav: true
 nav_order: 2
 ---
-## Preprints
-{% bibliography --query @*[category=preprint] --sort_by year --reverse %}
+### Preprints
+{% bibliography --file works --query @*[category=preprint] --sort_by year --reverse %}
 
-## Submitted 
-{% bibliography --query @*[category=submitted] --sort_by year --reverse %}
+### Submitted 
+{% bibliography --file works --query @*[category=submitted] --sort_by year --reverse %}
 
-## Journal Articles
-{% bibliography --query @*[category=journal] --sort_by year --reverse %}
+### Journal Articles
+{% bibliography --file works --query @*[category=journal] --sort_by year --reverse %}
 
-## Conference Papers 
-{% bibliography --query @*[category=procceding] --sort_by year --reverse %}
+### Conference Papers 
+{% bibliography --file works --query @*[category=procceding] --sort_by year --reverse %}
 
-## Thesis 
-{% bibliography --query @*[category=thesis] --sort_by year --reverse %}
+### Thesis 
+{% bibliography --file works --query @*[category=thesis] --sort_by year --reverse %}
