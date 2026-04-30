@@ -6,15 +6,17 @@ description: Publications related to my PhD.
 nav: true
 nav_order: 2
 ---
+## Preprints
+{% bibliography --query @*[category=preprint] --sort_by year --reverse %}
 
-<!-- _pages/publications.md -->
+## Submitted 
+{% bibliography --query @*[category=submitted] --sort_by year --reverse %}
 
-<!-- Bibsearch Feature
+## Journal Articles
+{% bibliography --query @*[category=journal] --sort_by year --reverse %}
 
-{% include bib_search.liquid %} -->
+## Conference Papers 
+{% bibliography --query @*[category=procceding] --sort_by year --reverse %}
 
-<div class="publications">
-
-{% bibliography --file works %}
-
-</div>
+## Thesis 
+{% bibliography --query @*[category=thesis] --sort_by year --reverse %}
