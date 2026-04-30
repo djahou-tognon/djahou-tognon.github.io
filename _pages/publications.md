@@ -13,8 +13,23 @@ nav_order: 2
 
 {% include bib_search.liquid %} -->
 
-<div class="publications">
+<!-- <div class="publications">-->
 
-{% bibliography --file works %}
+<!--  {% bibliography --file works %}
 
-</div>
+</div> -->
+
+## Preprints
+{% bibliography --query @*[category=preprint] --sort_by year --reverse %}
+
+## Submitted 
+{% bibliography --query @*[category=submitted] --sort_by year --reverse %}
+
+## Journal Articles
+{% bibliography --query @*[category=journal] --sort_by year --reverse %}
+
+## Conference Papers
+{% bibliography --query @*[category=procceding] --sort_by year --reverse %}
+
+## Thesis
+{% bibliography --query @*[category=thesis] --sort_by year --reverse %}
