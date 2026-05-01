@@ -331,10 +331,10 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: type,year
+  group_by: type #, year
   group_order: ascending, descending
   type_order: [article,inproceedings,thesis,techreport]
-  type_names: { misc: Talks, inproceedings: Conference Proceedings }
+  type_names: { misc: Talks, inproceedings: Proceedings }
 
 
 # Display different badges withs stats for your publications
