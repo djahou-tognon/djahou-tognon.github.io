@@ -6,4 +6,8 @@ description: Publications.
 nav: true
 nav_order: 2
 ---
-{% bibliography -f {{ site.scholar.bibliography }} %}
+<div class="publications">
+
+{% bibliography --file works %}
+
+</div>
