@@ -320,7 +320,8 @@ scholar:
   locale: en
 
   source: /_bibliography/
-  bibliography: papers.bib
+  bibliography: works.bib
+  talks: confs.bib
   bibliography_template: bib
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
@@ -331,46 +332,28 @@ scholar:
   join_strings: true
 
   details_dir: bibliography
+  details_layout: bibtex.html
   details_link: Details
 
   query: "@*"
-  group_by: year
-  group_order: descending
+  group_by: type,year
+  group_order: ascending, descending
+  type_order: [article,inproceedings,thesis,techreport]
+  type_names: { misc: Talks, inproceedings: Conference Proceedings }
+
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid
-enable_publication_badges:
+#enable_publication_badges:
+badges:
   altmetric: true # Altmetric badge (Customization options: https://badge-docs.altmetric.com/index.html)
   dimensions: true # Dimensions badge (Customization options: https://badge.dimensions.ai/)
   google_scholar: true # Google Scholar badge (https://scholar.google.com/intl/en/scholar/citations.html)
   inspirehep: true # Inspire HEP badge (https://help.inspirehep.net/knowledge-base/citation-metrics/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
-filtered_bibtex_keywords:
-  [
-    abbr,
-    abstract,
-    additional_info,
-    altmetric,
-    annotation,
-    arxiv,
-    award,
-    award_name,
-    bibtex_show,
-    blog,
-    code,
-    google_scholar_id,
-    html,
-    inspirehep_id,
-    pdf,
-    poster,
-    preview,
-    selected,
-    slides,
-    supp,
-    video,
-    website,
-  ]
+filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, preprint, altmetric, dimensions, keywords]
+
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
 max_author_limit: 3 # leave blank to always show all authors
