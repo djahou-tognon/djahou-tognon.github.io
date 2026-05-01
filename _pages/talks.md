@@ -7,8 +7,8 @@ nav: true
 nav_order: 3
 ---
 
-<!-- Liste des talks 
-{% include bib_search.liquid %}-->
+Liste des talks 
+{% include bib_search.liquid %}
 
 <div class="publications">
   <!-- Affichage des talks avec le fichier confs.bib -->

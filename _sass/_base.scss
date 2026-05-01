@@ -656,7 +656,7 @@ footer.sticky-bottom {
 
 // Publications
 
-.publications {
+/*.publications {
   margin-top: 2rem;
 
   h1 {
@@ -829,6 +829,186 @@ footer.sticky-bottom {
     div.award.hidden.open {
       border-color: var(--global-highlight-color);
     }
+  }
+}*/
+
+
+
+.publications {
+  margin-top: 2rem;
+
+  /* =========================
+   * GLOBAL LAYOUT
+   * ========================= */
+
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+
+    /* 🔥 ~5 items visibles */
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  /* =========================
+   * HEADINGS
+   * ========================= */
+
+  h1 {
+    color: var(--global-theme-color);
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 1em 0;
+  }
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+
+ h2.bibliography {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--global-theme-color);
+  opacity: 0.7;
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.2rem;
+  margin-top: 1.5rem;
+}
+
+  /* =========================
+   * PUBLICATION ITEM
+   * ========================= */
+
+  ol.bibliography li {
+    margin-bottom: 0.6rem;   /* compact */
+    line-height: 1.25;
+
+    /* -------------------------
+     * TITLE / AUTHORS
+     * ------------------------- */
+
+    .title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .author {
+      font-size: 0.85rem;
+    }
+
+    /* -------------------------
+     * TAG (journal / conference)
+     * ------------------------- */
+
+    .abbr {
+      margin-bottom: 0.2rem;
+
+      abbr {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        background-color: var(--global-theme-color);
+        color: var(--global-card-bg-color) !important;
+      }
+    }
+
+    /* -------------------------
+     * LINKS (IMPORTANT PART KEPT)
+     * ------------------------- */
+
+   .links {
+  margin-top: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  /* 🔥 force visibilité de tous les types de liens */
+  a.btn,
+  a.url,
+  a.web,
+  a.pdf,
+  a.doi,
+  a.preprint,
+  a.bib {
+    display: inline-block !important;
+    font-size: 0.72rem;
+    padding: 2px 6px;
+    margin: 0;
+    border: 1px solid var(--global-text-color);
+    color: var(--global-text-color);
+  }
+ a.btn {
+          color: var(--global-text-color);
+          border: 1px solid var(--global-text-color);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          margin-left: 0;
+
+          &:hover {
+            color: var(--global-theme-color);
+            border-color: var(--global-theme-color);
+          }
+        }
+  /* hover uniforme */
+  a:hover {
+    color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+  }
+
+  /* spécifique award */
+  a.award.btn {
+    border-color: var(--global-highlight-color);
+  }
+}
+
+    /* =========================
+     * ABSTRACT (collapsible kept)
+     * ========================= */
+
+    .hidden {
+      font-size: 0.85rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.15s ease;
+    }
+
+    .hidden.open {
+      max-height: 100em;
+    }
+
+    div.abstract.hidden {
+      border: dashed 1px var(--global-bg-color);
+    }
+
+    div.abstract.hidden.open {
+      border-color: var(--global-text-color);
+    }
+
+    /* =========================
+     * KEEP BADGES (IMPORTANT)
+     * ========================= */
+
+    .badges {
+      padding-bottom: 0.3rem;
+
+      span {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding-right: 0.4rem;
+        color: v.$black-color;
+      }
+    }
+  }
+
+  /* =========================
+   * CITATIONS COLOR
+   * ========================= */
+
+  .citation,
+  .citation-number {
+    color: var(--global-theme-color);
   }
 }
 
