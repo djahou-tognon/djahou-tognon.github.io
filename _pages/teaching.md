@@ -1,10 +1,21 @@
 ---
 layout: page
-permalink: /teaching/
 title: Teaching
-description: Teaching experience throughout my PhD.
 nav: true
 nav_order: 4
+dropdown: false
+#children:
+#    - title: bachelor thesis projects
+#      permalink: /bachelor_thesis_projects/
+#    - title: honors
+#      permalink: /honors/
+#    - title: internships
+#      permalink: /internships/
+#    - title: master thesis projects
+#      permalink: /master_thesis_projects/
+#    - title: divider
+#    - title: courses
+#      permalink: /courses/
 ---
 <div class="teaching">
             <div class="university">
@@ -50,3 +61,4 @@ nav_order: 4
             </ul>
             </div>     
 </div>
+

@@ -2,16 +2,16 @@
 layout: page
 permalink: /talks/
 title: Talks
-description: Talks and posters at conferences.
+description: Talks in reversed chronological order.
 nav: true
-nav_order: 3
+nav_order: 4
+disable_badges: false
 ---
 
-Liste des talks 
-<--! {% include bib_search.liquid %} -->
-
 <div class="publications">
-  <!-- Affichage des talks avec le fichier confs.bib -->
-  {% bibliography --file confs %}
-</div>
 
+{% bibliography -f {{ site.scholar.talks }} %}
+<!-- {% bibliography -f {{ site.scholar.talks }} -q @*[keywords ^= plenary] %}
+{% bibliography -f {{ site.scholar.talks }} -q @*[keywords ^= seminar] %} -->
+
+</div>

@@ -13,10 +13,15 @@ profile:
     <p>Rue de Chartres, B.P. 6759 - 45067 Orléans Cedex 2</p>
     <p>Orléans, France</p>
   social: false
-
-news: false # includes a list of news items
+news: false  # includes a list of news items
+recent_papers: false # includes a list of papers marked as "recent={true}"
+email_before_news: false
+social_before_news: false
+# social_bottom: false  # includes social icons at the bottom of the page
+latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false  # includes social icons at the bottom of the page
+disable_badges: false
 ---
  I am Post-Doctoral researcher at __[Intitut Dénis Poisson](https://www.idpoisson.fr/)__, __[Université d'Orléans](https://www.univ-orleans.fr/)__. I develop a machine-learning model to predict stage (water level) and discharge at the junction of multiple channels."
 
