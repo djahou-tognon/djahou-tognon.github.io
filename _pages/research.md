@@ -1,21 +1,27 @@
 ---
 layout: page
 title: Research
+permalink: /research/
+description: Current research areas.
 nav: true
 nav_order: 1
-dropdown: false
-#children:
-#    - title: research areas
-#      permalink: /research_areas/
-#    - title: research projects
-#      permalink: /research_projects/
-#    - title: divider
-#    - title: software
-#      permalink: /software/
-#    - title: repositories
-#      permalink: /repositories/
----
 
+---
+<!--display_categories: [work, fun]
+horizontal: false-->
+<!--<div class="area">
+        <div class="areapicture">
+        <img src="{{ site.baseurl }}/assets/img/ddm.png" alt="" class="areaimag">
+        </div>
+    <div class="research_area">
+            <div class="title_area">
+            Domain Decomposition Methods
+            </div>
+            <div class="describ_area">
+            Solvers based on decomposition of the computational into overlapping  or non-overlapping subdomains.
+            </div>
+    </div>
+</div>-->
 <div class="area">
         <div class="areapicture">
         <img src="{{ site.baseurl }}/assets/img/pint.png" alt="" class="areaimag">

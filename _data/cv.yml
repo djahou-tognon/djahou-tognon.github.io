@@ -2,91 +2,96 @@
   type: map
   contents:
     - name: Full Name
-      value: Alexander Heinlein
+      value: Albert Einstein
+    - name: Date of Birth
+      value: 14th March 1879
     - name: Languages
       value: English, German
 
 - title: Education
   type: time_table
   contents:
-    - title: Dr. rer. nat.
-      institution: University of Cologne, Germany
-      year: 2016
+    - title: PhD
+      institution: University of Zurich, Zurich, Switzerland
+      year: 1905
       description:
-        - [Thesis "Spezielle Finite-Elemente-Methoden für stark heterogene Probleme"]
-    - title: Dipl.-Math.
-      institution: University of Duisburg-Essen, Germany
-      year: 2011
+        - Description 1.
+        - Description 2.
+        - title: Description 3.
+          contents:
+            - Sub-description 1.
+            - Sub-description 2.
+    - title: Federal teaching diploma
+      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
+      year: 1900
       description:
-        - [Thesis "Parallel Overlapping Schwarz Preconditioners and Multiscale Discretizations
-with Applications to Fluid-Structure Interaction and Highly Heterogeneous Problems"]
+        - Description 1.
+        - Description 2.
 
 - title: Experience
   type: time_table
   contents:
-    - title: Assistant Professor for Numerical Analysis
-      institution: Delft Institute of Applied Mathematics (DIAM), Delft University of Technology (TU Delft), The Netherlands
-      year: 2021 - now
-    - title: Acting Professor for Numerical Mathematics for High Performance Computing
-      institution: Institute of Applied Analysis and Numerical Simulation, University of Stuttgart, Germany
-      year: 2020 - 2021
-    - title: Managing Coordinator
-      institution: Center for Data and Simulation Science, University of Cologne, Germany
-      year: 2018 - 2020
-    - title: Postdoc
-      institution: Mathematical Institute, University of Cologne, Germany
-      year: 2016 - 2020
+    - title: Professor of Theoretical Physics
+      institution: Institute for Advanced Study, Princeton University
+      year: 1933 - 1955
+      description:
+        - Description 1.
+        - Description 2.
+        - title: Description 3.
+          contents:
+            - Sub-description 1.
+            - Sub-description 2.
+    - title: Visiting Professor
+      institution: California Institute of Technology, Pasadena, California, US
+      year: 1933
+      description:
+        - Description 1.
+        - Description 2.
 
-- title: Memberships
-  type: list
-  contents:
-    - <b>American Mathematical Society (AMS)</b>
-    - <b>Dutch–Flemish Scientific Computing Society (SCS)</b>
-    - <b>European Mathematical Society (EMS)</b> <br> Topical Activity Group Scientific Machine Learning
-    - <b>German Association for Computational Mechanics (GACM)</b>
-    - <b>Gesellschaft für Angewandte Mathematik und Mechanik e.V. (GAMM e.V.)</b> <br> Activity Groups Computational Science and Engineering, Computational Biomechanics, Computational and Mathematical Methods in Data Science
-    - <b>Graduate School on Engineering Mechanics</b>
-    - <b>J.M. Burgerscentrum (JMBC)</b>
-    - <b>Society for Industrial and Applied Mathematics (SIAM)</b> <br> Activity Group on Supercomputing
+    - title: Director
+      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
+      year: 1917-1933
 
-- title: Certificates
+    - title: Professor of Theoretical Physics
+      institution: Karl-Ferdinand University, Prague, Czechoslovakia
+      year: 1911 - 1917
+      description:
+
+    - title: Associate Professor of Theoretical Physics
+      institution: University of Zurich, Zurich, Switzerland
+      year: 1909 - 1911
+
+- title: Open Source Projects
   type: time_table
   contents:
-    - title: University Teaching Qualification
-      year: 2024
-      description: Modules DEVELOP, TEACH, SUPERVISE, ASSESS
+    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+      year: 2015-now
+      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
-# - title: Open Source Projects
-#   type: time_table
-#   contents:
-#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-#       year: 2015-now
-#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-#
-# - title: Honors and Awards
-#   type: time_table
-#   contents:
-#     - year: 1921
-#       items:
-#         - Nobel Prize in Physics
-#         - Matteucci Medal
-#     - year: 2029
-#       items:
-#         - Max Planck Medal
-#
-# - title: Academic Interests
-#   type: nested_list
-#   contents:
-#     - title: Topic 1.
-#       items:
-#         - Description 1.
-#         - Description 2.
-#     - title: Topic 2.
-#       items:
-#         - Description 1.
-#         - Description 2.
-#
-# - title: Other Interests
-#   type: list
-#   contents:
-#     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 1921
+      items:
+        - Nobel Prize in Physics
+        - Matteucci Medal
+    - year: 2029
+      items:
+        - Max Planck Medal
+
+- title: Academic Interests
+  type: nested_list
+  contents:
+    - title: Topic 1.
+      items:
+        - Description 1.
+        - Description 2.
+    - title: Topic 2.
+      items:
+        - Description 1.
+        - Description 2.
+
+- title: Other Interests
+  type: list
+  contents:
+    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
