@@ -2,10 +2,19 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: Teaching experience throughout my PhD.
+description: Course materials, schedules, and resources for classes taught.
 nav: true
-nav_order: 4
+nav_order: 6
+calendar: true
 ---
+
+
+<!-- {% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %} -->
+
+<!--{% include courses.liquid %} -->
+
+
+
 <div class="teaching">
             <div class="university">
             Sorbonne University (2024-2025)

@@ -2,26 +2,29 @@
 layout: about
 title: About
 permalink: /
-subtitle: 
+subtitle: #<a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
-  image: phd.jpg
+  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Bureau E 10</p>
-    <p>Rue de Chartres, B.P. 6759 - 45067 Orléans Cedex 2</p>
-    <p>Orléans, France</p>
-  social: false
-news: false  # includes a list of news items
-recent_papers: false # includes a list of papers marked as "recent={true}"
-email_before_news: false
-social_before_news: false
-# social_bottom: false  # includes social icons at the bottom of the page
-latest_posts: false  # includes a list of the newest posts
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false  # includes social icons at the bottom of the page
-disable_badges: false
+     <p>Bureau E 10</p>
+     <p>Rue de Chartres, B.P. 6759 - 45067 Orléans Cedex 2</p>
+     <p>Orléans, France</p>
+
+#selected_papers: false # includes a list of papers marked as "selected={true}"
+#social: false # includes social icons at the bottom of the page
+
+announcements:
+  enabled: false # includes a list of news items
+  scrollable: false # adds a vertical scroll bar if there are more than 3 news items
+  limit: 5 # leave blank to include all the news in the `_news` folder
+
+latest_posts:
+  enabled: false
+  scrollable: false # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 ---
  I am Post-Doctoral researcher at __[Intitut Dénis Poisson](https://www.idpoisson.fr/)__, __[Université d'Orléans](https://www.univ-orleans.fr/)__. I develop a machine-learning model to predict stage (water level) and discharge at the junction of multiple channels."
 
@@ -35,7 +38,7 @@ I am passionate about developing computational methods that push the boundaries 
   
 
 <!--Here is my <a href="{{ site.baseurl }}/demandecv" title="download cv"> cv </a>in english.-->
-Here is my <a href="{{ site.baseurl }}/assets/pdf/Cv_Djahou_Tognon.pdf" title="download cv" download> cv </a>in english.
+<!-- Here is my <a href="{{ site.baseurl }}/assets/pdf/Cv_Djahou_Tognon.pdf" title="download cv" download> cv </a>in english. -->
 
 <!--{{ site.baseurl }}/assets/pdf/cv.pdf-->
 
