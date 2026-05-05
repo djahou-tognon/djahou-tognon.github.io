@@ -55,7 +55,7 @@ Second
 
 <div class="area">
         <div class="areapicture">
-        <img src="{{ site.baseurl }}/assets/img/sciml.jpeg" alt="" class="areaimag">
+        <img src="{{ site.baseurl }}/assets/img/scml.png" alt="" class="areaimag">
         </div>
     <div class="research_area">
             <div class="title_area">
