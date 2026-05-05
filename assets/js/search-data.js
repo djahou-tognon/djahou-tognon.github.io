@@ -28,13 +28,6 @@ ninja.data = [{
           description: "Talks and posters at conferences.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/talks/";
-          },
-        },{id: "nav-talks",
-          title: "Talks",
-          description: "Talks and posters at conferences.",
-          section: "Navigation",
-          handler: () => {
             window.location.href = "/repositories/";
           },
         },{id: "nav-teaching",
