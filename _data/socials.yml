@@ -7,6 +7,7 @@ email: tnorbert@outlook.fr # your email address
 rss_icon: true # comment this line to hide the RSS icon
 scholar_userid: jNRKMFoAAAAJ&hl # your Google Scholar ID
 github_username: djahou-tognon 
+orcid_id:  0009-0001-9622-4548 #0000-0003-1578-8104 # your ORCID ID
 # wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 #custom_social: # can be any name here other than the ones already defined in the jekyll-socials plugin
