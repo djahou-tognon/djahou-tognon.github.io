@@ -1,0 +1,142 @@
+[
+  {
+    "year": 2024,
+    "month": 12,
+    "title": "A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems",
+    "event": "IEEE 63rd Conference on Decision and Control (CDC)",
+    "location": "Milan, Italy",
+    "type": "conference",
+    "abstract": {
+      "en": "We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations.  Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems. The algorithm yields a linear system whose matrix-vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the special cases of the heat and wave equations. Numerical experiments are provided to illustrate the efficiency of our preconditioners.",
+      "fr": "Ajouter votre résumé ici en français."
+    },
+    "links": {
+      "slides": "",
+      "video": "",
+      "poster": "",
+      "website": "https://cdc2024.ieeecss.org/"
+    }
+  },
+  {
+    "year": 2022,
+    "month": 7,
+    "title": "Analysis of the ParaOpt Algorithm",
+    "event": "27 th International Conference on Domain Decomposition Methods",
+    "location": "Prague, Czech Republic",
+    "type": "conference",
+    "abstract": {
+      "en": "The time parallel solution of optimality systems arising in PDE contrained optimization can be computed by applying any suitable time parallel algorithm to solve the forward and backward evolution problems arising in the optimization loop. Various strategies have been derived from a new time parallel algorithm, namely ParaOpt,which is a two-level parareal method for the coupled forward and backward partial differential equations. In this talk, we present the convergence analysis of the algorithm applied to a specific linear optimal control problem, corresponding to unstable systems.",
+      "fr": "Ajouter votre résumé ici en français."
+    },
+    "links": {
+      "slides": "",
+      "video": "",
+      "poster": "",
+      "website": "https://https://www.dd27.cz/"
+    }
+  },
+  {
+    "year": 2022,
+    "month": 6,
+    "title": "Convergence analysis of ParaOpt algorithm for unstable systems",
+    "event": "45eme Congrès National d’Analyse Numérique",
+    "location": " Evian-les-Bains, France",
+    "type": "conference",
+    "abstract": { "en": "Parallel solving of optimality systems arising in partial differential equations (PDE) constrained optimization can be performed by applying suitable time parallel algorithm to solve the forward and backward evolution problems derived from the optimality system.   In this talk, we consider a recent time parallel algorithm, namely the ParaOpt algorithm, which is a two-level parareal  method for the coupled forward and backward equations. We  present a convergence analysis of this algorithm in the case of unstable systems.",
+     "fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://canum2020.math.cnrs.fr/" }
+  },
+  {
+    "year": 2023,
+    "month": 4,
+    "title": "Paraopt Algorithm and Runge Kutta Methods",
+    "event": "21st Copper Mountain Conference On Multigrid Methods",
+    "location": "Colorado, USA",
+    "type": "conference",
+    "abstract": { "en": "In this talk, we present the convergence analysis of Paraopt algorithm applied to a linear optimal control problem. The Paraopt algorithm is a parallel in time method for solving a optimality system arising in partial differential equations (PDEs) constrained optimization. This solving required two time integration methods and depends in crucial way on a quadrature formula and a Runge-Kutta method. We use an operator norm analysis to show that the convergence rate depends on the discretization parameters and the smaller of the orders of the time integration methods. We illustrate this by some numerical examples.",
+     "fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://grandmaster.colorado.edu/copper/2023/" }
+  },
+  {
+    "year": 2023,
+    "month": 11,
+    "title": "Two Time Parallel Algorithms for Solving Optimality Systems",
+    "event": "CIMMUL, Université Laval ",
+    "location": "Québec, Canada",
+    "type": "seminar",
+    "abstract": {
+      "en": "Time parallel algorithm is a method to solve time-dependent problems parallel in time. It divides the main problem in sub-problems in time direction and executes them in parallel to get individual outputs that are combined together to obtain the final desired solution. Because of the advent of computers with several computing cores and clusters that enable to perform many computing tasks simultaneously, the research over such algorithm has undergone particular development over the last decades. As a result, Parareal, ParaExp and many others algorithms have been developed for solving evolution problems. In this talk, we present two time parallel algorithms, the first based on Parareal and the second on ParaExp for solving an optimality system that rises from partial differential equations (PDEs) constrained optimization.",
+      "fr": "Ajouter votre résumé ici en français."
+    },
+    "links": {
+      "slides": "",
+      "video": "",
+      "poster": "",
+      "website": "https://cimmul.fsg.ulaval.ca/event/seminaire-du-cimmul-norbert-tognon/"
+    }
+  },
+  {
+    "year": 2024,
+    "month": 1,
+    "title": "A Scalar Inverse Problem with Neural Galerkin Scheme",
+    "event": "Institute of Mathematics, Hamburg University of Technology (TUHH)",
+    "location": "Hamburg, Germany",
+    "type": "seminar",
+    "abstract": { "en": "Neural networks trained with machine learning techniques are currently attracting great attention as nonlinear approximation methods to solve forward and inverse problems involving high-dimensional partial differential equations (PDEs). In a recent paper, Neural Galerkin scheme has been proposed to solve PDEs by means of deep learning. In this approach, the deep learning process generates the training data samples with an active learning process for the numerical approximation. We apply this approach in this talk to tackle a parameter estimation problem and propose an algorithm based on Neural Galerkin scheme to estimate a scalar coefficient involved in a non-linear PDE problem. We provide numerical results with Korteweg-de Vries (KdV) equation in one dimension.", "fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://www.mat.tuhh.de/veranstaltungen/vortraege/vortraege_en.php?page_number=2" }
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "title": "A PinT algorithm Based on ParaExp for optimality systems",
+    "event": "29 th International Conference on Domain Decomposition Methods",
+    "location": "Milan, Italy",
+    "type": "conference",
+    "abstract": { "en": "The time parallel solution of optimality systems arising in PDE contrained optimization can be computed by applying any suitable time parallel algorithm to solve the forward and backward evolution problems arising in the optimization loop.  Various strategies have been derived from a new time parallel algorithm, namely ParaOpt, which is a two-level parareal method for the coupled forward and backward partial differential equations. In this talk, we  present the convergence analysis of the algorithm applied to a specific linear optimal control problem, corresponding to unstable systems.",
+ "fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://www.dd29.polimi.it/" }
+  },
+
+  {
+    "year": 2026,
+    "month": 5,
+    "title": "Machine learning–enhanced junction modeling for shallow-water channel networks",
+    "event": "The 20th International Conference on Hyperbolic Problems: Theory, Numerics and Applications",
+    "location": "Stuttgart, Germany",
+    "type": "conference",
+    "abstract": { "en": "The dynamics of water flow through an irrigation channel network can be described by the solutions of the two-dimensional shallow-water equations (Saint-Venant equations) within a 2D geometric framework representing both the channels and their junction regions. Computation becomes more efficient if we assume that the dynamics are homogeneous across the channel cross-sections, allowing the network geometry to be represented as a set of 1D intervals coupled at junction points. Along each 1D interval of the network, the water dynamics is governed by the one-dimensional shallow-water equations. However, one of the main challenges of this approach lies in defining appropriate boundary conditions at the junction points to couple the water height and velocity across the different intervals. Researchers have often imposed continuity of water energy at the junctions; however, these models frequently neglect the specific geometry of the junctions, such as the channel cross-sections and the angles between them. In this talk, we propose a machine learning–based approach to predict 1D boundary water heights and velocities near channel junctions. The learning framework considers 2D shallow-water solutions for various channel cross-sections, angles, and initial conditions. We illustrate the simulation results and compare them with existing approaches.",
+"fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://www.conftool.com/hyp2026/index.php?page=browseSessions&form_date=all&form_session=100&presentations=show" }
+  },
+
+  {
+    "year": 2025,
+    "month": 11,
+    "title": "Time parallelization and machine learning for optimal control and inverse problems",
+    "event": "Labo LJK, Université Grenoble Alpes",
+    "location": "Grenoble, France",
+    "type": "seminar",
+    "abstract": { "en": "Recently, ParaOpt, a parallel in time algorithm, was proposed to solve systems arising from optimal control problems associated with partial differential equations (PDEs). This algorithm combines the solution of forward/backward evolution problems with the optimization loop. Its convergence and the accuracy of the numerical approximation depend on the time step scheme used to discretize the problem. A first convergence analysis was presented in M.J. Gander, F. Kwok, and J. Salomon SISC (2020) in the restricted case of the implicit Euler method for linear-quadratic optimal control problems involving dissipative systems. In this presentation, we will generalize this result to the case where a Runge-Kutta method is used to discretize the optimal control problem. In particular, we will explain how the discretization of the functional must be adapted to the scheme under consideration and how additional conditions are added to the usual order conditions of Runge-Kutta methods to obtain the expected order of convergence. Aphynity [Yuan Yin et al., J. Stat. Mech. (2021) 124012], is an approach that consists of adding a corrective term in the form of a neural network to a PDE in order to accurately predict the evolution of a system and correctly identify its physical parameters. Learning is then performed in the outer loop of the solver in question, so that training is done indirectly through a time scheme. We will describe the influence of the chosen scheme on the resulting network and show, in specific cases, that the order of approximation of the corrected terms corresponds to the order of the scheme used. We will also explain how to optimize learning using a Richardson-type approach.",
+"fr": "" },
+    "links": { "slides": "", "video": "", "poster": "", "website": "https://www-ljk.imag.fr/spip.php?article54&id=69256a4776e8f66a41291e6c&type=SEMINAIRE" }
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "title": "Data-driven Reconstruction of Dynamic Systems via Machine Learning",
+    "event": "Institut Denis Poisson, Université d'Orléans",
+    "location": "Orléans, France",
+    "type": "seminar",
+    "abstract": {
+      "en": "Neural networks trained with machine learning techniques are currently attracting great attention as nonlinear approximation methods to solve forward and inverse problems involving high-dimensional partial differential equations (PDEs). In a recent paper, Neural Galerkin scheme has been proposed to solve PDEs by means of deep learning. In this approach, the deep learning process generates the training data samples with an active learning process for the numerical approximation. We apply this approach in this talk to tackle a parameter estimation problem and propose an algorithm based on Neural Galerkin scheme to estimate a scalar co- efficient involved in a non-linear PDE problem. Additionally, we will present a deep learning through numerical scheme approach in order to reconstruct a dynamical system from data.",
+ "fr": ""
+    },
+    "links": {
+      "slides": "",
+      "video": "",
+      "poster": "",
+      "website": ""
+    }
+  }
+
+]

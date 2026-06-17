@@ -1,0 +1,196 @@
+[
+  {
+    "slug": "parallel-in-time",
+    "visible": true,
+    "en": {
+      "title": "Parallel-in-time methods for optimal control",
+      "summary": "Time-parallel algorithms (PinT) exploit modern computer architectures to solve initial-value problems and optimality systems faster. This project focuses on ParaOpt and ParaExp for linear-quadratic optimal control problems (LQOCP).",
+      "sections": [
+        {
+          "heading": "Goals",
+          "body": "Develop scalable parallel-in-time solvers for optimal control and inverse problems, with rigorous convergence analysis and practical preconditioners."
+        },
+        {
+          "heading": "Main contributions",
+          "body": "Convergence analysis of ParaOpt for unstable systems and general Runge-Kutta discretizations; a new ParaExp-based PinT method with parallel matrix-vector products; preconditioners for heat and wave equations."
+        },
+        {
+          "heading": "Methods",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "We consider the linear-quadratic optimal control problem with cost $J(u) = \\frac{1}{2}\\int_0^T (x^\\top Q x + u^\\top R u)\\,dt$."
+            },
+            {
+              "type": "math",
+              "tex": "\\min_{u \\in L^2(0,T)} J(u) \\quad \\text{s.t.} \\quad \\dot{x} = Ax + Bu, \\; x(0) = x_0"
+            },
+            {
+              "type": "text",
+              "body": "Overlapping time-domain decomposition, exponential propagation of homogeneous subproblems, GMRES with structure-aware preconditioning, and comparison with classical time-marching schemes."
+            }
+          ]
+        }
+      ],
+      "relatedIds": ["paraexp-cdc-2024", "thesis-2025", "paraopt-unstable", "paraopt-rk"]
+    },
+    "fr": {
+      "title": "Méthodes parallèles en temps pour le contrôle optimal",
+      "summary": "Les algorithmes parallèles en temps (PinT) exploitent les architectures parallèles pour accélérer la résolution de problèmes à valeurs initiales et de systèmes d'optimalité. Ce projet porte sur ParaOpt et ParaExp pour les problèmes de contrôle optimal quadratique linéaire (LQOCP).",
+      "sections": [
+        {
+          "heading": "Objectifs",
+          "body": "Développer des solveurs parallèles en temps pour le contrôle optimal et les problèmes inverses, avec des analyses de convergence et des préconditionneurs efficaces."
+        },
+        {
+          "heading": "Contributions principales",
+          "body": "Analyse de convergence de ParaOpt pour les systèmes instables et les schémas Runge-Kutta généraux ; nouvelle méthode PinT basée sur ParaExp ; préconditionneurs pour les équations de la chaleur et des ondes."
+        },
+        {
+          "heading": "Méthodes",
+          "blocks": [
+            {
+              "type": "text",
+              "body": "On considère le problème de contrôle optimal quadratique linéaire avec coût $J(u) = \\frac{1}{2}\\int_0^T (x^\\top Q x + u^\\top R u)\\,dt$."
+            },
+            {
+              "type": "math",
+              "tex": "\\min_{u \\in L^2(0,T)} J(u) \\quad \\text{s.t.} \\quad \\dot{x} = Ax + Bu, \\; x(0) = x_0"
+            },
+            {
+              "type": "text",
+              "body": "Décomposition temporelle avec chevauchement, propagation exponentielle, GMRES préconditionné et comparaison avec les schémas en temps classiques."
+            }
+          ]
+        }
+      ],
+      "relatedIds": ["paraexp-cdc-2024", "thesis-2025", "paraopt-unstable", "paraopt-rk"]
+    }
+  },
+  {
+    "slug": "quantum-maintenance",
+    "visible": true,
+    "en": {
+      "title": "Quantum optimization for power systems",
+      "summary": "Maintenance scheduling is critical for reliable power transmission. Classical mixed-integer programming struggles with scale as grids integrate more renewables. This project investigates quantum optimization as a complementary tool.",
+      "sections": [
+        {
+          "heading": "Context",
+          "body": "Transmission system operators plan maintenance using risk indicators and operational constraints. Growing system complexity motivates alternative optimization paradigms."
+        },
+        {
+          "heading": "Approach",
+          "body": "Formulate the scheduling problem for quantum solvers and compare QAOA and Grover Adaptive Search against classical methods on realistic instances."
+        },
+        {
+          "heading": "Outlook",
+          "body": "Current hardware limits practical deployment, but the study clarifies where quantum methods may help future large-scale planning workflows."
+        }
+      ],
+      "relatedIds": ["quantum-cemracs-2026"]
+    },
+    "fr": {
+      "title": "Optimisation quantique pour les réseaux électriques",
+      "summary": "La planification de maintenance est essentielle pour la fiabilité des réseaux de transport. La programmation en nombres entiers mixtes atteint ses limites à grande échelle. Ce projet explore l'optimisation quantique comme outil complémentaire.",
+      "sections": [
+        {
+          "heading": "Contexte",
+          "body": "Les gestionnaires de réseau construisent des plannings à partir d'indicateurs de risque et de contraintes opérationnelles. La complexité croissante motive de nouvelles approches."
+        },
+        {
+          "heading": "Approche",
+          "body": "Formulation du problème pour solveurs quantiques et comparaison de QAOA et Grover Adaptive Search avec des méthodes classiques."
+        },
+        {
+          "heading": "Perspectives",
+          "body": "Le matériel quantique actuel limite le déploiement pratique, mais l'étude identifie les cas d'usage prometteurs pour la planification à grande échelle."
+        }
+      ],
+      "relatedIds": ["quantum-cemracs-2026"]
+    }
+  },
+  {
+    "slug": "neural-filtering",
+    "visible": true,
+    "en": {
+      "title": "Dynamical Neural Galerkin schemes for filtering",
+      "summary": "Filtering reconstructs the state of a dynamical system from partial sensor observations when the underlying physics is governed by a PDE with unknown parameters.",
+      "sections": [
+        {
+          "heading": "Problem",
+          "body": "Given sparse measurements, estimate the full PDE state and track time-dependent parameters governing the observed evolution."
+        },
+        {
+          "heading": "Approach",
+          "body": "Neural network approximations whose weights are dynamically updated from observational data, combined with a Galerkin-style dynamical formulation."
+        },
+        {
+          "heading": "Applications",
+          "body": "Illustrated on one-dimensional KdV transport problems, highlighting the impact of sensor placement and the potential of dynamical sensor strategies."
+        }
+      ],
+      "relatedIds": ["neural-galerkin-2025"]
+    },
+    "fr": {
+      "title": "Schémas Dynamical Neural Galerkin pour le filtrage",
+      "summary": "Le filtrage reconstruit l'état d'un système dynamique à partir d'observations partielles lorsque la physique sous-jacente est gouvernée par une EDP à paramètres inconnus.",
+      "sections": [
+        {
+          "heading": "Problème",
+          "body": "À partir de mesures sparse, estimer l'état complet de l'EDP et suivre les paramètres gouvernant l'évolution observée."
+        },
+        {
+          "heading": "Approche",
+          "body": "Approximations par réseaux de neurones dont les poids sont mis à jour dynamiquement à partir des données d'observation."
+        },
+        {
+          "heading": "Applications",
+          "body": "Illustré sur des problèmes de transport KdV unidimensionnels, mettant en évidence l'importance du placement des capteurs."
+        }
+      ],
+      "relatedIds": ["neural-galerkin-2025"]
+    }
+  },
+  {
+    "slug": "aphynity-correction",
+    "visible": true,
+    "en": {
+      "title": "Learning-based model correction for PDEs",
+      "summary": "Hybrid physics–machine learning models combine known PDE structure with a neural corrective term to improve accuracy while preserving interpretability.",
+      "sections": [
+        {
+          "heading": "Framework",
+          "body": "Inspired by Aphynity: a corrective neural network is embedded into the governing PDE and trained indirectly through the outer loop of a time-stepping solver."
+        },
+        {
+          "heading": "Analysis",
+          "body": "The approximation order of the corrected model matches the order of the numerical scheme used for training, linking discretization and learned correction."
+        },
+        {
+          "heading": "Acceleration",
+          "body": "Richardson-type strategies with two independently trained networks at different time steps can accelerate convergence of the hybrid model."
+        }
+      ],
+      "relatedIds": ["thesis-2025"]
+    },
+    "fr": {
+      "title": "Correction de modèle par apprentissage pour EDP",
+      "summary": "Les modèles hybrides physique–apprentissage combinent une structure d'EDP connue avec un terme correctif neuronal pour améliorer la précision.",
+      "sections": [
+        {
+          "heading": "Cadre",
+          "body": "Inspiré d'Aphynity : un réseau correctif est intégré à l'EDP et entraîné indirectement via la boucle externe d'un solveur en temps."
+        },
+        {
+          "heading": "Analyse",
+          "body": "L'ordre d'approximation du modèle corrigé coincide avec l'ordre du schéma numérique utilisé pour l'entraînement."
+        },
+        {
+          "heading": "Accélération",
+          "body": "Des stratégies de type Richardson avec deux réseaux entraînés indépendamment peuvent accélérer la convergence."
+        }
+      ],
+      "relatedIds": ["thesis-2025"]
+    }
+  }
+]

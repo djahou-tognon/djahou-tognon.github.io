@@ -1,0 +1,18 @@
+{
+  "en": [
+   "I am a <strong>Postdoctoral Researcher</strong> at <a href=\"https://www.idpoisson.fr/\" target=\"_blank\" rel=\"noopener noreferrer\">Institut Denis Poisson</a>, Université d'Orléans. I develop machine learning models coupled with finite volume methods to simulate water dynamics in channel networks.",
+
+"From April 2022 to June 2025, I was a PhD candidate at <a href=\"https://team.inria.fr/ange/\" target=\"_blank\" rel=\"noopener noreferrer\">INRIA Paris (ANGE team)</a> and <a href=\"https://www.ljll.fr/en/\" target=\"_blank\" rel=\"noopener noreferrer\">Laboratoire Jacques-Louis Lions (Sorbonne Université)</a>, under the supervision of Julien Salomon.",
+
+"My research focuses on <strong>High-Performance Computing (HPC)</strong>, particularly on the development of <strong>parallel-in-time (PinT)</strong> algorithms and the analysis of their convergence properties for solving <strong>time-dependent PDE-constrained optimization problems</strong>.",
+
+"I am also interested in <strong>Scientific Machine Learning (SciML)</strong>, at the interface between scientific computing and machine learning. The works consist in developing and analyzing new solvers that combine <strong>machine learning techniques</strong> with <strong>classical numerical methods</strong> for solving  forward and inverse problems." ],
+  "fr": [
+   "I am a <strong>chercheur postdoctoral</strong> à l’<a href=\"https://www.idpoisson.fr/\" target=\"_blank\" rel=\"noopener noreferrer\">Institut Denis Poisson</a>, Université d’Orléans. Je développe des modèles d’apprentissage automatique couplés à des méthodes de volumes finis pour simuler la dynamique de l’eau dans les réseaux de canaux.",
+
+"De avril 2022 à juin 2025, j’ai été doctorant à <a href=\"https://team.inria.fr/ange/\" target=\"_blank\" rel=\"noopener noreferrer\">INRIA Paris (équipe ANGE)</a> et au <a href=\"https://www.ljll.fr/en/\" target=\"_blank\" rel=\"noopener noreferrer\">Laboratoire Jacques-Louis Lions (Sorbonne Université)</a>, sous la direction de Julien Salomon.",
+
+"Mes recherches portent sur le <strong>calcul haute performance (HPC)</strong>, en particulier sur le développement d’algorithmes <strong>parallèles en temps (PinT)</strong> et l’analyse de leurs propriétés de convergence pour des problèmes d’optimisation sous contraintes de type <strong>équations aux dérivées partielles dépendant du temps</strong>.",
+
+"Je m’intéresse également au <strong>Scientific Machine Learning (SciML)</strong>, à l’interface entre calcul scientifique et apprentissage automatique. Mes travaux dans ce domaine consistent à développer et analyser de nouveaux solveurs combinant <strong>techniques d’apprentissage automatique</strong> et <strong>méthodes numériques classiques</strong> pour la résolution des problèmes directes et inverses." ]
+}

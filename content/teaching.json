@@ -1,0 +1,94 @@
+{
+  "en": [
+    {
+      "university": "Sorbonne Université",
+      "year": "2024–2025",
+      "semesters": [
+        {
+          "label": "Semester 2",
+          "courses": [
+            {
+              "course": "Equations Différentielles Linéaires, Méthodes Numériques",
+              "lecturer": "Corentin Audiard",
+              "hours": "32h (TD)",
+              "department": "Faculté de Mathématiques (UFR 929)",
+              "level": "Bachelor 2"
+            }
+          ]
+        }
+       
+      ]
+    },
+    {
+      "university": "Sorbonne Université",
+      "year": "2023–2024",
+      "semesters": [
+        {
+          "label": "Semester 2",
+          "courses": [
+            {
+              "course": "Programmation Python pour les mathématiques",
+              "lecturer": "Julien Guillod",
+              "hours": "32h (TP)",
+              "department": "Faculté de Mathématiques (UFR 929)",
+              "level": "Bachelor 2"
+            },
+            {
+              "course": "Probabilités et statistiques",
+              "lecturer": "Nathalie Ayi",
+              "hours": "10h (TD)",
+              "department": "Polytech Sorbonne (UFR 933)",
+              "level": "Engineer"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fr": [
+    {
+      "university": "Sorbonne Université",
+      "year": "2024–2025",
+      "semesters": [
+        {
+          "label": "Semestre 2",
+          "courses": [
+            {
+              "course": "Equations Différentielles Linéaires, Méthodes Numériques",
+              "lecturer": "Corentin Audiard",
+              "hours": "36h (TD)",
+              "department": "Faculté de Mathématiques (UFR 929)",
+              "level": "Licence 2"
+            }
+          ]
+        }
+       
+      ]
+    },
+    {
+      "university": "Sorbonne Université",
+      "year": "2023–2024",
+      "semesters": [
+        {
+          "label": "Semestre 2",
+          "courses": [
+            {
+              "course": "Programmation Python pour les mathématiques",
+              "lecturer": "Julien Guillod",
+              "hours": "32h (TP)",
+              "department": "Faculté de Mathématiques (UFR 929)",
+              "level": "Licence 2"
+            },
+            {
+              "course": "Probabilités et statistiques",
+              "lecturer": "Nathalie Ayi",
+              "hours": "10h (TD)",
+              "department": "Polytech Sorbonne (UFR 933)",
+              "level": "Licence 2"
+            }
+          ]
+        }
+      ]
+    }  
+  ]
+}

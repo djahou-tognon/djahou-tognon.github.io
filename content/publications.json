@@ -1,0 +1,110 @@
+[
+  {
+    "id": "paraexp-cdc-2024",
+    "year": 2024,
+    "title": "A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems",
+    "authors": "F. Kwok, D. Tognon",
+    "venue": "In 2024 IEEE 63rd Conference on Decision and Control (CDC), 2024",
+    "category": "proceeding",
+    "abstract": {
+      "en": "We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations. Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems.",
+      "fr": "Only english version is provided"
+    },
+    "links": {
+      "hal": "https://inria.hal.science/hal-04612018",
+      "arxiv": "",
+      "doi": "https://ieeexplore.ieee.org/document/10886085",
+      "code": ""
+    }
+  },
+  {
+    "id": "quantum-cemracs-2026",
+    "year": 2026,
+    "title": "Quantum approach for electrical system maintenance scheduling problem",
+    "authors": "Q. Zhou, D. Tognon, S. Chalal, N. Henka, S. Tazi, F. Hafid, and C. Titouan",
+    "venue": "CEMRACS, Quantum computing-preprint, 2025",
+    "category": "proceeding",
+    "abstract": {
+      "en": "Maintenance scheduling is essential to ensure the reliability of power transmission systems while limiting operational risk and respecting technical and resource constraints.",
+      "fr": "La planification des opérations de maintenance est essentielle pour garantir la fiabilité des réseaux de transport d'électricité."
+    },
+    "links": {
+      "hal": "https://hal.science/hal-05568055v1",
+      "arxiv": "",
+      "doi": "",
+      "code": ""
+    }
+  },
+  {
+    "id": "neural-galerkin-2025",
+    "year": 2025,
+    "title": "A Dynamical Neural Galerkin Scheme for Filtering Problems",
+    "authors": "J. Aghili, J. Atokple, M. Billaud-Friess, G. Garnier, O. Mula and D. Tognon",
+    "venue": "ESAIM: Proceedings and Surveys, 2025",
+    "category": "proceeding",
+    "abstract": {
+      "en": "This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements.",
+      "fr": "Only english version is provided"
+    },
+    "links": {
+      "hal": "https://www.esaim-proc.org/articles/proc/pdf/2025/04/proc25081001.pdf",
+      "arxiv": "",
+      "doi": "",
+      "code": ""
+    }
+  },
+  {
+    "id": "thesis-2025",
+    "year": 2025,
+    "title": "Time parallelization and machine learning for optimal control and inverse problems",
+    "authors": "D. Tognon",
+    "venue": "Sorbonne Université, INRIA centre de Paris, France",
+    "category": "thesis",
+    "abstract": {
+      "en": "PhD thesis on parallel-in-time methods for optimal control and a learning-based model correction approach inspired by Aphynity.",
+      "fr": "Thèse de doctorat sur les méthodes parallèles en temps pour le contrôle optimal et une approche de correction de modèle par apprentissage inspirée d'Aphynity."
+    },
+    "links": {
+      "hal": "https://theses.hal.science/tel-05262960",
+      "arxiv": "",
+      "doi": "",
+      "code": ""
+    }
+  },
+  {
+    "id": "paraopt-unstable",
+    "year": 2025,
+    "title": "ParaOpt for unstable systems",
+    "authors": "D. Tognon",
+    "venue": "Submitted",
+    "category": "journal",
+    "abstract": {
+      "en": "We present a convergence analysis of the ParaOpt algorithm applied to linear optimal control problems where the linear operator has at least one positive eigenvalue.",
+      "fr": "Only english version is provided"
+    },
+    "links": {
+      "hal": "https://inria.hal.science/hal-04966081",
+      "arxiv": "",
+      "doi": "",
+      "code": "https://plmlab.math.cnrs.fr/dtognon/ParaOptus"
+    }
+  },
+  {
+    "id": "paraopt-rk",
+    "year": 2026,
+    "title": "Convergence of ParaOpt for general Runge-Kutta time discretizations",
+    "authors": "F. Kwok, J. Salomon and D. Tognon",
+    "venue": "To appear in SIAM Journal on Numerical Analysis, 2026",
+    "category": "journal",
+    "abstract": {
+      "en": "We prove that the convergence rate of ParaOpt applied to a linear-quadratic optimal control problem has the same order as the Runge-Kutta time integration method used.",
+      "fr": "Only english version is provided"
+    },
+    "links": {
+      "hal": "https://hal.science/hal-05014759",
+      "arxiv": "",
+      "doi": "",
+      "code": ""
+    }
+  }
+]

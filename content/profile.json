@@ -1,0 +1,37 @@
+{
+  "name": "Djahou N. Tognon",
+  "siteUrl": "https://djahou-tognon.github.io",
+  "showHero": false,
+  "lastUpdated": "June 2026",
+  "cv": "assets/cv.pdf",
+  "photo": "assets/photo.png",
+  "email": "djahou-norbert.tognon@univ-orleans.fr",
+  "social": {
+    "scholar": "https://scholar.google.com/citations?user=jNRKMFoAAAAJ&hl",
+    "orcid": "https://orcid.org/",
+    "github": "https://github.com/djahou-tognon",
+    "linkedin": "https://www.linkedin.com/"
+  },
+  "hero": {
+    "en": {
+      "label": "Post Doc Researcher",
+      "role": "",
+      "affiliation": ""
+    },
+    "fr": {
+      "label": "Chercheur postdoctoral",
+      "role": "",
+      "affiliation": ""
+    }
+  },
+  "contact": {
+    "en": {
+      "officeLines": ["Bureau E 10, Rue de Chartres, B.P. 6759", "45067 Cedex 2 Orléans, France"],
+      "note": ""
+    },
+    "fr": {
+      "officeLines": ["Bureau E 10, Rue de Chartres, B.P. 6759", "45067 Cedex 2 Orléans, France"],
+      "note": ""
+    }
+  }
+}
