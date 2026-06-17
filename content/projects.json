@@ -148,14 +148,14 @@
   },
   {
     "slug": "neural-filtering",
-    "visible": true,
+    "visible": false,
     "en": {
       "title": "Machine learning approach for inverse problems",
-      "summary": "Filtering reconstructs the state of a dynamical system from partial sensor observations when the underlying physics is governed by a PDE with unknown parameters.",
+      "summary": "Reconstruction of the state of a dynamical system from observations when the underlying physics is governed by a PDE with unknown parameters.",
       "sections": [
         {
           "heading": "Problem",
-          "body": "Given sparse measurements, estimate the full PDE state and track time-dependent parameters governing the observed evolution."
+          "body": "Given measurements (data), estimate the physics model parameters (resp. coupling physics-neural network model) governing the observed evolution using machine learning."
         },
         {
           "heading": "Approach",
@@ -169,12 +169,12 @@
       "relatedIds": ["neural-galerkin-2025","thesis-2025"]
     },
     "fr": {
-      "title": "Schémas Dynamical Neural Galerkin pour le filtrage",
-      "summary": "Le filtrage reconstruit l'état d'un système dynamique à partir d'observations partielles lorsque la physique sous-jacente est gouvernée par une EDP à paramètres inconnus.",
+      "title": "Approche par apprentissage automatique pour les problèmes inverses",
+      "summary": "La reconstruction de l'état d'un système dynamique à partir d'observations partielles lorsque la physique sous-jacente est gouvernée par une EDP à paramètres inconnus.",
       "sections": [
         {
           "heading": "Problème",
-          "body": "À partir de mesures sparse, estimer l'état complet de l'EDP et suivre les paramètres gouvernant l'évolution observée."
+          "body": "À partir de mesures (données), estimer les paramètres du modèle physique gouvernant l'évolution observée."
         },
         {
           "heading": "Approche",
@@ -190,7 +190,7 @@
   },
   {
     "slug": "aphynity-correction",
-    "visible": true,
+    "visible": false,
     "en": {
       "title": "Machine learning coupled with classical solvers for direct problems solving",
       "summary": "Hybrid physics–machine learning models combine known PDE structure with a neural corrective term to improve accuracy while preserving interpretability.",
