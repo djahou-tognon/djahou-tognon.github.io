@@ -278,8 +278,27 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.25; }
 }
 
 .project-block p,
-.block-text {
+.block-text,
+.block-text p,
+.block-text li {
   color: var(--muted); font-size: 0.96rem; line-height: 1.65;
+}
+
+.block-text ol,
+.block-text ul {
+  margin: 0.35rem 0 0; padding-left: 1.35rem;
+}
+
+.block-text li + li {
+  margin-top: 0.35rem;
+}
+
+.block-text p + p,
+.block-text p + ol,
+.block-text p + ul,
+.block-text ol + p,
+.block-text ul + p {
+  margin-top: 0.75rem;
 }
 
 .block-text + .block-text,

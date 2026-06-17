@@ -261,10 +261,53 @@ function renderVideo(src) {
   return `<video class="block-video" controls preload="metadata" src="${src}"></video>`;
 }
 
+const ORDERED_LIST_RE = /^\d+\.\s+/;
+const BULLET_LIST_RE = /^[-*]\s+/;
+
+function isOrderedListLine(line) {
+  return ORDERED_LIST_RE.test(line);
+}
+
+function isBulletListLine(line) {
+  return BULLET_LIST_RE.test(line);
+}
+
+function listItemContent(line, pattern) {
+  return line.replace(pattern, "");
+}
+
+function formatListLines(lines, type) {
+  const pattern = type === "ol" ? ORDERED_LIST_RE : BULLET_LIST_RE;
+  const tag = type === "ol" ? "ol" : "ul";
+  const items = lines.map((line) => `<li>${listItemContent(line, pattern)}</li>`).join("");
+  return `<${tag}>${items}</${tag}>`;
+}
+
+function formatBodyBlock(block) {
+  const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
+  if (!lines.length) return "";
+
+  if (lines.every(isOrderedListLine)) return formatListLines(lines, "ol");
+  if (lines.every(isBulletListLine)) return formatListLines(lines, "ul");
+
+  if (lines.length === 1) return `<p>${lines[0]}</p>`;
+  return lines.map((line) => `<p>${line}</p>`).join("");
+}
+
+function formatBody(text) {
+  if (!text) return "";
+  return text
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map(formatBodyBlock)
+    .join("");
+}
+
 function renderBlock(block) {
   switch (block.type) {
     case "text":
-      return `<div class="block-text">${block.body || ""}</div>`;
+      return `<div class="block-text">${formatBody(block.body)}</div>`;
     case "math":
       return `<div class="block-math">$$${block.tex || ""}$$</div>`;
     case "image":

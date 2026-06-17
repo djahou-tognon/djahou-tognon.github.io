@@ -3,39 +3,44 @@
     "slug": "parallel-in-time",
     "visible": true,
     "en": {
-      "title": "Parallel-in-time methods for optimal control",
-      "summary": "Time-parallel algorithms (PinT) exploit modern computer architectures to solve initial-value problems and optimality systems faster. This project focuses on ParaOpt and ParaExp for linear-quadratic optimal control problems (LQOCP).",
+      "title": "Parallel-in-time (PinT) algorithms for optimal control",
+      "summary": "Time-parallel algorithms (PinT) exploit modern computer architectures to solve initial-value problems and optimality systems. This project focuses on ParaOpt and ParaExp for linear-quadratic optimal control problems (LQOCP).",
       "sections": [
         {
           "heading": "Goals",
-          "body": "Develop scalable parallel-in-time solvers for optimal control and inverse problems, with rigorous convergence analysis and practical preconditioners."
+          "body": "Develop and analyze PinT solvers for optimal control, with rigorous convergence analysis and practical preconditioners."
         },
-        {
-          "heading": "Main contributions",
-          "body": "Convergence analysis of ParaOpt for unstable systems and general Runge-Kutta discretizations; a new ParaExp-based PinT method with parallel matrix-vector products; preconditioners for heat and wave equations."
-        },
-        {
-          "heading": "Methods",
+           {
+          "heading": "Optimal control problem",
           "blocks": [
             {
               "type": "text",
-              "body": "We consider the linear-quadratic optimal control problem with cost $J(u) = \\frac{1}{2}\\int_0^T (x^\\top Q x + u^\\top R u)\\,dt$."
+              "body": "We consider the linear-quadratic optimal control problem with cost ($y_{tg}$ the target state):"
             },
             {
               "type": "math",
-              "tex": "\\min_{u \\in L^2(0,T)} J(u) \\quad \\text{s.t.} \\quad \\dot{x} = Ax + Bu, \\; x(0) = x_0"
+              "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 dt,"
+                
+            },
+            {
+              "type": "math",
+              "tex": "\\text{s.t.} \\quad \\dot{y}(t) = {\\mathcal L}y(t) + {\\mathcal B}\\nu(t), \\; y(0) = y_0, \\; t \\in [0,T]."
             },
             {
               "type": "text",
-              "body": "Overlapping time-domain decomposition, exponential propagation of homogeneous subproblems, GMRES with structure-aware preconditioning, and comparison with classical time-marching schemes."
+              "body": "<strong>Key elements:</strong> Polynomial roots location, Operator analysis, Overlapping time-domain and non-overlapping decomposition, exponential propagation of homogeneous subproblems, Runge-Kutta methods, GMRES with structure-aware preconditioning."
             }
           ]
-        }
+        },
+        {
+          "heading": "Main contributions",
+          "body": "1. We first prove that the ParaOpt algorithm converges when solving an optimal control problem constrained by linear dynamics whose operator has at least one positive eigenvalue.\n2. The analysis of ParaOpt when a Runge-Kutta (RK) method is used to discretize the optimal control problem shows that the accuracy of the solution and the convergence rate of ParaOpt have the same order as the RK method with respect to the fine and coarse discretizations, respectively, provided that the auxiliary order conditions mentioned in <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> are satisfied.\n3. We propose a ParaExp-based PinT method, inspired by <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, whose formulation leads to a linear system of the same size as the original problem and whose matrix-vector products can be fully parallelized. This linear system can be solved faster using GMRES with suitable preconditioners."}
+     
       ],
-      "relatedIds": ["paraexp-cdc-2024", "thesis-2025", "paraopt-unstable", "paraopt-rk"]
+      "relatedIds": [ "paraopt-unstable", "paraopt-rk","paraexp-cdc-2024"]
     },
     "fr": {
-      "title": "Méthodes parallèles en temps pour le contrôle optimal",
+      "title": "Algorithmes parallèles en temps (PinT) pour le contrôle optimal",
       "summary": "Les algorithmes parallèles en temps (PinT) exploitent les architectures parallèles pour accélérer la résolution de problèmes à valeurs initiales et de systèmes d'optimalité. Ce projet porte sur ParaOpt et ParaExp pour les problèmes de contrôle optimal quadratique linéaire (LQOCP).",
       "sections": [
         {
@@ -43,33 +48,38 @@
           "body": "Développer des solveurs parallèles en temps pour le contrôle optimal et les problèmes inverses, avec des analyses de convergence et des préconditionneurs efficaces."
         },
         {
-          "heading": "Contributions principales",
-          "body": "Analyse de convergence de ParaOpt pour les systèmes instables et les schémas Runge-Kutta généraux ; nouvelle méthode PinT basée sur ParaExp ; préconditionneurs pour les équations de la chaleur et des ondes."
-        },
-        {
-          "heading": "Méthodes",
+          "heading": "Problème de contrôle optimal",
           "blocks": [
             {
               "type": "text",
-              "body": "On considère le problème de contrôle optimal quadratique linéaire avec coût $J(u) = \\frac{1}{2}\\int_0^T (x^\\top Q x + u^\\top R u)\\,dt$."
+              "body": "Nous considérons le problème de contrôle optimal quadratique linéaire avec coût ($y_{tg}$ l'état cible):"
             },
             {
               "type": "math",
-              "tex": "\\min_{u \\in L^2(0,T)} J(u) \\quad \\text{s.t.} \\quad \\dot{x} = Ax + Bu, \\; x(0) = x_0"
+              "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 dt,"
+            },
+            {
+              "type": "math",
+              "tex": "\\min_{\\nu} J(\\nu) \\quad \\text{s.t.} \\quad \\dot{y}(t) = {\\mathcal L}y(t) + {\\mathcal B}\\nu(t), \\; y(0) = y_0, \\; t \\in [0,T]."
             },
             {
               "type": "text",
-              "body": "Décomposition temporelle avec chevauchement, propagation exponentielle, GMRES préconditionné et comparaison avec les schémas en temps classiques."
+              "body": "<strong>Éléments clés :</strong> Localisation des racines polynomiales, Analyse d'opérateur, Décomposition temporelle chevauchante et non-chevauchante, Propagation exponentielle des sous-problèmes homogènes, Méthodes de Runge-Kutta, GMRES avec préconditionnement adapté à la structure."
             }
           ]
+        },
+        {
+          "heading": "Contributions principales",
+          "body": "1. Nous montrons d’abord que l’algorithme ParaOpt converge lorsqu’il est appliqué à un problème de contrôle optimal contraint par une dynamique linéaire dont l’opérateur possède au moins une valeur propre positive.\n2. L’analyse de ParaOpt lorsqu’une méthode de Runge-Kutta (RK) est utilisée pour discrétiser le problème de contrôle optimal montre que la précision de la solution et le taux de convergence de ParaOpt sont du même ordre que ceux de la méthode RK, respectivement par rapport aux discrétisations fine et grossière, à condition que les conditions d’ordre auxiliaires mentionnées dans <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> soient satisfaites.\n3. Nous proposons une méthode PinT basée sur ParaExp, inspirée de <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, dont la formulation conduit à un système linéaire de même taille que le problème original et dont les produits matrice-vecteur peuvent être entièrement parallélisés. Ce système linéaire peut être résolu plus rapidement avec GMRES et des préconditionneurs adaptés."
         }
+      
       ],
-      "relatedIds": ["paraexp-cdc-2024", "thesis-2025", "paraopt-unstable", "paraopt-rk"]
+      "relatedIds": ["paraopt-unstable", "paraopt-rk","paraexp-cdc-2024"]
     }
   },
   {
     "slug": "quantum-maintenance",
-    "visible": true,
+    "visible": false,
     "en": {
       "title": "Quantum optimization for power systems",
       "summary": "Maintenance scheduling is critical for reliable power transmission. Classical mixed-integer programming struggles with scale as grids integrate more renewables. This project investigates quantum optimization as a complementary tool.",
@@ -113,7 +123,7 @@
     "slug": "neural-filtering",
     "visible": true,
     "en": {
-      "title": "Dynamical Neural Galerkin schemes for filtering",
+      "title": "Machine learning for PDE inverse problems",
       "summary": "Filtering reconstructs the state of a dynamical system from partial sensor observations when the underlying physics is governed by a PDE with unknown parameters.",
       "sections": [
         {
@@ -129,7 +139,7 @@
           "body": "Illustrated on one-dimensional KdV transport problems, highlighting the impact of sensor placement and the potential of dynamical sensor strategies."
         }
       ],
-      "relatedIds": ["neural-galerkin-2025"]
+      "relatedIds": ["neural-galerkin-2025","thesis-2025"]
     },
     "fr": {
       "title": "Schémas Dynamical Neural Galerkin pour le filtrage",
@@ -148,14 +158,14 @@
           "body": "Illustré sur des problèmes de transport KdV unidimensionnels, mettant en évidence l'importance du placement des capteurs."
         }
       ],
-      "relatedIds": ["neural-galerkin-2025"]
+      "relatedIds": ["neural-galerkin-2025","thesis-2025"]
     }
   },
   {
     "slug": "aphynity-correction",
     "visible": true,
     "en": {
-      "title": "Learning-based model correction for PDEs",
+      "title": "Machine learning coulped with classical PDE solvers",
       "summary": "Hybrid physics–machine learning models combine known PDE structure with a neural corrective term to improve accuracy while preserving interpretability.",
       "sections": [
         {
@@ -171,7 +181,7 @@
           "body": "Richardson-type strategies with two independently trained networks at different time steps can accelerate convergence of the hybrid model."
         }
       ],
-      "relatedIds": ["thesis-2025"]
+      "relatedIds": [""]
     },
     "fr": {
       "title": "Correction de modèle par apprentissage pour EDP",
@@ -190,7 +200,7 @@
           "body": "Des stratégies de type Richardson avec deux réseaux entraînés indépendamment peuvent accélérer la convergence."
         }
       ],
-      "relatedIds": ["thesis-2025"]
+      "relatedIds": [""]
     }
   }
 ]
