@@ -444,8 +444,11 @@ function renderTeachingSemester(semester, labels) {
 }
 
 function renderTeachingInstitution(institution, labels) {
-  return `<section class="pub-group">
-    <h2 class="pub-cat">${institution.university} — ${institution.year}</h2>
+  return `<section class="pub-group teaching-group">
+    <h2 class="pub-cat teaching-institution-head">
+      <span>${institution.university}</span>
+      <span>${institution.year}</span>
+    </h2>
     ${(institution.semesters || []).map((s) => renderTeachingSemester(s, labels)).join("")}
   </section>`;
 }

@@ -150,7 +150,7 @@
     "slug": "neural-filtering",
     "visible": true,
     "en": {
-      "title": "Machine learning for PDE inverse problems",
+      "title": "Machine learning approach for inverse problems",
       "summary": "Filtering reconstructs the state of a dynamical system from partial sensor observations when the underlying physics is governed by a PDE with unknown parameters.",
       "sections": [
         {
@@ -192,7 +192,7 @@
     "slug": "aphynity-correction",
     "visible": true,
     "en": {
-      "title": "Machine learning coulped with classical PDE solvers",
+      "title": "Machine learning coupled with classical solvers for direct problems solving",
       "summary": "Hybrid physics–machine learning models combine known PDE structure with a neural corrective term to improve accuracy while preserving interpretability.",
       "sections": [
         {
@@ -211,8 +211,8 @@
       "relatedIds": [""]
     },
     "fr": {
-      "title": "Correction de modèle par apprentissage pour EDP",
-      "summary": "Les modèles hybrides physique–apprentissage combinent une structure d'EDP connue avec un terme correctif neuronal pour améliorer la précision.",
+      "title": "Apprentissage automatique couplé à des solveurs classiques pour la résolution des problèmes directs",
+      "summary": "Les modèles hybrides physique–apprentissage combinent une structure d'équations aux dérivées partielles (EDP) connue avec un terme correctif neuronal pour améliorer la précision.",
       "sections": [
         {
           "heading": "Cadre",
@@ -224,7 +224,7 @@
         },
         {
           "heading": "Accélération",
-          "body": "Des stratégies de type Richardson avec deux réseaux entraînés indépendamment peuvent accélérer la convergence."
+          "body": "Des stratégies de type Richardson, utilisant deux réseaux entraînés indépendamment à des pas de temps différents, peuvent accélérer la convergence."
         }
       ],
       "relatedIds": [""]

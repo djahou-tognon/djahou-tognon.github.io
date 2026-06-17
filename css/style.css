@@ -504,6 +504,25 @@ body[data-page="talks"] .container {
 .contact-aside p { color: var(--muted); margin-bottom: 1.1rem; }
 
 /* ── Teaching (same list style as publications / talks) ── */
+.teaching-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow);
+}
+.teaching-institution-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.teaching-institution-head span:last-child {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
 .teaching-semester { margin-bottom: 0.25rem; }
 .teaching-semester:last-child { margin-bottom: 0; }
 .teaching-semester-head {
@@ -511,6 +530,15 @@ body[data-page="talks"] .container {
   margin: 0.85rem 0 0.1rem;
 }
 .teaching-item { grid-template-columns: 1fr; }
+.teaching-item .title {
+  overflow-wrap: anywhere;
+}
+.teaching-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.15rem 1rem;
+  margin-top: 0.35rem;
+}
 .teaching-meta .meta { margin-bottom: 0.12rem; }
 .teaching-meta .meta:last-child { margin-bottom: 0; }
 
@@ -558,6 +586,43 @@ body[data-page="talks"] .container {
   .pub-layout { grid-template-columns: 1fr; gap: 0; }
   .item { grid-template-columns: 2.4rem 1fr; gap: 0.75rem; }
   .item:hover { margin: 0; padding-left: 0; padding-right: 0; }
+
+  body[data-page="teaching"] .page-header {
+    padding: 2.25rem 0 1.25rem;
+  }
+  body[data-page="teaching"] .section {
+    padding: 1.75rem 0 2.25rem;
+  }
+  body[data-page="teaching"] .container {
+    padding: 0 1rem;
+  }
+  .teaching-group {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .teaching-institution-head {
+    flex-direction: column;
+    gap: 0.15rem;
+    align-items: flex-start;
+  }
+  .teaching-semester-head {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .teaching-item {
+    padding: 0.75rem 0;
+  }
+  .teaching-item .title {
+    font-size: 1rem;
+  }
+  .teaching-meta {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .teaching-meta .meta {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
 
   .footer-inner { flex-direction: column; text-align: center; }
   .cards { grid-template-columns: 1fr; }
