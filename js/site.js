@@ -304,6 +304,13 @@ function formatBody(text) {
     .join("");
 }
 
+function listLinesFromBody(text, type) {
+  const lines = String(text || "").split("\n").map((line) => line.trim()).filter(Boolean);
+  if (!lines.length) return null;
+  const isListLine = type === "ol" ? isOrderedListLine : isBulletListLine;
+  return lines.every(isListLine) ? lines : null;
+}
+
 function renderBlock(block) {
   switch (block.type) {
     case "text":
@@ -322,10 +329,46 @@ function renderBlock(block) {
   }
 }
 
+function renderBlocks(blocks) {
+  let html = "";
+  let pendingList = null;
+
+  function flushList() {
+    if (!pendingList) return;
+    html += `<div class="block-text">${formatListLines(pendingList.lines, pendingList.type)}</div>`;
+    pendingList = null;
+  }
+
+  blocks.forEach((block) => {
+    if (block.type === "text") {
+      const orderedLines = listLinesFromBody(block.body, "ol");
+      const bulletLines = orderedLines ? null : listLinesFromBody(block.body, "ul");
+      const listType = orderedLines ? "ol" : (bulletLines ? "ul" : null);
+      const listLines = orderedLines || bulletLines;
+
+      if (listType && pendingList?.type === listType) {
+        pendingList.lines.push(...listLines);
+        return;
+      }
+      if (listType) {
+        flushList();
+        pendingList = { type: listType, lines: [...listLines] };
+        return;
+      }
+    }
+
+    flushList();
+    html += renderBlock(block);
+  });
+
+  flushList();
+  return html;
+}
+
 function renderSection(section) {
   const blocks = section.blocks || (section.body ? [{ type: "text", body: section.body }] : []);
   const heading = section.heading ? `<h2>${section.heading}</h2>` : "";
-  return `<section class="project-block">${heading}${blocks.map(renderBlock).join("")}</section>`;
+  return `<section class="project-block">${heading}${renderBlocks(blocks)}</section>`;
 }
 
 function renderMath(root) {

@@ -34,7 +34,21 @@
         },
         {
           "heading": "Main contributions",
-          "body": "1. We first prove that the ParaOpt algorithm converges when solving an optimal control problem constrained by linear dynamics whose operator has at least one positive eigenvalue.\n2. The analysis of ParaOpt when a Runge-Kutta (RK) method is used to discretize the optimal control problem shows that the accuracy of the solution and the convergence rate of ParaOpt have the same order as the RK method with respect to the fine and coarse discretizations, respectively, provided that the auxiliary order conditions mentioned in <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> are satisfied.\n3. We propose a ParaExp-based PinT method, inspired by <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, whose formulation leads to a linear system of the same size as the original problem and whose matrix-vector products can be fully parallelized. This linear system can be solved faster using GMRES with suitable preconditioners."}
+          "blocks": [
+            {
+              "type": "text",
+          "body": "1. We first prove that the ParaOpt algorithm converges when solving an optimal control problem constrained by linear dynamics whose operator has at least one positive eigenvalue."
+            },
+            {
+              "type": "text",
+              "body": "2. The analysis of ParaOpt when a Runge-Kutta (RK) method is used to discretize the optimal control problem shows that the solution accuracy and convergence rate of ParaOpt are of the same order as those of the RK method, respectively with respect to the fine and coarse discretizations, provided that the auxiliary order conditions mentioned in <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> are satisfied."
+            },
+            {
+              "type": "text",
+              "body": "3. We propose a PinT method based on ParaExp, inspired by <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, whose formulation leads to a linear system of the same size as the original problem and whose matrix-vector products can be fully parallelized. This linear system can be solved faster with GMRES and structure-aware preconditioners."
+            }
+          ]  
+      }
      
       ],
       "relatedIds": [ "paraopt-unstable", "paraopt-rk","paraexp-cdc-2024"]
@@ -70,12 +84,25 @@
         },
         {
           "heading": "Contributions principales",
-          "body": "1. Nous montrons d’abord que l’algorithme ParaOpt converge lorsqu’il est appliqué à un problème de contrôle optimal contraint par une dynamique linéaire dont l’opérateur possède au moins une valeur propre positive.\n2. L’analyse de ParaOpt lorsqu’une méthode de Runge-Kutta (RK) est utilisée pour discrétiser le problème de contrôle optimal montre que la précision de la solution et le taux de convergence de ParaOpt sont du même ordre que ceux de la méthode RK, respectivement par rapport aux discrétisations fine et grossière, à condition que les conditions d’ordre auxiliaires mentionnées dans <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> soient satisfaites.\n3. Nous proposons une méthode PinT basée sur ParaExp, inspirée de <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, dont la formulation conduit à un système linéaire de même taille que le problème original et dont les produits matrice-vecteur peuvent être entièrement parallélisés. Ce système linéaire peut être résolu plus rapidement avec GMRES et des préconditionneurs adaptés."
+          "blocks": [
+            {
+              "type": "text",
+              "body": "1. Nous montrons d’abord que l’algorithme ParaOpt converge lorsqu’il est appliqué à un problème de contrôle optimal contraint par une dynamique linéaire dont l’opérateur possède au moins une valeur propre positive."
+            },
+            {
+              "type": "text",
+              "body": "2. L’analyse de ParaOpt lorsqu’une méthode de Runge-Kutta (RK) est utilisée pour discrétiser le problème de contrôle optimal montre que la précision de la solution et le taux de convergence de ParaOpt sont du même ordre que ceux de la méthode RK, respectivement par rapport aux discrétisations fine et grossière, à condition que les conditions d’ordre auxiliaires mentionnées dans <a href=\"https://link.springer.com/article/10.1007/s002110000178\">[W. Hager, 2000]</a> soient satisfaites."
+            },
+            {
+              "type": "text",
+          "body": "3. Nous proposons une méthode PinT basée sur ParaExp, inspirée de <a href=\"https://epubs.siam.org/doi/10.1137/110856137\">[M. Gander et al., 2013]</a>, dont la formulation conduit à un système linéaire de même taille que le problème original et dont les produits matrice-vecteur peuvent être entièrement parallélisés. Ce système linéaire peut être résolu plus rapidement avec GMRES et des préconditionneurs adaptés."
+            }
+          ]
         }
-      
       ],
-      "relatedIds": ["paraopt-unstable", "paraopt-rk","paraexp-cdc-2024"]
-    }
+          "relatedIds": ["paraopt-unstable", "paraopt-rk","paraexp-cdc-2024"]
+        
+      }
   },
   {
     "slug": "quantum-maintenance",
