@@ -148,85 +148,151 @@
   },
   {
     "slug": "neural-filtering",
-    "visible": false,
+    "visible": true,
     "en": {
-      "title": "Machine learning approach for inverse problems",
-      "summary": "Reconstruction of the state of a dynamical system from observations when the underlying physics is governed by a PDE with unknown parameters.",
-      "sections": [
-        {
-          "heading": "Problem",
-          "body": "Given measurements (data), estimate the physics model parameters (resp. coupling physics-neural network model) governing the observed evolution using machine learning."
-        },
-        {
-          "heading": "Approach",
-          "body": "Neural network approximations whose weights are dynamically updated from observational data, combined with a Galerkin-style dynamical formulation."
-        },
-        {
-          "heading": "Applications",
-          "body": "Illustrated on one-dimensional KdV transport problems, highlighting the impact of sensor placement and the potential of dynamical sensor strategies."
-        }
-      ],
-      "relatedIds": ["neural-galerkin-2025","thesis-2025"]
+          "title": "Machine learning approach for inverse problems",
+    "summary": "Reconstruction of the state of a dynamical system from observations when the underlying physics is governed by a PDE with unknown parameters.",
+    "sections": [
+      {
+        "heading": "Problem",
+        "body": "Given measurements (data), estimate the physical model parameters (or the parameters of a coupled physics–neural network model) governing the observed evolution using machine learning."
+      },
+      {
+        "heading": "Approach",
+        "blocks": [
+          {
+            "type": "text",
+            "body": "<strong>Filtering problem</strong>: Neural network approximations whose weights are dynamically updated from observational data, combined with the <a href=\"https://www.sciencedirect.com/science/article/abs/pii/S0021999123006836\">Neural Galerkin Scheme (NGS)</a>."
+          },
+          {
+            "type": "text",
+            "body": "<strong><a href=\"https://iopscience.iop.org/article/10.1088/1742-5468/ac3ae5/meta\">Aphynity</a></strong>: Numerical analysis of the accuracy of the estimated model parameters when an explicit Runge–Kutta method is used for discretization."
+          }
+        ]
+      },
+      {
+        "heading": "Applications",
+        "blocks": [
+          {
+            "type": "text",
+            "body": "<strong>Filtering problem</strong>: KdV equation, $\\partial_t y + \\lambda y\\partial_x y + \\partial_{xxx} y = 0$, with unknown parameter $\\lambda$."
+          },
+          {
+            "type": "gallery",
+            "size": "medium",
+            "images": [
+              { "src": "assets/projects/benchmark.png", "alt": "Result A" },
+              { "src": "assets/projects/filtering.png", "alt": "Result B" }
+            ],
+            "caption": "Benchmark (left) and approximate result (right)."
+          },
+          {
+            "type": "text",
+            "body": "<strong>Aphynity</strong>: Stationary 1D shallow water equation, $\\partial_x y(x)=f(y,\\mu)$, with unknown parameter $\\mu$ for reconstructing the friction law. Here, $f$ is a nonlinear function of $y$ and $\\mu$, or a neural network with weights $\\mu$. If a Runge–Kutta method of order $p$ is used for discretization in the learning process, the approximation order of the estimated $f$ is also $p$: $\\|f(y,\\mu^{\\star})-f(y,\\mu(\\delta x))\\| = \\mathcal{O}(\\delta x^p)$. Here, $\\mu^{\\star}$ is the exact parameter and $\\mu(\\delta x)$ is the estimated parameter obtained with a discretization step $\\delta x$."
+          }
+        ]
+      }
+    ],
+    "relatedIds": ["neural-galerkin-2025", "thesis-2025"]
     },
     "fr": {
-      "title": "Approche par apprentissage automatique pour les problèmes inverses",
-      "summary": "La reconstruction de l'état d'un système dynamique à partir d'observations partielles lorsque la physique sous-jacente est gouvernée par une EDP à paramètres inconnus.",
+            "title": "Approche par apprentissage automatique pour les problèmes inverses",
+      "summary": "Reconstruction de l'état d'un système dynamique à partir d'observations lorsque la physique sous-jacente est gouvernée par une EDP à paramètres inconnus.",
       "sections": [
         {
           "heading": "Problème",
-          "body": "À partir de mesures (données), estimer les paramètres du modèle physique gouvernant l'évolution observée."
+          "body": "À partir de mesures (données), estimer les paramètres du modèle physique (ou les paramètres d'un modèle couplé physique–réseau de neurones) gouvernant l'évolution observée à l'aide de l'apprentissage automatique."
         },
         {
           "heading": "Approche",
-          "body": "Approximations par réseaux de neurones dont les poids sont mis à jour dynamiquement à partir des données d'observation."
+          "blocks": [
+            {
+              "type": "text",
+              "body": "<strong>Problème de filtrage</strong> : approximations par réseaux de neurones dont les poids sont mis à jour dynamiquement à partir des données d'observation, combinées avec le <a href=\"https://www.sciencedirect.com/science/article/abs/pii/S0021999123006836\">Neural Galerkin Scheme (NGS)</a>."
+            },
+            {
+              "type": "text",
+              "body": "<strong><a href=\"https://iopscience.iop.org/article/10.1088/1742-5468/ac3ae5/meta\">Aphynity</a></strong> : analyse numérique de la précision des paramètres estimés du modèle lorsqu'une méthode explicite de Runge–Kutta est utilisée pour la discrétisation."
+            }
+          ]
         },
         {
           "heading": "Applications",
-          "body": "Illustré sur des problèmes de transport KdV unidimensionnels, mettant en évidence l'importance du placement des capteurs."
+          "blocks": [
+            {
+              "type": "text",
+              "body": "<strong>Problème de filtrage</strong> : équation de KdV, $\\partial_t y + \\lambda y\\partial_x y + \\partial_{xxx} y = 0$, avec paramètre inconnu $\\lambda$."
+            },
+            {
+              "type": "gallery",
+              "size": "medium",
+              "images": [
+                { "src": "assets/projects/benchmark.png", "alt": "Résultat A" },
+                { "src": "assets/projects/filtering.png", "alt": "Résultat B" }
+              ],
+              "caption": "Référence (à gauche) et résultat approché (à droite)."
+            },
+            {
+              "type": "text",
+              "body": "<strong>Aphynity</strong> : équation stationnaire des eaux peu profondes en 1D, $\\partial_x y(x)=f(y,\\mu)$, avec paramètre inconnu $\\mu$ pour reconstruire la loi de frottement. Ici, $f$ est une fonction non linéaire de $y$ et $\\mu$, ou un réseau de neurones avec poids $\\mu$. Si une méthode de Runge–Kutta d'ordre $p$ est utilisée pour la discrétisation dans le processus d'apprentissage, l'ordre d'approximation de $f$ estimé est également $p$ : $\\|f(y,\\mu^{\\star})-f(y,\\mu(\\delta x))\\| = \\mathcal{O}(\\delta x^p)$. Ici, $\\mu^{\\star}$ est le paramètre exact et $\\mu(\\delta x)$ est le paramètre estimé obtenu avec un pas de discrétisation $\\delta x$."
+            }
+          ]
         }
       ],
-      "relatedIds": ["neural-galerkin-2025","thesis-2025"]
-    }
+      "relatedIds": ["neural-galerkin-2025", "thesis-2025"]
+  }
   },
   {
     "slug": "aphynity-correction",
-    "visible": false,
+    "visible": true,
     "en": {
-      "title": "Machine learning coupled with classical solvers for direct problems solving",
-      "summary": "Hybrid physics–machine learning models combine known PDE structure with a neural corrective term to improve accuracy while preserving interpretability.",
+            "title": "Machine learning coupled with classical solvers for direct problem solving",
+      "summary": "Design of a hybrid solver that couples a finite volume scheme to solve the 1D shallow water equations on each channel with neural network predictions at channel junctions.",
       "sections": [
         {
           "heading": "Framework",
-          "body": "Inspired by Aphynity: a corrective neural network is embedded into the governing PDE and trained indirectly through the outer loop of a time-stepping solver."
-        },
-        {
-          "heading": "Analysis",
-          "body": "The approximation order of the corrected model matches the order of the numerical scheme used for training, linking discretization and learned correction."
-        },
-        {
-          "heading": "Acceleration",
-          "body": "Richardson-type strategies with two independently trained networks at different time steps can accelerate convergence of the hybrid model."
+          "blocks": [
+            {
+              "type": "text",
+              "body": "The dynamics of water flow through an irrigation channel network can be described by the solutions of the 2D shallow-water equations within a 2D geometric framework representing both the channels and their junction regions (red). Computation becomes more efficient if we assume that the dynamics are homogeneous across the channel cross-sections, allowing the network geometry to be represented as a set of 1D intervals coupled at junction nodes (1D domain). Along each 1D interval of the network, the water dynamics is governed by the 1D shallow-water equations. However, one of the main challenges of this approach lies in defining appropriate boundary conditions at the junction points to couple the water height and velocity across the different intervals. This project proposes a machine learning–based approach to predict 1D boundary water heights and velocities near channel junctions, coupled with a finite volume scheme on 1D channels to fully simulate the dynamics of the system over the entire domain."
+            },
+            {
+              "type": "gallery",
+              "size": "medium",
+              "images": [
+                { "src": "assets/projects/2D-channels.png", "alt": "2D domain" },
+                { "src": "assets/projects/1D-channels.png", "alt": "1D domain" }
+              ],
+              "caption": "2D channel network (left) and 1D channels with a junction node (right)."
+            }
+          ]
         }
       ],
       "relatedIds": [""]
     },
     "fr": {
-      "title": "Apprentissage automatique couplé à des solveurs classiques pour la résolution des problèmes directs",
-      "summary": "Les modèles hybrides physique–apprentissage combinent une structure d'équations aux dérivées partielles (EDP) connue avec un terme correctif neuronal pour améliorer la précision.",
-      "sections": [
-        {
-          "heading": "Cadre",
-          "body": "Inspiré d'Aphynity : un réseau correctif est intégré à l'EDP et entraîné indirectement via la boucle externe d'un solveur en temps."
-        },
-        {
-          "heading": "Analyse",
-          "body": "L'ordre d'approximation du modèle corrigé coincide avec l'ordre du schéma numérique utilisé pour l'entraînement."
-        },
-        {
-          "heading": "Accélération",
-          "body": "Des stratégies de type Richardson, utilisant deux réseaux entraînés indépendamment à des pas de temps différents, peuvent accélérer la convergence."
-        }
-      ],
+          "title": "Apprentissage automatique couplé à des solveurs classiques pour la résolution de problèmes directs",
+    "summary": "Conception d'un solveur hybride qui couple un schéma en volumes finis pour résoudre les équations des eaux peu profondes en 1D sur chaque canal avec des prédictions par réseau de neurones aux jonctions.",
+    "sections": [
+      {
+        "heading": "Cadre",
+        "blocks": [
+          {
+            "type": "text",
+            "body": "La dynamique de l'écoulement de l'eau dans un réseau de canaux d'irrigation peut être décrite par les solutions des équations des eaux peu profondes en 2D dans un cadre géométrique 2D représentant à la fois les canaux et leurs régions de jonction (en rouge). Le calcul devient plus efficace si l'on suppose que la dynamique est homogène à travers les sections transversales des canaux, ce qui permet de représenter la géométrie du réseau comme un ensemble d'intervalles 1D couplés aux nœuds de jonction (domaine 1D). Le long de chaque intervalle 1D du réseau, la dynamique de l'eau est gouvernée par les équations des eaux peu profondes en 1D. Cependant, l'un des principaux défis de cette approche réside dans la définition de conditions aux limites appropriées aux points de jonction pour coupler la hauteur d'eau et la vitesse entre les différents intervalles. Ce projet propose une approche basée sur l'apprentissage automatique pour prédire les hauteurs d'eau et les vitesses aux limites 1D près des jonctions de canaux, couplée à un schéma en volumes finis sur les canaux 1D afin de simuler entièrement la dynamique du système sur l'ensemble du domaine."
+          },
+          {
+            "type": "gallery",
+            "size": "medium",
+            "images": [
+              { "src": "assets/projects/2D-channels.png", "alt": "Domaine 2D" },
+              { "src": "assets/projects/1D-channels.png", "alt": "Domaine 1D" }
+            ],
+            "caption": "Réseau de canaux en 2D (à gauche) et canaux 1D avec un nœud de jonction (à droite)."
+          }
+        ]
+      }
+    ],
       "relatedIds": [""]
     }
   }

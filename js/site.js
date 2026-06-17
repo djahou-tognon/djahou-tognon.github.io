@@ -311,6 +311,21 @@ function listLinesFromBody(text, type) {
   return lines.every(isListLine) ? lines : null;
 }
 
+const MEDIA_SIZES = ["small", "medium", "large", "full"];
+
+function mediaSizeClass(size) {
+  return MEDIA_SIZES.includes(size) ? ` media-${size}` : "";
+}
+
+function renderImageFigure({ caption, size, galleryClass, innerHtml }) {
+  const sizeClass = mediaSizeClass(size);
+  const gallery = galleryClass ? ` ${galleryClass}` : "";
+  return `<figure class="block-media${sizeClass}${gallery}">
+    ${innerHtml}
+    ${caption ? `<figcaption>${caption}</figcaption>` : ""}
+  </figure>`;
+}
+
 function renderBlock(block) {
   switch (block.type) {
     case "text":
@@ -318,10 +333,25 @@ function renderBlock(block) {
     case "math":
       return `<div class="block-math">$$${block.tex || ""}$$</div>`;
     case "image":
-      return `<figure class="block-media">
-        <img src="${block.src}" alt="${block.alt || ""}" loading="lazy">
-        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
-      </figure>`;
+      return renderImageFigure({
+        caption: block.caption,
+        size: block.size,
+        innerHtml: `<img src="${block.src}" alt="${block.alt || ""}" loading="lazy">`,
+      });
+    case "gallery": {
+      const images = (block.images || []).slice(0, 3);
+      if (!images.length) return "";
+      const colsClass = `gallery-cols-${images.length}`;
+      const grid = images.map((img) =>
+        `<div class="gallery-item"><img src="${img.src}" alt="${img.alt || ""}" loading="lazy"></div>`
+      ).join("");
+      return renderImageFigure({
+        caption: block.caption,
+        size: block.size,
+        galleryClass: `block-gallery ${colsClass}`,
+        innerHtml: `<div class="gallery-grid">${grid}</div>`,
+      });
+    }
     case "video":
       return `<figure class="block-media">${renderVideo(block.src)}${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}</figure>`;
     default:
