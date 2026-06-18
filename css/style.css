@@ -568,7 +568,7 @@ body[data-page="talks"] .container {
 .home-info-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.0fr);
-  gap: 1.5rem;
+  gap: 1.rem;
   align-items: start;
 }
 
@@ -588,15 +588,9 @@ body[data-page="talks"] .container {
   margin-bottom: 1rem;
 }
 
-/* ── Home research keywords ── */
+/* ── Home research interests ── */
 .keywords-block {
   margin-top: 0;
-}
-
-.keywords-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem 0.5rem;
 }
 
 .keywords-list {

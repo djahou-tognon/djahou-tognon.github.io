@@ -11,7 +11,7 @@ const PUB_ORDER = ["journal", "preprint", "proceeding", "thesis"];
 const TALK_ORDER = ["conference", "seminar", "workshop", "other"];
 
 async function loadContent() {
-  const files = ["profile", "about", "keywords", "announcement", "research", "projects", "teaching", "publications", "talks"];
+  const files = ["profile", "about", "keywords", "announcement", "research", "projects", "teaching", "publications", "talks", "analytics"];
   const content = {};
   await Promise.all(files.map(async (name) => {
     const res = await fetch(`content/${name}.json`, { cache: "no-store" });
@@ -51,6 +51,35 @@ function renderLayout() {
       <p>&copy; ${new Date().getFullYear()} ${profile.name}</p>
       <p class="footer-meta">${t("footer.updated", lang)} ${profile.lastUpdated}${profile.siteUrl ? ` · <a href="${profile.siteUrl}">${profile.siteUrl.replace(/^https?:\/\//, "")}</a>` : ""}</p>
     </div>`;
+}
+
+function initAnalytics() {
+  const cfg = SITE_CONTENT.analytics;
+  if (!cfg?.enabled) return;
+
+  if (cfg.provider === "clarity" && cfg.clarityProjectId && !window.clarity) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = `https://www.clarity.ms/tag/${i}`;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", cfg.clarityProjectId);
+    return;
+  }
+
+  if (cfg.provider === "google-analytics" && cfg.googleAnalyticsId && !document.querySelector("script[data-ga-id]")) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", cfg.googleAnalyticsId);
+    const script = document.createElement("script");
+    script.async = true;
+    script.dataset.gaId = cfg.googleAnalyticsId;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${cfg.googleAnalyticsId}`;
+    document.head.appendChild(script);
+  }
 }
 
 function bindNav() {
@@ -227,15 +256,12 @@ function renderKeywords(lang) {
   }
   el.hidden = false;
   grid?.classList.remove("home-info-grid--single");
-  const mid = Math.ceil(words.length / 2);
-  const listHtml = (items) => `<ul class="keywords-list">${items.map((word) => `<li>${word}</li>`).join("")}</ul>`;
   el.innerHTML = `
     <div class="keywords-block">
       <h2 class="section-title">${t("keywords.title", lang)}</h2>
-      <div class="keywords-columns">
-        ${listHtml(words.slice(0, mid))}
-        ${listHtml(words.slice(mid))}
-      </div>
+      <ul class="keywords-list">
+        ${words.map((word) => `<li>${word}</li>`).join("")}
+      </ul>
     </div>`;
 }
 
@@ -713,6 +739,7 @@ async function initSite() {
     renderLayout();
     bindNav();
     initI18n();
+    initAnalytics();
     renderPage();
   } catch (err) {
     console.error(err);
