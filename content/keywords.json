@@ -2,13 +2,15 @@
   "enabled": true,
   "en": [
     "Numerical Analysis",
-    "Parallel-in-Time (PinT) algorithms for Optimal Control",
+    "Parallel-in-Time (PinT) algorithms",
+    "PDE-constrained optimization problems.",
     "Scientific Machine Learning for Forward and Inverse Problems"
     
   ],
   "fr": [
     "Analyse numérique",
-    "Parallèle en temps (PinT) pour le contrôle optimal",
+    "Algorithmes parallèles en temps (PinT)",
+    "Problèmes d'optimisation sous contraintes d'EDP",
     "Scientific Machine Learning pour les problèmes directs et inverses"
     
   ]
