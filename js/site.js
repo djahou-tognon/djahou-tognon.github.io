@@ -6,7 +6,6 @@ const NAV = [
   ["publications", "publications.html", "nav.publications"],
   ["talks", "talks.html", "nav.talks"],
   ["teaching", "teaching.html", "nav.teaching"],
-  ["contact", "index.html#contact", "nav.contact"],
 ];
 const PUB_ORDER = ["journal", "preprint", "proceeding", "thesis"];
 const TALK_ORDER = ["conference", "seminar", "workshop", "other"];
