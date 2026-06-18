@@ -1,10 +1,10 @@
 {
   "enabled": true,
   "en": [
-    "Numerical Analysis",
+    "Numerical analysis",
     "Parallel-in-Time (PinT) algorithms",
     "PDE-constrained optimization problems",
-    "Scientific Machine Learning for Forward and Inverse Problems"
+    "Scientific machine learning for forward and inverse problems"
     
   ],
   "fr": [
