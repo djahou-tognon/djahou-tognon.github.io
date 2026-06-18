@@ -11,7 +11,7 @@ const PUB_ORDER = ["journal", "preprint", "proceeding", "thesis"];
 const TALK_ORDER = ["conference", "seminar", "workshop", "other"];
 
 async function loadContent() {
-  const files = ["profile", "about", "announcement", "research", "projects", "teaching", "publications", "talks"];
+  const files = ["profile", "about", "keywords", "announcement", "research", "projects", "teaching", "publications", "talks"];
   const content = {};
   await Promise.all(files.map(async (name) => {
     const res = await fetch(`content/${name}.json`, { cache: "no-store" });
@@ -205,6 +205,38 @@ function renderAbout(lang) {
   const el = document.getElementById("about-root");
   if (!el) return;
   el.innerHTML = pickLang(SITE_CONTENT.about, lang).map((p) => `<p>${p}</p>`).join("");
+}
+
+function renderKeywords(lang) {
+  const el = document.getElementById("keywords-root");
+  if (!el) return;
+  const grid = document.querySelector(".home-info-grid");
+  const data = SITE_CONTENT.keywords;
+  if (!data?.enabled) {
+    el.innerHTML = "";
+    el.hidden = true;
+    grid?.classList.add("home-info-grid--single");
+    return;
+  }
+  const words = pickLang(data, lang);
+  if (!words?.length) {
+    el.innerHTML = "";
+    el.hidden = true;
+    grid?.classList.add("home-info-grid--single");
+    return;
+  }
+  el.hidden = false;
+  grid?.classList.remove("home-info-grid--single");
+  const mid = Math.ceil(words.length / 2);
+  const listHtml = (items) => `<ul class="keywords-list">${items.map((word) => `<li>${word}</li>`).join("")}</ul>`;
+  el.innerHTML = `
+    <div class="keywords-block">
+      <h2 class="section-title">${t("keywords.title", lang)}</h2>
+      <div class="keywords-columns">
+        ${listHtml(words.slice(0, mid))}
+        ${listHtml(words.slice(mid))}
+      </div>
+    </div>`;
 }
 
 function pubLinkUrl(pub) {
@@ -665,6 +697,7 @@ function renderPage(lang) {
   renderProfileBar(lang);
   renderHero(lang);
   renderAbout(lang);
+  renderKeywords(lang);
   renderAnnouncement(lang);
   renderContact(lang);
   renderResearch(lang);

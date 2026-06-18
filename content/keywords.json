@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "en": [
+    "Numerical Analysis",
+    "Optimal Control",
+    "Parallel-in-Time (PinT)",
+    "Scientific Machine Learning",
+    "Inverse Problems (PDEs)",
+    "Forward problems (PDEs)"
+    
+  ],
+  "fr": [
+    "Analyse numérique",
+    "Contrôle optimal",
+    "Parallèle en temps (PinT)",
+    "Scientific Machine Learning",
+    "Problèmes inverses (EDPs)",
+    "Problèmes directs (EDPs)"
+    
+  ]
+}
