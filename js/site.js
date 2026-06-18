@@ -12,7 +12,7 @@ const PUB_ORDER = ["journal", "preprint", "proceeding", "thesis"];
 const TALK_ORDER = ["conference", "seminar", "workshop", "other"];
 
 async function loadContent() {
-  const files = ["profile", "about", "projects", "teaching", "publications", "talks"];
+  const files = ["profile", "about", "announcement", "research", "projects", "teaching", "publications", "talks"];
   const content = {};
   await Promise.all(files.map(async (name) => {
     const res = await fetch(`content/${name}.json`, { cache: "no-store" });
@@ -128,11 +128,9 @@ function absPanel(id, text) {
   return text ? `<div class="abs-panel" id="${id}" hidden>${text}</div>` : "";
 }
 
-function itemIndex(year, num) {
-  const inner = num != null
-    ? `<span class="num">${num}</span>`
-    : `<span class="year">${year}</span>`;
-  return `<span class="item-index">${inner}</span>`;
+function renderItemTitle(title, num) {
+  if (num == null) return `<p class="title"><span class="title-text">${title}</span></p>`;
+  return `<p class="title"><span class="title-index">${num}</span><span class="title-sep" aria-hidden="true">-</span><span class="title-text">${title}</span></p>`;
 }
 
 function pubItem(pub, lang, idx, num) {
@@ -141,9 +139,8 @@ function pubItem(pub, lang, idx, num) {
     ? `${pub.authors}, <em>${pub.venue}</em>`
     : pub.authors;
   return `<li class="item">
-    ${itemIndex(pub.year, num)}
     <div class="item-body">
-      <p class="title">${pub.title}</p>
+      ${renderItemTitle(pub.title, num)}
       <p class="meta">${authorsVenue}</p>
       ${html}${absPanel(absId, abstract)}
     </div>
@@ -211,6 +208,70 @@ function renderAbout(lang) {
   el.innerHTML = pickLang(SITE_CONTENT.about, lang).map((p) => `<p>${p}</p>`).join("");
 }
 
+function pubLinkUrl(pub) {
+  return pub.links?.hal || pub.links?.doi || pub.links?.arxiv || pub.links?.code || "";
+}
+
+function renderAnnouncementItem(item, lang) {
+  switch (item.type) {
+    case "text":
+      return `<li class="announce-item announce-text">${formatBody(item.body || "")}</li>`;
+    case "publication": {
+      const pub = findPublication(item.id);
+      if (!pub) return "";
+      const url = pubLinkUrl(pub);
+      const prefix = item.prefix ? `<span class="announce-label">${item.prefix}</span> ` : "";
+      const title = url
+        ? `<a href="${url}" target="_blank" rel="noopener">${pub.title}</a>`
+        : pub.title;
+      const meta = [pub.authors, pub.venue].filter(Boolean).join(", ");
+      return `<li class="announce-item announce-pub">${prefix}<span class="announce-title">${title}</span>${meta ? `<span class="announce-meta">${meta}</span>` : ""}</li>`;
+    }
+    case "talk": {
+      const meta = [item.event, item.date, item.location].filter(Boolean).join(" · ");
+      const title = item.href
+        ? `<a href="${item.href}" target="_blank" rel="noopener">${item.title}</a>`
+        : item.title;
+      const prefix = item.prefix ? `<span class="announce-label">${item.prefix}</span> ` : "";
+      return `<li class="announce-item announce-talk">${prefix}<span class="announce-title">${title}</span>${meta ? `<span class="announce-meta">${meta}</span>` : ""}</li>`;
+    }
+    case "link": {
+      const label = item.label || item.text || item.href;
+      const text = item.text && item.label ? `<span class="announce-meta">${item.text}</span>` : "";
+      return `<li class="announce-item announce-link"><span class="announce-title"><a href="${item.href}" target="_blank" rel="noopener">${label}</a></span>${text}</li>`;
+    }
+    default:
+      return "";
+  }
+}
+
+function renderAnnouncementBlock(block) {
+  const items = (block.items || []).map((item) => renderAnnouncementItem(item)).filter(Boolean);
+  if (!items.length) return "";
+  const title = block.title ? `<h3 class="announce-title-heading">${block.title}</h3>` : "";
+  return `<aside class="announce-box" aria-label="${block.title || "News"}">${title}<ul class="announce-list">${items.join("")}</ul></aside>`;
+}
+
+function renderAnnouncement(lang) {
+  const aboutEl = document.getElementById("announcement-about-root");
+  const contactEl = document.getElementById("announcement-contact-root");
+  if (!aboutEl && !contactEl) return;
+
+  const data = SITE_CONTENT.announcement;
+  if (!data?.enabled) {
+    if (aboutEl) aboutEl.innerHTML = "";
+    if (contactEl) contactEl.innerHTML = "";
+    return;
+  }
+
+  const block = data[lang] || data.en;
+  const html = renderAnnouncementBlock(block);
+  const placement = data.placement === "contact" ? "contact" : "about";
+
+  if (aboutEl) aboutEl.innerHTML = placement === "about" ? html : "";
+  if (contactEl) contactEl.innerHTML = placement === "contact" ? html : "";
+}
+
 function renderContact(lang) {
   const el = document.getElementById("contact-root");
   if (!el) return;
@@ -237,20 +298,40 @@ function visibleProjects() {
   return SITE_CONTENT.projects.filter((p) => p.visible !== false);
 }
 
+function renderResearchTheme(theme) {
+  return `<article class="research-theme">
+    <h3>${theme.title}</h3>
+    <p>${theme.body}</p>
+  </article>`;
+}
+
 function renderResearch(lang) {
-  const el = document.getElementById("research-root");
-  if (!el) return;
+  const themesEl = document.getElementById("research-themes-root");
+  const projectsEl = document.getElementById("research-root");
+  if (!themesEl && !projectsEl) return;
+
   const labels = t("researchPage", lang);
-  el.innerHTML = visibleProjects().map((p, i) => {
-    const data = p[lang] || p.en;
-    return `
+  const research = SITE_CONTENT.research?.[lang] || SITE_CONTENT.research?.en || {};
+  const themes = research.themes || [];
+
+  if (themesEl) {
+    themesEl.innerHTML = themes.length
+      ? `<h2 class="section-title">${labels.themesTitle}</h2><div class="research-themes">${themes.map(renderResearchTheme).join("")}</div>`
+      : "";
+  }
+
+  if (projectsEl) {
+    projectsEl.innerHTML = visibleProjects().map((p, i) => {
+      const data = p[lang] || p.en;
+      return `
     <a class="project-card" href="project.html?p=${p.slug}" style="--delay:${i * 0.06}s">
       <span class="project-num">${String(i + 1).padStart(2, "0")}</span>
       <h3>${data.title}</h3>
       <p>${data.summary}</p>
       <span class="project-cta">${labels.explore} →</span>
     </a>`;
-  }).join("");
+    }).join("");
+  }
 }
 
 function renderVideo(src) {
@@ -538,9 +619,8 @@ function talkItem(talk, lang, idx, num) {
   const { html, absId, abstract } = talkLinks(talk, lang, idx);
   const meta = [talk.event, talkDate(talk, lang), talk.location].filter(Boolean).join(" · ");
   return `<li class="item">
-    ${itemIndex(talk.year, num)}
     <div class="item-body">
-      <p class="title">${talk.title}</p>
+      ${renderItemTitle(talk.title, num)}
       <p class="meta">${meta}</p>
       ${html}${absPanel(absId, abstract)}
     </div>
@@ -586,6 +666,7 @@ function renderPage(lang) {
   renderProfileBar(lang);
   renderHero(lang);
   renderAbout(lang);
+  renderAnnouncement(lang);
   renderContact(lang);
   renderResearch(lang);
   renderProject(lang);

@@ -17,6 +17,8 @@ Site académique statique
 |---------|------|
 | `profile.json` | Nom, email, CV, photo, liens |
 | `about.json` | Bio EN / FR |
+| `announcement.json` | Annonce sur l'accueil (actualités, talks, publications) |
+| `research.json` | Grandes lignes de recherche (page Research) |
 | `projects.json` | Projets (cartes Research + pages détail) |
 | `publications.json` | Publications |
 | `talks.json` | Conférences |

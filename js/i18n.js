@@ -7,7 +7,7 @@ const translations = {
     about: { title: "About" },
     contact: { title: "Contact", email: "Email", office: "Office" },
     footer: { updated: "Last updated:", hosted: "Hosted on" },
-    researchPage: { title: "Research", intro: "Ongoing projects and research directions.", explore: "Explore project" },
+    researchPage: { title: "Research", intro: "Research directions and ongoing projects.", themesTitle: "Research areas", projectsTitle: "Projects", explore: "Explore project" },
     projectPage: { back: "← Back to research", related: "Related publications", abstract: "Abstract" },
     teachingPage: {
       title: "Teaching",
@@ -39,7 +39,7 @@ const translations = {
     about: { title: "À propos" },
     contact: { title: "Contact", email: "Email", office: "Bureau" },
     footer: { updated: "Dernière mise à jour :", hosted: "Hébergé sur" },
-    researchPage: { title: "Recherche", intro: "Projets en cours et directions de recherche.", explore: "Explorer le projet" },
+    researchPage: { title: "Recherche", intro: "Grandes lignes de recherche et projets en cours.", themesTitle: " Domaines de recherche", projectsTitle: "Projets", explore: "Explorer le projet" },
     projectPage: { back: "← Retour à la recherche", related: "Publications associées", abstract: "Résumé" },
     teachingPage: {
       title: "Enseignement",

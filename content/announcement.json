@@ -1,0 +1,48 @@
+{
+  "enabled": false,
+  "placement": "about",
+  "en": {
+    "title": "News",
+    "items": [
+      {
+        "type": "text",
+        "body": "Example announcement."
+      },
+      {
+        "type": "publication",
+        "id": "neural-galerkin-2025",
+        "prefix": "Preprint:"
+      },
+      {
+        "type": "talk",
+        "title": "A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems",
+        "event": "IEEE CDC",
+        "date": "Dec 2024",
+        "location": "Milan, Italy",
+        "href": "https://cdc2024.ieeecss.org/"
+      }
+    ]
+  },
+  "fr": {
+    "title": "Actualités",
+    "items": [
+      {
+        "type": "text",
+        "body": "Exemple d'annonce — modifiez ou désactivez ce bloc dans <code>content/announcement.json</code>."
+      },
+      {
+        "type": "publication",
+        "id": "neural-galerkin-2025",
+        "prefix": "Prépublication :"
+      },
+      {
+        "type": "talk",
+        "title": "A Parallel in Time Algorithm Based on ParaExp for Optimal Control Problems",
+        "event": "IEEE CDC",
+        "date": "déc. 2024",
+        "location": "Milan, Italie",
+        "href": "https://cdc2024.ieeecss.org/"
+      }
+    ]
+  }
+}

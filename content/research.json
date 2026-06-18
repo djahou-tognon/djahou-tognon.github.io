@@ -1,0 +1,26 @@
+{
+  "en": {
+    "themes": [
+      {
+        "title": "Domain Decomposition methods for optimal control",
+        "body": "Development of parallel-in-time (PinT) algorithms and convergence analysis for time-dependent PDE-constrained optimization problems."
+      },
+      {
+        "title": "Scientific Machine Learning (SciML)",
+        "body": "Hybrid solvers combining machine learning with classical numerical methods and their analysis for forward and inverse problems."
+      }
+    ]
+  },
+  "fr": {
+    "themes": [
+      {
+        "title": "Décomposition de domaine pour le contrôle optimal",
+        "body": "Développement d'algorithmes parallèles en temps (PinT) et analyse de convergence pour des problèmes d'optimisation sous contraintes d'EDP dépendant du temps."
+      },
+      {
+        "title": "Scientific Machine Learning (SciML)",
+        "body": "Solveurs hybrides combinant apprentissage automatique et méthodes numériques classiques avec leur analyse pour les problèmes directs et inverses."
+      }
+    ]
+  }
+}
