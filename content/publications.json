@@ -6,6 +6,9 @@
     "authors": "F. Kwok, D. Tognon",
     "venue": "In 2024 IEEE 63rd Conference on Decision and Control (CDC), 2024",
     "category": "proceeding",
+    "volume": "6685-6690",
+    "number": "",
+    "pages": "",
     "abstract": {
       "en": "We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations. Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems.",
       "fr": "Only english version is provided"
@@ -22,8 +25,11 @@
     "year": 2026,
     "title": "Quantum approach for electrical system maintenance scheduling problem",
     "authors": "Q. Zhou, D. Tognon, S. Chalal, N. Henka, S. Tazi, F. Hafid, and C. Titouan",
-    "venue": "CEMRACS, Quantum computing-preprint, 2025",
+    "venue": "CEMRACS 2025, Quantum computing-preprint",
     "category": "proceeding",
+    "volume": "",
+    "number": "",
+    "pages": "",
     "abstract": {
       "en": "Maintenance scheduling is essential to ensure the reliability of power transmission systems while limiting operational risk and respecting technical and resource constraints.",
       "fr": "La planification des opérations de maintenance est essentielle pour garantir la fiabilité des réseaux de transport d'électricité."
@@ -42,6 +48,9 @@
     "authors": "J. Aghili, J. Atokple, M. Billaud-Friess, G. Garnier, O. Mula and D. Tognon",
     "venue": "ESAIM: Proceedings and Surveys, 2025",
     "category": "proceeding",
+    "volume": "81",
+    "number": "",
+    "pages": "2-15",
     "abstract": {
       "en": "This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements.",
       "fr": "Only english version is provided"
@@ -60,6 +69,9 @@
     "authors": "D. Tognon",
     "venue": "Sorbonne Université, INRIA centre de Paris, France",
     "category": "thesis",
+    "volume": "",
+    "number": "",
+    "pages": "",
     "abstract": {
       "en": "PhD thesis on parallel-in-time methods for optimal control and a learning-based model correction approach inspired by Aphynity.",
       "fr": "Thèse de doctorat sur les méthodes parallèles en temps pour le contrôle optimal et une approche de correction de modèle par apprentissage inspirée d'Aphynity."
@@ -67,7 +79,7 @@
     "links": {
       "hal": "https://theses.hal.science/tel-05262960",
       "arxiv": "",
-      "doi": "",
+      "doi": "https://doi.org/10.70675/09bca6e2z0d36z4eefz950dz68b55f5d83f0",
       "code": ""
     }
   },
@@ -78,6 +90,9 @@
     "authors": "D. Tognon",
     "venue": "Submitted",
     "category": "journal",
+    "volume": "",
+    "number": "",
+    "pages": "",
     "abstract": {
       "en": "We present a convergence analysis of the ParaOpt algorithm applied to linear optimal control problems where the linear operator has at least one positive eigenvalue.",
       "fr": "Only english version is provided"
@@ -94,8 +109,11 @@
     "year": 2026,
     "title": "Convergence of ParaOpt for general Runge-Kutta time discretizations",
     "authors": "F. Kwok, J. Salomon and D. Tognon",
-    "venue": "To appear in SIAM Journal on Numerical Analysis, 2026",
+    "venue": "SIAM Journal on Numerical Analysis",
     "category": "journal",
+    "volume": "64",
+    "number": "3",
+    "pages": "926-956",
     "abstract": {
       "en": "We prove that the convergence rate of ParaOpt applied to a linear-quadratic optimal control problem has the same order as the Runge-Kutta time integration method used.",
       "fr": "Only english version is provided"
@@ -103,7 +121,7 @@
     "links": {
       "hal": "https://hal.science/hal-05014759",
       "arxiv": "",
-      "doi": "",
+      "doi": "https://doi.org/10.1137/25M1747099",
       "code": ""
     }
   }

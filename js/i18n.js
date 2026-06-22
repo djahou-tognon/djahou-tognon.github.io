@@ -21,7 +21,7 @@ const translations = {
     publicationsPage: {
       title: "Publications",
       intro: "Complete list of publications.",
-      hal: "HAL", doi: "DOI", code: "Code", abstract: "Abstract",
+      hal: "HAL", doi: "DOI", code: "Code", abstract: "Abstract", bib: "BibTeX", copy: "Copy",
       categories: { journal: "Journal Papers", preprint: "Preprints", proceeding: "Conference Proceedings", thesis: "Thesis" },
     },
     talksPage: {
@@ -54,7 +54,7 @@ const translations = {
     publicationsPage: {
       title: "Publications",
       intro: "Liste complète des publications.",
-      hal: "HAL", doi: "DOI", code: "Code", abstract: "Résumé",
+      hal: "HAL", doi: "DOI", code: "Code", abstract: "Résumé", bib: "BibTeX", copy: "Copier",
       categories: { journal: "Articles de journaux", preprint: "Prépublications", proceeding: "Communications", thesis: "Thèse" },
     },
     talksPage: {

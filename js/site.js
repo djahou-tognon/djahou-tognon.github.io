@@ -109,20 +109,72 @@ function badgeBtn(label, targetId, type = "abs") {
   return `<button type="button" class="badge badge-${type} badge-btn" data-target="${targetId}">${label.toUpperCase()}</button>`;
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function bibAuthors(authors) {
+  return String(authors || "")
+    .split(/\s*,\s*|\s+and\s+/i)
+    .map((a) => a.trim())
+    .filter(Boolean)
+    .join(" and ");
+}
+
+function buildBibtex(pub) {
+  if (pub.bib) return String(pub.bib).trim();
+  const typeMap = { journal: "article", proceeding: "inproceedings", thesis: "phdthesis", preprint: "misc" };
+  const entry = typeMap[pub.category] || "misc";
+  const key = pub.id || `${(pub.authors || "ref").split(/[,\s]+/)[0]}${pub.year || ""}`;
+  const fields = [
+    ["title", pub.title],
+    ["author", bibAuthors(pub.authors)],
+  ];
+  if (pub.category === "journal") fields.push(["journal", pub.venue]);
+  else if (pub.category === "proceeding") fields.push(["booktitle", pub.venue]);
+  else if (pub.category === "thesis") fields.push(["school", pub.venue]);
+  else if (pub.venue) fields.push(["howpublished", pub.venue]);
+  fields.push(["volume", pub.volume]);
+  fields.push(["number", pub.number]);
+  fields.push(["pages", pub.pages]);
+  fields.push(["year", pub.year]);
+  const url = pub.links?.doi || pub.links?.hal || pub.links?.arxiv || "";
+  if (url) fields.push(["url", url]);
+  const body = fields
+    .filter(([, v]) => v != null && v !== "")
+    .map(([k, v]) => `  ${k} = {${v}}`)
+    .join(",\n");
+  return `@${entry}{${key},\n${body}\n}`;
+}
+
+function bibPanel(id, bibtex, copyLabel) {
+  if (!bibtex) return "";
+  return `<div class="bib-panel" id="${id}" hidden>
+    <button type="button" class="bib-copy">${copyLabel}</button>
+    <pre><code>${escapeHtml(bibtex)}</code></pre>
+  </div>`;
+}
+
 function pubLinks(pub, lang, idx) {
   const L = t("publicationsPage", lang);
   const abstract = pub.abstract?.[lang] || pub.abstract?.en || "";
   const absId = `abs-${idx}`;
+  const bibId = `bib-${idx}`;
+  const bibtex = buildBibtex(pub);
   const items = [
     badgeLink(pub.links?.hal || pub.links?.pdf, "HAL", "hal"),
     badgeLink(pub.links?.arxiv, "ARXIV", "arxiv"),
     badgeLink(pub.links?.doi, "DOI", "doi"),
     badgeLink(pub.links?.code, "CODE", "code"),
     abstract ? badgeBtn(L.abstract, absId) : "",
+    bibtex ? badgeBtn("BIB", bibId, "bib") : "",
   ].filter(Boolean);
   return {
     html: items.length ? `<div class="badges">${items.join("")}</div>` : "",
-    absId, abstract,
+    absId, abstract, bibId, bibtex,
   };
 }
 
@@ -150,6 +202,27 @@ function bindBadges(root) {
       btn.classList.toggle("active", open);
     };
   });
+  root?.querySelectorAll(".bib-copy").forEach((btn) => {
+    const original = btn.textContent;
+    btn.onclick = async () => {
+      const code = btn.parentElement.querySelector("code");
+      if (!code) return;
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand("copy");
+        sel.removeAllRanges();
+      }
+      btn.textContent = "\u2713";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = original; btn.classList.remove("copied"); }, 1500);
+    };
+  });
 }
 
 function absPanel(id, text) {
@@ -162,7 +235,8 @@ function renderItemTitle(title, num) {
 }
 
 function pubItem(pub, lang, idx, num) {
-  const { html, absId, abstract } = pubLinks(pub, lang, idx);
+  const { html, absId, abstract, bibId, bibtex } = pubLinks(pub, lang, idx);
+  const copyLabel = t("publicationsPage", lang).copy;
   const authorsVenue = pub.venue
     ? `${pub.authors}, <em>${pub.venue}</em>`
     : pub.authors;
@@ -170,7 +244,7 @@ function pubItem(pub, lang, idx, num) {
     <div class="item-body">
       ${renderItemTitle(pub.title, num)}
       <p class="meta">${authorsVenue}</p>
-      ${html}${absPanel(absId, abstract)}
+      ${html}${absPanel(absId, abstract)}${bibPanel(bibId, bibtex, copyLabel)}
     </div>
   </li>`;
 }
@@ -182,6 +256,8 @@ function renderProfileActions(lang) {
     parts.push(`<a class="btn btn-profile btn-orcid" href="${profile.social.orcid}" target="_blank" rel="noopener">ORCID</a>`);
   if (profile.social.scholar)
     parts.push(`<a class="btn btn-profile btn-scholar" href="${profile.social.scholar}" target="_blank" rel="noopener">GOOGLE SCHOLAR</a>`);
+  if (profile.halCv)
+    parts.push(`<a class="btn btn-profile btn-hal-cv" href="${profile.halCv}" target="_blank" rel="noopener">CV HAL</a>`);
   return `<div class="profile-actions">${parts.join("")}</div>`;
 }
 

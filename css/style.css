@@ -525,6 +525,9 @@ body[data-page="talks"] .container {
 .badge-abs   { background: #e8f4fc; color: #1a5276; border-color: #1a5276; }
 /*.badge-abs:hover, .badge-abs.active { background: #1a5276; color: #fff; }
 */
+.badge-bib   { background: #e8f4fc; color: #1a5276; border-color: #1a5276; }
+.badge-bib.active { background: #1a5276; color: #fff; }
+
 .abs-panel {
   margin-top: 0.65rem; padding: 0.9rem 1.1rem;
   background: var(--bg-card); border: 1px solid var(--border);
@@ -533,6 +536,31 @@ body[data-page="talks"] .container {
   color: var(--muted); line-height: 1.6;
   animation: fadeUp 0.25s ease;
 }
+
+.bib-panel {
+  position: relative;
+  margin-top: 0.65rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-light);
+  border-radius: var(--radius-sm);
+  animation: fadeUp 0.25s ease;
+}
+.bib-panel pre {
+  margin: 0; padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+  font: 0.8rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--text);
+  white-space: pre;
+}
+.bib-copy {
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  padding: 0.15rem 0.5rem; border-radius: 3px;
+  font: 700 0.6rem var(--sans); letter-spacing: 0.04em;
+  background: #e8f4fc; color: #1a5276; border: 1px solid #1a5276;
+  cursor: pointer; transition: all var(--transition);
+}
+.bib-copy:hover { background: #1a5276; color: #fff; }
+.bib-copy.copied { background: #1e8449; border-color: #1e8449; color: #fff; }
 
 /* ── Contact ── */
 .contact-grid {
