@@ -306,10 +306,28 @@ function renderHero(lang) {
     <div class="hero-photo">${photo}</div>`;
 }
 
+function renderAboutBlock(section) {
+  const parts = [];
+  if (section.title) parts.push(`<h3 class="about-subtitle">${section.title}</h3>`);
+  if (section.paragraphs?.length) {
+    parts.push(section.paragraphs.map((p) => `<p>${p}</p>`).join(""));
+  }
+  if (section.items?.length) {
+    parts.push(`<ul class="about-list">${section.items.map((item) => `<li>${item}</li>`).join("")}</ul>`);
+  }
+  return `<div class="about-block">${parts.join("")}</div>`;
+}
+
 function renderAbout(lang) {
   const el = document.getElementById("about-root");
   if (!el) return;
-  el.innerHTML = pickLang(SITE_CONTENT.about, lang).map((p) => `<p>${p}</p>`).join("");
+  const data = pickLang(SITE_CONTENT.about, lang);
+  if (Array.isArray(data)) {
+    el.innerHTML = data.map((p) => `<p>${p}</p>`).join("");
+    return;
+  }
+  const sections = data?.sections || [];
+  el.innerHTML = sections.map(renderAboutBlock).join("");
 }
 
 function renderKeywords(lang) {

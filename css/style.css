@@ -176,6 +176,45 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.25; }
 .prose p { margin-bottom: 0.85rem; color: var(--text); }
 .prose p:last-child { margin-bottom: 0; }
 
+.about-section .prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.about-block {
+  padding: 0.7rem 0.85rem 0.75rem 1rem;
+  border-left: 2px solid rgba(26, 82, 118, 0.2);
+  background: rgba(26, 82, 118, 0.035);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.about-subtitle {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  color: var(--accent-dark);
+}
+
+.prose .about-block p {
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  font-size: inherit;
+  line-height: 1.65;
+}
+
+.prose .about-block p:last-child { margin-bottom: 0; }
+
+.prose .about-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.prose .about-list li { margin-bottom: 0.5rem; }
+.prose .about-list li:last-child { margin-bottom: 0; }
+
 /* ── Page header ── */
 .page-header {
   padding: 3rem 0 1.75rem;

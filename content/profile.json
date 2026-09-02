@@ -2,11 +2,11 @@
   "name": "Djahou N. Tognon",
   "siteUrl": "https://djahou-tognon.github.io",
   "showHero": false,
-  "lastUpdated": "June 2026",
+  "lastUpdated": "September 2026",
   "cv": "assets/cv.pdf",
   "halCv": "https://cv.hal.science/djahou-tognon",
   "photo": "assets/photo.png",
-  "email": "djahou-norbert.tognon@univ-orleans.fr",
+  "email": "djahou.tognon@sorbonne-universite.fr",
   "social": {
     "scholar": "https://scholar.google.com/citations?user=jNRKMFoAAAAJ&hl",
     "orcid": "https://orcid.org/0009-0001-9622-4548",
@@ -27,11 +27,11 @@
   },
   "contact": {
     "en": {
-      "officeLines": ["Bureau E 10, Rue de Chartres, B.P. 6759", "45067 Cedex 2 Orléans, France"],
+      "officeLines": ["Couloir 15-16, Office 221, 4 place Jussieu, 75005 Paris, France"],
       "note": ""
     },
     "fr": {
-      "officeLines": ["Bureau E 10, Rue de Chartres, B.P. 6759", "45067 Cedex 2 Orléans, France"],
+      "officeLines": ["Couloir 15-16, Bureau 221, 4 place Jussieu, 75005 Paris, France"],
       "note": ""
     }
   }
