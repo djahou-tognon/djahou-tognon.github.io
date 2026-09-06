@@ -10,8 +10,76 @@
     "number": "",
     "pages": "",
     "abstract": {
-      "en": "We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations. Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems.",
-      "fr": "Only english version is provided"
+      "en": "We propose a new parallel-in-time algorithm for solving optimal control problems constrained by discretized partial differential equations. Our approach, which is based on a deeper understanding of ParaExp, considers an overlapping time-domain decomposition in which we combine the solution of homogeneous problems using exponential propagation with the local solutions of inhomogeneous problems. The algorithm yields a linear system whose matrix-vector product can be fully performed in parallel. We then propose a preconditioner to speed up the convergence of GMRES in the special cases of the heat and wave equations. Numerical experiments are provided to illustrate the efficiency of our preconditioners.",
+      "fr": "Only the english version is available."
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Optimal control problems constrained by discretized PDEs require solving large optimality systems. Time-parallel algorithms can exploit modern architectures, but existing PinT methods for control often rely on non-overlapping decompositions and ad hoc coupling between subproblems."
+          },
+          {
+            "heading": "Approach",
+            "body": "We extend ParaExp to optimal control using an overlapping time-domain decomposition. Homogeneous subproblems are propagated with exponentials, while inhomogeneous contributions are solved locally and combined into a single linear system whose matrix-vector products are fully parallel in time."
+          },
+          {
+            "heading": "Main contributions",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. A PinT formulation for optimal control inspired by ParaExp with overlapping decomposition.\n2. A linear system of the same size as the original problem, amenable to parallel matrix-vector products.\n3. Structure-aware preconditioners for GMRES in the heat and wave equation cases.\n4. Numerical experiments illustrating the efficiency of the proposed preconditioners."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraexp-cdc-2024/decomposition.svg",
+                "alt": "Overlapping time-domain decomposition for ParaExp",
+                "caption": "Overlapping decomposition: exponential propagation of homogeneous subproblems and local inhomogeneous solves.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Les problèmes de contrôle optimal contraints par des EDP discrétisées conduisent à de grands systèmes d'optimalité. Les algorithmes parallèles en temps peuvent exploiter les architectures modernes, mais les méthodes PinT pour le contrôle reposent souvent sur des décompositions non chevauchantes."
+          },
+          {
+            "heading": "Approche",
+            "body": "Nous étendons ParaExp au contrôle optimal via une décomposition temporelle avec recouvrement. Les sous-problèmes homogènes sont propagés par exponentielles, les contributions inhomogènes sont résolues localement, puis recombinées dans un système linéaire parallélisable en temps."
+          },
+          {
+            "heading": "Contributions principales",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Formulation PinT pour le contrôle optimal inspirée de ParaExp.\n2. Système linéaire de même taille que le problème initial, avec produits matrice-vecteur parallèles.\n3. Préconditionneurs adaptés à la structure pour GMRES (équations de la chaleur et de l'onde).\n4. Expériences numériques illustrant l'efficacité des préconditionneurs."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraexp-cdc-2024/decomposition.svg",
+                "alt": "Décomposition temporelle chevauchante pour ParaExp",
+                "caption": "Décomposition avec recouvrement : propagation exponentielle des sous-problèmes homogènes et résolution locale des contributions inhomogènes.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://inria.hal.science/hal-04612018",
@@ -20,6 +88,8 @@
       "code": ""
     }
   },
+
+
   {
     "id": "quantum-cemracs-2026",
     "year": 2026,
@@ -31,8 +101,76 @@
     "number": "",
     "pages": "",
     "abstract": {
-      "en": "Maintenance scheduling is essential to ensure the reliability of power transmission systems while limiting operational risk and respecting technical and resource constraints.",
-      "fr": "La planification des opérations de maintenance est essentielle pour garantir la fiabilité des réseaux de transport d'électricité."
+      "en": "Maintenance scheduling is essential to ensure the reliability of power transmission systems while limiting operational risk and respecting technical and resource constraints. Increasing system complexity due to asset aging and renewable integration challenges classical optimization approaches traditionally used by transmission system operators. This work focuses on the optimization stage of a risk-based maintenance planning framework, where predefined risk indicators guide the construction of feasible schedules. After discussing the limitations of classical mixed-integer programming formulations in terms of scalability and computational effort, we investigate the applicability of quantum optimization methods to the maintenance scheduling problem. In particular, we explore the use of the Quantum Approximate Optimization Algorithm (QAOA) and Grover Adaptive Search to minimize operational risk under realistic constraints. While current quantum hardware limits practical deployment, this study provides insights into the potential of quantum approaches as complementary tools for future large-scale power system maintenance planning.",
+      "fr": "Only the english version is available."
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Maintenance scheduling on electrical transmission networks must balance reliability, operational risk, and hard technical constraints (crew availability, equipment dependencies, safety windows). Classical combinatorial formulations become challenging at scale."
+          },
+          {
+            "heading": "Problem",
+            "body": "We study a maintenance scheduling problem for electrical systems under resource and operational constraints, aiming to minimize risk while respecting feasibility requirements on the grid."
+          },
+          {
+            "heading": "Main contributions",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Formulation of the maintenance scheduling problem in a quantum-compatible framework.\n2. Exploration of quantum algorithms as an alternative to classical combinatorial solvers.\n3. Preliminary numerical assessment on representative instances from power-system maintenance."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/quantum-cemracs-2026/grid.svg",
+                "alt": "Transmission network for maintenance scheduling",
+                "caption": "Schematic view of a power network with operational dependencies between components.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "La planification de maintenance sur les réseaux électriques doit concilier fiabilité, risque opérationnel et contraintes techniques (équipes, dépendances entre équipements, fenêtres de sécurité). Les formulations combinatoires deviennent difficiles à grande échelle."
+          },
+          {
+            "heading": "Problème",
+            "body": "Nous étudions un problème de planification de maintenance sous contraintes de ressources et d'exploitation, en minimisant le risque tout en respectant la faisabilité sur le réseau."
+          },
+          {
+            "heading": "Contributions principales",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Formulation du problème de maintenance dans un cadre compatible avec le calcul quantique.\n2. Exploration d'algorithmes quantiques comme alternative aux solveurs combinatoires classiques.\n3. Évaluation numérique préliminaire sur des instances représentatives."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/quantum-cemracs-2026/grid.svg",
+                "alt": "Réseau de transport pour la planification de maintenance",
+                "caption": "Vue schématique d'un réseau électrique avec dépendances opérationnelles entre composants.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://hal.science/hal-05568055v1",
@@ -41,6 +179,7 @@
       "code": ""
     }
   },
+
   {
     "id": "neural-galerkin-2025",
     "year": 2025,
@@ -52,8 +191,92 @@
     "number": "",
     "pages": "2-15",
     "abstract": {
-      "en": "This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements.",
-      "fr": "Only english version is provided"
+      "en": "This paper considers the filtering problem which consists in reconstructing the state of a dynamical system with partial observations coming from sensor measurements, and the knowledge that the dynamics are governed by a physical PDE model with unknown parameters. We present a filtering algorithm where the reconstruction of the dynamics is done with neural network approximations whose weights are dynamically updated using observational data. In addition to the estimate of the state, we also obtain time-dependent parameter estimations of the PDE parameters governing the observed evolution. We illustrate the behavior of the method in a one-dimensional KdV equation involving the transport of solutions with local support. Our numerical investigation reveals the importance of the location and number of the observations. In particular, it suggests to consider dynamical sensor placement.",
+      "fr": "Only the english version is available."
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Filtering consists in reconstructing the state of a dynamical system from partial, noisy sensor measurements. Classical methods can be expensive for high-dimensional or nonlinear dynamics, motivating learning-based alternatives."
+          },
+          {
+            "heading": "Approach",
+            "body": "We propose a dynamical Neural Galerkin scheme that combines reduced-order modeling with deep learning. Training samples are generated through an active learning process embedded in the numerical approximation loop."
+          },
+          {
+            "heading": "Main contributions",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. A dynamical Neural Galerkin framework adapted to filtering problems.\n2. An active sampling strategy for building the training set during time integration.\n3. Numerical validation on model filtering scenarios with partial observations."
+              }
+            ]
+          },
+          {
+            "heading": "Numerical illustration",
+            "blocks": [
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/neural-galerkin-2025/benchmark.png",
+                    "alt": "Reference solution"
+                  },
+                  {
+                    "src": "assets/papers/neural-galerkin-2025/filtering.png",
+                    "alt": "Neural Galerkin reconstruction"
+                  }
+                ],
+                "caption": "Reference (left) and dynamical Neural Galerkin reconstruction (right)."
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Le filtrage consiste à reconstruire l'état d'un système dynamique à partir de mesures partielles et bruitées. Les méthodes classiques deviennent coûteuses pour des dynamiques non linéaires ou de grande dimension."
+          },
+          {
+            "heading": "Approche",
+            "body": "Nous proposons un schéma Neural Galerkin dynamique combinant réduction de modèle et apprentissage profond, avec un échantillonnage actif intégré à la boucle d'approximation numérique."
+          },
+          {
+            "heading": "Contributions principales",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Cadre Neural Galerkin dynamique adapté au filtrage.\n2. Stratégie d'échantillonnage actif pour construire le jeu d'entraînement.\n3. Validation numérique sur des scénarios de filtrage avec observations partielles."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration numérique",
+            "blocks": [
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/neural-galerkin-2025/benchmark.png",
+                    "alt": "Solution de référence"
+                  },
+                  {
+                    "src": "assets/papers/neural-galerkin-2025/filtering.png",
+                    "alt": "Reconstruction Neural Galerkin"
+                  }
+                ],
+                "caption": "Référence (à gauche) et reconstruction Neural Galerkin dynamique (à droite)."
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://www.esaim-proc.org/articles/proc/pdf/2025/04/proc25081001.pdf",
@@ -62,6 +285,7 @@
       "code": ""
     }
   },
+
   {
     "id": "thesis-2025",
     "year": 2025,
@@ -73,8 +297,162 @@
     "number": "",
     "pages": "",
     "abstract": {
-      "en": "PhD thesis on parallel-in-time methods for optimal control and a learning-based model correction approach inspired by Aphynity.",
-      "fr": "Thèse de doctorat sur les méthodes parallèles en temps pour le contrôle optimal et une approche de correction de modèle par apprentissage inspirée d'Aphynity."
+      "en": "Time-parallel algorithms (PinT) such as Parareal, ParaExp, etc., are well known in the literature for their ability to exploit the parallel architecture of today's computers to solve initial value porblem. Recently, ParaOpt, an algorithm based on the principles of the Parareal algorithm, has made it possible to parallelize the solution of optimality systems. A first analysis of the convergence of this algorithm was presented in [M.J. Gander, F. Kwok and J. Salomon, SIAM J. Sci. Comput.,42 (2020), A2773-A2802] in the restricted case of the implicit Euler method for linear quadratic optimal control problems (LQOCP) involving dissipative systems. In this thesis, we first present a convergence analysis when the system under study is unstable. Secondly, we focus on the influence of the solver used for time resolution on convergence, considering the more general case of LQOCP discretization by Runge-Kutta methods. We show that the convergence rate of ParaOpt has the same order as the Runge-Kutta time integration method used, provided that the Runge-Kutta method satisfies some additional order conditions. We then consider a preconditioning problem, for which we introduce a new PinT algorithm, this time based on the ParaExp algorithm, for LQOCP solving. Our approach is based on an overlapping time-interval decomposition in which we combine the solution of homogeneous subproblems of optimality systems using exponential propagation with local solutions of inhomogeneous subproblems. The formulation leads to a linear system whose matrix-vector product can be fully computed in parallel. We then propose two preconditioners to accelerate the convergence of GMRES in the special cases of heat and wave equations. In a final independent chapter, we analyze a learning-based model correction method. The approach studied follows the principles of Aphynity [Yuan Yin et al J. Stat. Mech. (2021) 124012], a method consisting of introducing a corrective term in the form of a neural network into the PDE under consideration. Learning is then performed in the outer loop of the solver used, so that training takes place indirectly through a time scheme. We study the influence of the solver on the resulting network, and show in particular that the order of approximation of the corrected model is equal to the order of the scheme used. Finally, we show how a Richardson-type acceleration strategy can speed up convergence by considering two smaller, independently trained networks with different time steps.",
+      "fr": "Only the english version is available."
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Large-scale optimal control and inverse problems require both efficient solvers for time-dependent PDE constraints and robust ways to handle model misspecification. This thesis addresses these challenges through parallel-in-time algorithms and learning-based model correction."
+          },
+          {
+            "heading": "Part I — Parallel-in-time for optimal control",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Convergence analysis of ParaOpt for unstable linear systems.\n2. Extension to general Runge-Kutta discretizations with order-matching convergence rates.\n3. PinT algorithm based on ParaExp with overlapping decomposition and preconditioning."
+              }
+            ]
+          },
+          {
+            "heading": "Part II — Learning-based model correction",
+            "body": "A second line of work develops a learning-based approach inspired by Aphynity to correct imperfect physical models in inverse problems, combining interpretability of the base model with data-driven correction."
+          },
+          {
+            "heading": "Illustrations",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "<strong>PinT / optimal control</strong> — convergence analysis of ParaOpt and ParaExp-based algorithms."
+              },
+              {
+                "type": "image",
+                "src": "assets/papers/thesis-2025/pint-scheme.svg",
+                "alt": "ParaOpt two-level structure",
+                "caption": "Part I — parallel-in-time solvers for coupled forward/backward optimality systems.",
+                "size": "medium"
+              },
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/thesis-2025/filtering-benchmark.png",
+                    "alt": "Filtering benchmark"
+                  },
+                  {
+                    "src": "assets/papers/thesis-2025/filtering-result.png",
+                    "alt": "Filtering reconstruction"
+                  }
+                ],
+                "caption": "Filtering with dynamical Neural Galerkin: reference (left) and reconstruction (right)."
+              },
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/thesis-2025/channels-2d.png",
+                    "alt": "2D channels"
+                  },
+                  {
+                    "src": "assets/papers/thesis-2025/channels-1d.png",
+                    "alt": "1D channels with junction"
+                  }
+                ],
+                "caption": "Coupled finite-volume / learning approach on irrigation channel networks."
+              }
+            ]
+          },
+          {
+            "heading": "Main outcomes",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "Rigorous convergence guarantees for PinT solvers in optimal control, practical preconditioners for model PDEs, and a hybrid physics–learning framework for inverse problems with imperfect models."
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "Les problèmes de contrôle optimal et inverses à grande échelle exigent des solveurs efficaces pour les EDP instationnaires et des approches robustes face aux imperfections de modèle. Cette thèse combine algorithmes parallèles en temps et correction de modèle par apprentissage."
+          },
+          {
+            "heading": "Partie I — Parallèle en temps pour le contrôle optimal",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Analyse de convergence de ParaOpt pour les systèmes linéaires instables.\n2. Extension aux schémas de Runge-Kutta généraux avec taux de convergence de même ordre.\n3. Algorithme PinT basé sur ParaExp avec décomposition chevauchante et préconditionnement."
+              }
+            ]
+          },
+          {
+            "heading": "Partie II — Correction de modèle par apprentissage",
+            "body": "Un second volet développe une approche inspirée d'Aphynity pour corriger des modèles physiques imparfaits dans les problèmes inverses, en combinant interprétabilité du modèle de base et correction data-driven."
+          },
+          {
+            "heading": "Illustrations",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "<strong>PinT / contrôle optimal</strong> — analyse de convergence de ParaOpt et des algorithmes basés sur ParaExp."
+              },
+              {
+                "type": "image",
+                "src": "assets/papers/thesis-2025/pint-scheme.svg",
+                "alt": "Structure bi-niveau de ParaOpt",
+                "caption": "Partie I — solveurs parallèles en temps pour les systèmes d'optimalité couplés direct/adjoint.",
+                "size": "medium"
+              },
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/thesis-2025/filtering-benchmark.png",
+                    "alt": "Référence filtrage"
+                  },
+                  {
+                    "src": "assets/papers/thesis-2025/filtering-result.png",
+                    "alt": "Reconstruction filtrage"
+                  }
+                ],
+                "caption": "Filtrage avec Neural Galerkin dynamique : référence (gauche) et reconstruction (droite)."
+              },
+              {
+                "type": "gallery",
+                "size": "medium",
+                "images": [
+                  {
+                    "src": "assets/papers/thesis-2025/channels-2d.png",
+                    "alt": "Canaux 2D"
+                  },
+                  {
+                    "src": "assets/papers/thesis-2025/channels-1d.png",
+                    "alt": "Canaux 1D avec jonction"
+                  }
+                ],
+                "caption": "Approche volumes finis / apprentissage couplée sur réseaux de canaux d'irrigation."
+              }
+            ]
+          },
+          {
+            "heading": "Résultats principaux",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "Garanties de convergence pour les solveurs PinT en contrôle optimal, préconditionneurs pratiques pour des EDP modèles, et un cadre hybride physique–apprentissage pour les problèmes inverses."
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://theses.hal.science/tel-05262960",
@@ -83,6 +461,7 @@
       "code": ""
     }
   },
+
   {
     "id": "paraopt-unstable",
     "year": 2025,
@@ -94,8 +473,94 @@
     "number": "",
     "pages": "",
     "abstract": {
-      "en": "We present a convergence analysis of the ParaOpt algorithm applied to linear optimal control problems where the linear operator has at least one positive eigenvalue.",
-      "fr": "Only english version is provided"
+      "en": "We present a convergence analysis of the ParaOpt algorithm applied to linear optimal control problems where the linear operator involved in the constraint -- namely, a linear ordinary differential equation (ODE) -- has at least one positive eigenvalue, which usually corresponds to unstable systems. When the control problem is discretized using the explicit Euler scheme, the resulting formulation can be expressed as a stationary iterative method, in which a coarse Jacobian approximation acts as a preconditioner. An explicit bound on the spectral radius of the corresponding iteration matrix is proposed, depending on the discretization parameters as well as on the smallest negative and largest positive eigenvalues of the considered linear operator. Our theoretical results are completed by numerical experiments performed on both linear and nonlinear examples.",
+      "fr": "Only the english version is available"
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "ParaOpt is a two-level parareal method for the coupled forward/backward equations arising in PDE-constrained optimal control. Existing convergence results focus on dissipative systems; unstable dynamics (positive eigenvalues) require a new analysis."
+          },
+          {
+            "heading": "Problem",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "We consider a linear-quadratic optimal control problem with state equation $\\dot{y} = \\mathcal{L}y + \\mathcal{B}\\nu$, where $\\mathcal{L}$ may have at least one positive eigenvalue."
+              },
+              {
+                "type": "math",
+                "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 \\, dt"
+              }
+            ]
+          },
+          {
+            "heading": "Main contributions",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. First convergence proof of ParaOpt for linear optimal control with unstable dynamics.\n2. Operator-norm analysis identifying the role of spectral properties of $\\mathcal{L}$.\n3. Numerical experiments and open-source code validating the theoretical predictions."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraopt-unstable/scheme.svg",
+                "alt": "ParaOpt two-level structure for forward and backward equations",
+                "caption": "Coupled forward/backward evolution and two-level parareal iteration.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "ParaOpt est une méthode de type parareal à deux niveaux pour les équations couplées directe/adjointe en contrôle optimal. Les résultats de convergence existants concernent surtout les systèmes dissipatifs ; les dynamiques instables nécessitent une nouvelle analyse."
+          },
+          {
+            "heading": "Problème",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "Nous étudions un problème de contrôle optimal linéaire-quadratique avec $\\dot{y} = \\mathcal{L}y + \\mathcal{B}\\nu$, où $\\mathcal{L}$ peut posséder au moins une valeur propre positive."
+              },
+              {
+                "type": "math",
+                "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 \\, dt"
+              }
+            ]
+          },
+          {
+            "heading": "Contributions principales",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Première preuve de convergence de ParaOpt pour le contrôle optimal linéaire instable.\n2. Analyse en norme d'opérateur mettant en jeu le spectre de $\\mathcal{L}$.\n3. Expériences numériques et code open source."
+              }
+            ]
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraopt-unstable/scheme.svg",
+                "alt": "Structure bi-niveau de ParaOpt pour les équations directe et adjointe",
+                "caption": "Évolution couplée directe/adjointe et itération parareal bi-niveau.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://inria.hal.science/hal-04966081",
@@ -104,6 +569,7 @@
       "code": "https://plmlab.math.cnrs.fr/dtognon/ParaOptus"
     }
   },
+  
   {
     "id": "paraopt-rk",
     "year": 2026,
@@ -115,8 +581,110 @@
     "number": "3",
     "pages": "926-956",
     "abstract": {
-      "en": "We prove that the convergence rate of ParaOpt applied to a linear-quadratic optimal control problem has the same order as the Runge-Kutta time integration method used.",
-      "fr": "Only english version is provided"
+      "en": "ParaOpt is a time parallel method based on Parareal for solving optimality systems arising in optimal control problems. The method was presented in [M. J. Gander, F. Kwok and J. Salomon, SIAM J. Sci. Comput., 42 (2020), A2773–A2802] together with a convergence analysis in the case where implicit Euler is used to discretize the differential equations governing the system dynamics. However, its convergence behavior for higher-order time discretizations has not been considered. In this paper, we use an operator norm analysis to prove that the convergence rate of ParaOpt applied to a linear-quadratic optimal control problem has the same order as the Runge–Kutta time integration method used, provided that a few auxiliary order conditions are satisfied. We illustrate our theoretical results with numerical examples, before showing an additional test case not covered by our analysis, namely, a nonlinear optimal control problem involving a Schrödinger type system.",
+      "fr": "Only the english version is available."
+    },
+    "overview": {
+      "en": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "The accuracy and convergence of ParaOpt depend on the time discretization of the optimal control problem. Prior analysis was limited to implicit Euler and dissipative systems; practical applications require general Runge-Kutta (RK) schemes."
+          },
+          {
+            "heading": "Problem",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "Linear-quadratic optimal control discretized with a Runge-Kutta method; ParaOpt is applied to the resulting optimality system."
+              },
+              {
+                "type": "math",
+                "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 \\, dt"
+              },
+              {
+                "type": "math",
+                "tex": "\\text{s.t.} \\quad \\dot{y}(t) = {\\mathcal L}y(t) + {\\mathcal B}\\nu(t), \\; y(0) = y_0, \\; t \\in [0,T]."
+              }
+            ]
+          },
+          {
+            "heading": "Main contributions",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Operator-norm convergence analysis for ParaOpt with general RK time discretizations.\n2. Proof that ParaOpt inherits the order of the RK method for both solution accuracy and convergence rate.\n3. Identification of auxiliary order conditions on the quadrature and RK scheme.\n4. Numerical illustrations confirming the theoretical orders."
+              }
+            ]
+          },
+          {
+            "heading": "Key result",
+            "body": "The convergence rate of ParaOpt matches the order of the underlying Runge-Kutta integrator on the fine and coarse time grids, under standard order conditions on the discretization of the cost functional."
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraopt-rk/convergence.svg",
+                "alt": "Convergence order of ParaOpt vs Runge-Kutta discretization",
+                "caption": "ParaOpt residual and RK discretization error follow the same asymptotic order.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "sections": [
+          {
+            "heading": "Motivation",
+            "body": "La précision et la convergence de ParaOpt dépendent de la discrétisation temporelle du problème de contrôle optimal. L'analyse existante se limitait à Euler implicite ; les applications pratiques requièrent des schémas de Runge-Kutta généraux."
+          },
+          {
+            "heading": "Problème",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "Contrôle optimal linéaire-quadratique discrétisé par Runge-Kutta ; ParaOpt est appliqué au système d'optimalité obtenu."
+              },
+              {
+                "type": "math",
+                "tex": "\\min_{\\nu} J(\\nu) = \\|y(T)-y_{tg}\\|^2+\\frac{\\alpha}{2}\\int_0^T \\|\\nu(t)\\|^2 \\, dt"
+              },
+              {
+                "type": "math",
+                "tex": "\\text{s.t.} \\quad \\dot{y}(t) = {\\mathcal L}y(t) + {\\mathcal B}\\nu(t), \\; y(0) = y_0, \\; t \\in [0,T]."
+              }
+            ]
+          },
+          {
+            "heading": "Contributions principales",
+            "blocks": [
+              {
+                "type": "text",
+                "body": "1. Analyse de convergence en norme d'opérateur pour ParaOpt avec schémas RK généraux.\n2. Preuve que ParaOpt hérite de l'ordre du schéma RK pour la précision et le taux de convergence.\n3. Conditions auxiliaires d'ordre sur la quadrature et le schéma RK.\n4. Illustrations numériques confirmant les ordres théoriques."
+              }
+            ]
+          },
+          {
+            "heading": "Résultat clé",
+            "body": "Le taux de convergence de ParaOpt est du même ordre que l'intégrateur de Runge-Kutta sous-jacent, sur les grilles fine et grossière, sous les conditions d'ordre standard sur la discrétisation du coût."
+          },
+          {
+            "heading": "Illustration",
+            "blocks": [
+              {
+                "type": "image",
+                "src": "assets/papers/paraopt-rk/convergence.svg",
+                "alt": "Ordre de convergence de ParaOpt vs discrétisation Runge-Kutta",
+                "caption": "Le résidu ParaOpt et l'erreur de discrétisation RK suivent le même ordre asymptotique.",
+                "size": "large"
+              }
+            ]
+          }
+        ]
+      }
     },
     "links": {
       "hal": "https://hal.science/hal-05014759",

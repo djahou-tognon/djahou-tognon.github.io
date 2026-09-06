@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="Convergence order matching">
+  <rect width="720" height="220" fill="#f8fbfd"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" fill="#1a5276" font-weight="600">ParaOpt inherits the RK discretization order</text>
+  <line x1="90" y1="180" x2="650" y2="180" stroke="#566573" stroke-width="1.5"/>
+  <line x1="90" y1="180" x2="90" y2="50" stroke="#566573" stroke-width="1.5"/>
+  <text x="370" y="205" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="13" fill="#566573">mesh size h</text>
+  <text x="55" y="115" text-anchor="middle" transform="rotate(-90 55 115)" font-family="Source Sans 3, sans-serif" font-size="13" fill="#566573">error</text>
+  <polyline points="120,160 220,120 320,85 420,62 520,48 620,40" fill="none" stroke="#1a5276" stroke-width="3"/>
+  <polyline points="120,170 220,145 320,125 420,110 520,98 620,90" fill="none" stroke="#2e86c1" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="500" y="55" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1a5276">ParaOpt residual</text>
+  <text x="500" y="105" font-family="Source Sans 3, sans-serif" font-size="12" fill="#2e86c1">RK discretization error</text>
+</svg>

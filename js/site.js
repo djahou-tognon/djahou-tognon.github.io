@@ -11,6 +11,9 @@ const PUB_ORDER = ["journal", "preprint", "proceeding", "thesis"];
 const TALK_ORDER = ["conference", "seminar", "workshop", "other"];
 
 async function loadContent() {
+  if (location.protocol === "file:") {
+    throw new Error("file-protocol");
+  }
   const files = ["profile", "about", "keywords", "announcement", "research", "projects", "teaching", "publications", "talks", "analytics"];
   const content = {};
   await Promise.all(files.map(async (name) => {
@@ -97,12 +100,12 @@ function bindNav() {
 
 /* ── Badges & links ── */
 
-function badgeLink(url, label, type = "default") {
+function badgeLink(url, label, type = "default", newTab = null) {
   if (!url) return "";
   const upper = label.toUpperCase();
-  if (url.startsWith("http") || url.startsWith("/"))
-    return `<a class="badge badge-${type}" href="${url}" target="_blank" rel="noopener">${upper}</a>`;
-  return `<a class="badge badge-${type}" href="${url}">${upper}</a>`;
+  const external = newTab ?? (url.startsWith("http") || url.startsWith("/"));
+  const target = external ? ' target="_blank" rel="noopener"' : "";
+  return `<a class="badge badge-${type}" href="${url}"${target}>${upper}</a>`;
 }
 
 function badgeBtn(label, targetId, type = "abs") {
@@ -158,23 +161,161 @@ function bibPanel(id, bibtex, copyLabel) {
   </div>`;
 }
 
+function getPubOverview(pub, lang) {
+  const data = pub.overview?.[lang] || pub.overview?.en;
+  if (!data?.sections?.length) return null;
+  return data;
+}
+
+function getPubAbstract(pub, lang) {
+  const text = pub.abstract?.[lang] || pub.abstract?.en || "";
+  return String(text).trim() || null;
+}
+
+let activeAbstractPubId = null;
+let pubAbstractModalBound = false;
+
+function pubBadgeConfig() {
+  return typeof PAPER_CONFIG !== "undefined" ? PAPER_CONFIG : {};
+}
+
+function pubBadgeItems(pub) {
+  const cfg = pubBadgeConfig();
+  const items = [];
+  if (cfg.showHal !== false) items.push(badgeLink(pub.links?.hal || pub.links?.pdf, "HAL", "hal"));
+  if (cfg.showArxiv !== false) items.push(badgeLink(pub.links?.arxiv, "ARXIV", "arxiv"));
+  if (cfg.showDoi !== false) items.push(badgeLink(pub.links?.doi, "DOI", "doi"));
+  if (cfg.showCode !== false) items.push(badgeLink(pub.links?.code, "CODE", "code"));
+  return items.filter(Boolean);
+}
+
+function pubBadgeLinks(pub) {
+  return pubBadgeItems(pub).join("");
+}
+
+function fillPubModalHeader(modal, pub) {
+  modal.querySelector(".pub-modal-title").textContent = pub.title;
+  modal.querySelector(".pub-modal-meta").innerHTML = pub.venue
+    ? `${pub.authors}, <em>${pub.venue}</em>`
+    : pub.authors;
+  modal.querySelector(".pub-modal-links").innerHTML = pubBadgeLinks(pub);
+}
+
+function scrollBackToPublication(pubId) {
+  if (!pubId) return;
+  const item = document.getElementById(`pub-item-${pubId}`);
+  if (!item) return;
+  item.scrollIntoView({ behavior: "smooth", block: "center" });
+  item.classList.add("pub-overview-return");
+  setTimeout(() => item.classList.remove("pub-overview-return"), 1200);
+}
+
+function ensurePubAbstractModal(lang) {
+  let modal = document.getElementById("pub-abstract-modal");
+  if (!modal) {
+    document.body.insertAdjacentHTML("beforeend", `
+      <div id="pub-abstract-modal" class="pub-abstract-modal" hidden aria-hidden="true">
+        <div class="pub-abstract-backdrop" data-pub-abstract-close tabindex="-1"></div>
+        <div class="pub-abstract-dialog" role="dialog" aria-modal="true" aria-labelledby="pub-abstract-title">
+          <div class="pub-abstract-scroll">
+            <header class="pub-modal-header">
+              <p class="pub-modal-kind">${(t("publicationsPage", lang) || {}).abstract || "Abstract"}</p>
+              <h2 id="pub-abstract-title" class="pub-modal-title"></h2>
+              <p class="pub-modal-meta"></p>
+            </header>
+            <div class="pub-abstract-body"></div>
+            <footer class="pub-modal-footer">
+              <div class="pub-modal-links badges"></div>
+              <button type="button" class="btn pub-modal-exit" data-pub-abstract-close></button>
+            </footer>
+          </div>
+        </div>
+      </div>`);
+    modal = document.getElementById("pub-abstract-modal");
+  }
+
+  if (!pubAbstractModalBound) {
+    pubAbstractModalBound = true;
+    modal.addEventListener("click", (e) => {
+      if (e.target.closest("[data-pub-abstract-close]")) closePubAbstract();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && activeAbstractPubId) closePubAbstract();
+    });
+  }
+
+  const labels = t("publicationsPage", lang) || {};
+  modal.querySelector(".pub-modal-kind").textContent = labels.abstract || "Abstract";
+  modal.querySelector(".pub-modal-exit").textContent = labels.overviewExit || "Back to publications";
+}
+
+function openPubAbstract(pubId, lang) {
+  const pub = findPublication(pubId);
+  const abstract = getPubAbstract(pub, lang);
+  if (!pub || !abstract) return;
+
+  closePubAbstract(true);
+  ensurePubAbstractModal(lang);
+  const modal = document.getElementById("pub-abstract-modal");
+  fillPubModalHeader(modal, pub);
+  modal.querySelector(".pub-abstract-body").innerHTML =
+    `<div class="block-text pub-abstract-text">${formatBody(abstract)}</div>`;
+
+  activeAbstractPubId = pubId;
+  modal.hidden = false;
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("pub-abstract-open");
+  modal.querySelector(".pub-modal-exit").focus();
+  updateAbstractBadge(pubId);
+}
+
+function updateAbstractBadge(pubId) {
+  document.querySelectorAll(".badge-abstract-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.pubId === pubId);
+  });
+}
+
+function closePubAbstract(skipScroll = false) {
+  const modal = document.getElementById("pub-abstract-modal");
+  if (!modal || modal.hidden) return;
+
+  modal.hidden = true;
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("pub-abstract-open");
+
+  const pubId = activeAbstractPubId;
+  activeAbstractPubId = null;
+  document.querySelectorAll(".badge-abstract-btn").forEach((btn) => btn.classList.remove("active"));
+
+  if (!skipScroll) scrollBackToPublication(pubId);
+}
+
+function bindPubAbstract(root, lang) {
+  root?.querySelectorAll(".badge-abstract-btn").forEach((btn) => {
+    btn.onclick = () => { openPubAbstract(btn.dataset.pubId, lang); };
+  });
+}
+
 function pubLinks(pub, lang, idx) {
-  const L = t("publicationsPage", lang);
-  const abstract = pub.abstract?.[lang] || pub.abstract?.en || "";
-  const absId = `abs-${idx}`;
+  const L = t("publicationsPage", lang) || {};
+  const cfg = pubBadgeConfig();
   const bibId = `bib-${idx}`;
   const bibtex = buildBibtex(pub);
+  const overviewLabel = L.overview || "Overview";
+  const abstractLabel = (L.abstract || "Abstract").toUpperCase();
   const items = [
-    badgeLink(pub.links?.hal || pub.links?.pdf, "HAL", "hal"),
-    badgeLink(pub.links?.arxiv, "ARXIV", "arxiv"),
-    badgeLink(pub.links?.doi, "DOI", "doi"),
-    badgeLink(pub.links?.code, "CODE", "code"),
-    abstract ? badgeBtn(L.abstract, absId) : "",
+    ...pubBadgeItems(pub),
+    cfg.showOverview !== false && getPubOverview(pub, lang)
+      ? badgeLink(`paper.html?id=${encodeURIComponent(pub.id)}`, overviewLabel, "overview", true)
+      : "",
+    cfg.showAbstract !== false && getPubAbstract(pub, lang)
+      ? `<button type="button" class="badge badge-abs badge-abstract-btn" data-pub-id="${pub.id}">${abstractLabel}</button>`
+      : "",
     bibtex ? badgeBtn("BIB", bibId, "bib") : "",
   ].filter(Boolean);
   return {
     html: items.length ? `<div class="badges">${items.join("")}</div>` : "",
-    absId, abstract, bibId, bibtex,
+    bibId, bibtex,
   };
 }
 
@@ -235,16 +376,16 @@ function renderItemTitle(title, num) {
 }
 
 function pubItem(pub, lang, idx, num) {
-  const { html, absId, abstract, bibId, bibtex } = pubLinks(pub, lang, idx);
+  const { html, bibId, bibtex } = pubLinks(pub, lang, idx);
   const copyLabel = t("publicationsPage", lang).copy;
   const authorsVenue = pub.venue
     ? `${pub.authors}, <em>${pub.venue}</em>`
     : pub.authors;
-  return `<li class="item">
+  return `<li class="item" id="pub-item-${pub.id}">
     <div class="item-body">
       ${renderItemTitle(pub.title, num)}
       <p class="meta">${authorsVenue}</p>
-      ${html}${absPanel(absId, abstract)}${bibPanel(bibId, bibtex, copyLabel)}
+      ${html}${bibPanel(bibId, bibtex, copyLabel)}
     </div>
   </li>`;
 }
@@ -627,10 +768,63 @@ function renderBlocks(blocks) {
   return html;
 }
 
-function renderSection(section) {
+function renderSection(section, headingTag = "h2") {
   const blocks = section.blocks || (section.body ? [{ type: "text", body: section.body }] : []);
-  const heading = section.heading ? `<h2>${section.heading}</h2>` : "";
+  const heading = section.heading ? `<${headingTag}>${section.heading}</${headingTag}>` : "";
   return `<section class="project-block">${heading}${renderBlocks(blocks)}</section>`;
+}
+
+function paperSectionVariant(section) {
+  const heading = (section.heading || "").toLowerCase();
+  if (/illustr|figure|résultat|result|gallery|visual|schéma|schema/.test(heading)) return "media";
+  if (/contribut|contribution/.test(heading)) return "contributions";
+  return "default";
+}
+
+function renderPaperSection(section, index) {
+  const variant = paperSectionVariant(section);
+  const blocks = section.blocks || (section.body ? [{ type: "text", body: section.body }] : []);
+  const heading = section.heading ? `<h2 class="paper-heading">${section.heading}</h2>` : "";
+  return `<section class="paper-entry paper-entry--${variant}">
+    ${heading}
+    ${renderBlocks(blocks)}
+  </section>`;
+}
+
+const PAPER_FONTS = {
+  serif: "paper-font-serif",
+  sans: "paper-font-sans",
+  mono: "paper-font-mono",
+  hand: "paper-font-hand",
+};
+
+const PAPER_MATH_FONTS = {
+  katex: "paper-math-katex",
+  stix: "paper-math-stix",
+  sans: "paper-math-sans",
+};
+
+const PAPER_SIZES = {
+  s: "paper-size-s",
+  m: "paper-size-m",
+  l: "paper-size-l",
+  xl: "paper-size-xl",
+};
+
+function applyPaperSettings(notebook) {
+  if (!notebook) return;
+  Object.values(PAPER_FONTS).forEach((cls) => notebook.classList.remove(cls));
+  Object.values(PAPER_MATH_FONTS).forEach((cls) => notebook.classList.remove(cls));
+  Object.values(PAPER_SIZES).forEach((cls) => notebook.classList.remove(cls));
+
+  const cfg = typeof PAPER_CONFIG !== "undefined" ? PAPER_CONFIG : {};
+  const font = cfg.font || "serif";
+  const mathFont = cfg.mathFont || "katex";
+  const size = cfg.size || "m";
+
+  notebook.classList.add(PAPER_FONTS[font] || PAPER_FONTS.serif);
+  notebook.classList.add(PAPER_MATH_FONTS[mathFont] || PAPER_MATH_FONTS.katex);
+  notebook.classList.add(PAPER_SIZES[size] || PAPER_SIZES.m);
 }
 
 function renderMath(root) {
@@ -672,6 +866,47 @@ function renderProject(lang) {
     </div>
     ${related ? `<section class="project-related"><h2>${labels.related}</h2><ol class="list">${related}</ol></section>` : ""}`;
   bindBadges(el);
+  bindPubAbstract(el, lang);
+  renderMath(el);
+}
+
+function renderPaper(lang) {
+  const el = document.getElementById("paper-root");
+  if (!el) return;
+  const id = new URLSearchParams(location.search).get("id");
+  const pub = findPublication(id);
+  const overview = pub && getPubOverview(pub, lang);
+  const labels = t("paperPage", lang);
+  const pubLabels = t("publicationsPage", lang) || {};
+  const { profile } = SITE_CONTENT;
+
+  if (!pub || !overview) {
+    el.innerHTML = `<p class="error">${labels.notFound}</p>`;
+    return;
+  }
+
+  const links = pubBadgeLinks(pub);
+  const catLabel = pubLabels.categories?.[pub.category] || "";
+  const sections = overview.sections || [];
+  const metaLine = [pub.year, catLabel].filter(Boolean).join(" · ");
+
+  el.innerHTML = `
+    <a class="back-link paper-back" href="publications.html">${labels.back}</a>
+    <article class="paper-notebook" id="paper-notebook">
+      <header class="paper-notebook-header">
+        <p class="paper-notebook-kind">${labels.overview}${metaLine ? ` · ${metaLine}` : ""}</p>
+        <h1 class="paper-notebook-title">${pub.title}</h1>
+        <p class="paper-notebook-authors">${pub.authors}</p>
+        ${pub.venue ? `<p class="paper-notebook-venue"><em>${pub.venue}</em></p>` : ""}
+        ${links ? `<div class="badges paper-notebook-badges">${links}</div>` : ""}
+      </header>
+      <div class="paper-notebook-body">
+        ${sections.map(renderPaperSection).join("")}
+      </div>
+    </article>`;
+
+  document.title = `${pub.title} — ${profile.name}`;
+  applyPaperSettings(document.getElementById("paper-notebook"));
   renderMath(el);
 }
 
@@ -724,6 +959,7 @@ function renderTeaching(lang) {
 }
 
 function renderPublications(lang) {
+  closePubAbstract();
   const el = document.getElementById("publications-root");
   if (!el) return;
   const labels = t("publicationsPage", lang);
@@ -753,6 +989,7 @@ function renderPublications(lang) {
       <div class="pub-col">${groupHtml("proceeding")}</div>
     </div>`;
   bindBadges(el);
+  bindPubAbstract(el, lang);
 }
 
 const MONTHS = {
@@ -822,14 +1059,25 @@ function renderPage(lang) {
   renderContact(lang);
   renderResearch(lang);
   renderProject(lang);
+  renderPaper(lang);
   renderTeaching(lang);
   renderPublications(lang);
   renderTalks(lang);
 }
 
 async function initSite() {
+  const lang = getLanguage();
   try {
     await loadContent();
+  } catch (err) {
+    console.error(err);
+    const msg = err?.message === "file-protocol"
+      ? t("errors.fileProtocol", lang)
+      : `${t("errors.loadFailed", lang)}${err?.message ? ` (${err.message})` : ""}`;
+    showError(msg);
+    return;
+  }
+  try {
     renderLayout();
     bindNav();
     initI18n();
@@ -837,7 +1085,7 @@ async function initSite() {
     renderPage();
   } catch (err) {
     console.error(err);
-    showError(t("errors.loadFailed", getLanguage()));
+    showError(`${t("errors.renderFailed", lang)} ${err?.message || ""}`.trim());
   }
 }
 

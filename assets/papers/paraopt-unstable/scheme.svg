@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="ParaOpt two-level structure">
+  <rect width="720" height="200" fill="#f8fbfd"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" fill="#1a5276" font-weight="600">ParaOpt: coupled forward / backward evolution</text>
+  <rect x="60" y="55" width="250" height="52" rx="8" fill="#d6eaf8" stroke="#1a5276"/>
+  <text x="185" y="86" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#154360">Forward state equation</text>
+  <rect x="410" y="55" width="250" height="52" rx="8" fill="#d6eaf8" stroke="#1a5276"/>
+  <text x="535" y="86" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#154360">Backward adjoint equation</text>
+  <path d="M310 81 H410" stroke="#1a5276" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M410 81 H310" stroke="#1a5276" stroke-width="2" transform="translate(0,18)"/>
+  <rect x="180" y="130" width="360" height="48" rx="8" fill="#eafaf1" stroke="#1e8449"/>
+  <text x="360" y="159" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" fill="#1e8449">Two-level parareal iteration (coarse / fine grids)</text>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#1a5276"/>
+    </marker>
+  </defs>
+</svg>

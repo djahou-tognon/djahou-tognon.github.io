@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-label="Overlapping time-domain decomposition">
+  <rect width="720" height="180" fill="#f8fbfd"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" fill="#1a5276" font-weight="600">Overlapping ParaExp decomposition</text>
+  <line x1="40" y1="130" x2="680" y2="130" stroke="#154360" stroke-width="2"/>
+  <text x="40" y="152" font-family="Source Sans 3, sans-serif" font-size="13" fill="#566573">0</text>
+  <text x="680" y="152" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="13" fill="#566573">T</text>
+  <rect x="70" y="95" width="260" height="35" rx="6" fill="#d6eaf8" stroke="#1a5276"/>
+  <rect x="220" y="80" width="280" height="35" rx="6" fill="#aed6f1" stroke="#1a5276"/>
+  <rect x="390" y="95" width="260" height="35" rx="6" fill="#d6eaf8" stroke="#1a5276"/>
+  <text x="200" y="78" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1a5276">homogeneous + exponential propagation</text>
+  <text x="460" y="78" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#1a5276">local inhomogeneous solves</text>
+</svg>

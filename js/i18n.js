@@ -10,6 +10,13 @@ const translations = {
     footer: { updated: "Last updated:", hosted: "Hosted on" },
     researchPage: { title: "Research", intro: "Research directions and ongoing projects.", themesTitle: "Research areas", projectsTitle: "Projects", explore: "Explore project" },
     projectPage: { back: "← Back to research", related: "Related publications", abstract: "Abstract" },
+    paperPage: {
+      title: "Publication overview",
+      back: "← Back to publications",
+      backShort: "← Publications",
+      notFound: "Paper overview not found.",
+      overview: "Overview",
+    },
     teachingPage: {
       title: "Teaching",
       intro: "Courses and teaching activities.",
@@ -21,7 +28,8 @@ const translations = {
     publicationsPage: {
       title: "Publications",
       intro: "Complete list of publications.",
-      hal: "HAL", doi: "DOI", code: "Code", abstract: "Abstract", bib: "BibTeX", copy: "Copy",
+      hal: "HAL", doi: "DOI", code: "Code", overview: "Overview", overviewExit: "Back to publications",
+      abstract: "Abstract", bib: "BibTeX", copy: "Copy",
       categories: { journal: "Journal Papers", preprint: "Preprints", proceeding: "Conference Proceedings", thesis: "Thesis" },
     },
     talksPage: {
@@ -30,7 +38,11 @@ const translations = {
       slides: "Slides", video: "Video", poster: "Poster", website: "Website", abstract: "Abstract",
       types: { conference: "Invited talks and conferences", seminar: "Seminars", workshop: "Workshops", other: "Presentations" },
     },
-    errors: { loadFailed: "Unable to load content. If you are offline, check https://djahou-tognon.github.io — locally, run ./preview.sh" },
+    errors: {
+      loadFailed: "Unable to load content. Locally, run ./preview.sh then open http://localhost:8080 (do not open index.html directly).",
+      fileProtocol: "This site must be opened through a local web server. Run ./preview.sh in the project folder, then open http://localhost:8080",
+      renderFailed: "Display error:",
+    },
   },
   fr: {
     meta: { siteTitle: "Chercheur", navLabel: "Navigation principale", openMenu: "Ouvrir le menu" },
@@ -43,6 +55,13 @@ const translations = {
     footer: { updated: "Dernière mise à jour :", hosted: "Hébergé sur" },
     researchPage: { title: "Recherche", intro: "Grandes lignes de recherche et projets en cours.", themesTitle: " Domaines de recherche", projectsTitle: "Projets", explore: "Explorer le projet" },
     projectPage: { back: "← Retour à la recherche", related: "Publications associées", abstract: "Résumé" },
+    paperPage: {
+      title: "Aperçu de la publication",
+      back: "← Retour aux publications",
+      backShort: "← Publications",
+      notFound: "Aperçu introuvable.",
+      overview: "Aperçu",
+    },
     teachingPage: {
       title: "Enseignement",
       intro: "Cours et activités d'enseignement.",
@@ -54,7 +73,8 @@ const translations = {
     publicationsPage: {
       title: "Publications",
       intro: "Liste complète des publications.",
-      hal: "HAL", doi: "DOI", code: "Code", abstract: "Résumé", bib: "BibTeX", copy: "Copier",
+      hal: "HAL", doi: "DOI", code: "Code", overview: "Aperçu", overviewExit: "Retour à la publication",
+      abstract: "Résumé", bib: "BibTeX", copy: "Copier",
       categories: { journal: "Articles de journaux", preprint: "Prépublications", proceeding: "Communications", thesis: "Thèse" },
     },
     talksPage: {
@@ -63,7 +83,11 @@ const translations = {
       slides: "Diapositives", video: "Vidéo", poster: "Poster", website: "Site web", abstract: "Résumé",
       types: { conference: "Conférences et exposés invités", seminar: "Séminaires", workshop: "Ateliers", other: "Présentations" },
     },
-    errors: { loadFailed: "Impossible de charger le contenu. En ligne : https://djahou-tognon.github.io — en local, lancez ./preview.sh" },
+    errors: {
+      loadFailed: "Impossible de charger le contenu. En local : lancez ./preview.sh puis ouvrez http://localhost:8080 (n'ouvrez pas index.html directement).",
+      fileProtocol: "Le site doit être ouvert via un serveur web local. Lancez ./preview.sh dans le dossier du projet, puis ouvrez http://localhost:8080",
+      renderFailed: "Erreur d'affichage :",
+    },
   },
 };
 

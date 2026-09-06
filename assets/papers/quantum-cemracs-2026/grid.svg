@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Power grid maintenance scheduling">
+  <rect width="720" height="200" fill="#f8fbfd"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="15" fill="#1a5276" font-weight="600">Maintenance scheduling on a transmission network</text>
+  <circle cx="120" cy="110" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="280" cy="70" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="280" cy="150" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="440" cy="110" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="600" cy="80" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <circle cx="600" cy="140" r="18" fill="#d6eaf8" stroke="#1a5276" stroke-width="2"/>
+  <line x1="138" y1="110" x2="262" y2="70" stroke="#1a5276" stroke-width="2"/>
+  <line x1="138" y1="110" x2="262" y2="150" stroke="#1a5276" stroke-width="2"/>
+  <line x1="298" y1="70" x2="422" y2="110" stroke="#1a5276" stroke-width="2"/>
+  <line x1="298" y1="150" x2="422" y2="110" stroke="#1a5276" stroke-width="2"/>
+  <line x1="458" y1="110" x2="582" y2="80" stroke="#1a5276" stroke-width="2"/>
+  <line x1="458" y1="110" x2="582" y2="140" stroke="#1a5276" stroke-width="2"/>
+  <text x="360" y="185" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#566573">Nodes: equipment · Edges: operational dependencies</text>
+</svg>

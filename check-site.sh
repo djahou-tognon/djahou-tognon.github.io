@@ -28,7 +28,7 @@ else
   failed=1
 fi
 
-for page in index.html research.html publications.html talks.html teaching.html project.html; do
+for page in index.html research.html publications.html talks.html teaching.html project.html paper.html; do
   check "$page"
 done
 
