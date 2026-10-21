@@ -30,7 +30,7 @@
     ]
   },
   "home": {
-    "showPhoto": true,
+    "showPhoto": false,
     "showRole": true,
     "showSocial": true,
     "social": {
