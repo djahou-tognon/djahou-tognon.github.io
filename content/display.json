@@ -1,0 +1,114 @@
+{
+  "language": "en",
+  "appearance": {
+    "accent": "ink",
+    "mode": "light",
+    "density": "compact"
+  },
+  "navigation": {
+    "items": [
+      {
+        "id": "about",
+        "enabled": true
+      },
+      {
+        "id": "research",
+        "enabled": true
+      },
+      {
+        "id": "publications",
+        "enabled": true
+      },
+      {
+        "id": "talks",
+        "enabled": true
+      },
+      {
+        "id": "teaching",
+        "enabled": true
+      }
+    ]
+  },
+  "home": {
+    "showPhoto": true,
+    "showRole": true,
+    "showSocial": true,
+    "social": {
+      "email": true,
+      "scholar": true,
+      "orcid": true,
+      "github": true,
+      "linkedin": false,
+      "cv": true,
+      "halCv": true
+    },
+    "sections": [
+      {
+        "id": "about",
+        "enabled": true
+      },
+      {
+        "id": "news",
+        "enabled": false
+      },
+      {
+        "id": "interests",
+        "enabled": true
+      },
+      {
+        "id": "selected",
+        "enabled": false
+      },
+      {
+        "id": "contact",
+        "enabled": true
+      }
+    ],
+    "selectedMode": "recent",
+    "selectedCount": 4,
+    "selectedIds": []
+  },
+  "publications": {
+    "groupBy": "year",
+    "showAbstract": true,
+    "showBibtex": true,
+    "showOverview": false,
+    "showHal": true,
+    "showArxiv": true,
+    "showDoi": true,
+    "showCode": true,
+    "hiddenIds": []
+  },
+  "research": {
+    "showThemes": true,
+    "showProjects": true,
+    "hiddenSlugs": [],
+    "shownSlugs": []
+  },
+  "talks": {
+    "groupBy": "type",
+    "showAbstract": true,
+    "hiddenTitles": []
+  },
+  "teaching": {
+    "showLecturer": true,
+    "showHours": true,
+    "showDepartment": true,
+    "showLevel": true
+  },
+  "paper": {
+    "font": "serif",
+    "mathFont": "katex",
+    "size": "m"
+  },
+  "footer": {
+    "showUpdated": false,
+    "showStudioLink": false
+  },
+  "analytics": {
+    "enabled": false,
+    "provider": "google",
+    "clarityProjectId": "x90pjj9hl0",
+    "googleAnalyticsId": ""
+  }
+}

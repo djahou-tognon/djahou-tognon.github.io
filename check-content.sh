@@ -1,23 +1,13 @@
 #!/usr/bin/env bash
-set -euo pipefail
 cd "$(dirname "$0")"
-
-echo "Checking JSON files in content/..."
-failed=0
-for file in content/*.json; do
-  if python3 -m json.tool "$file" > /dev/null; then
-    echo "  OK  $file"
+src="../website/djahou-tognon.github.io/content"
+ok=0
+for f in profile about keywords announcement research projects teaching publications talks; do
+  if cmp -s "$src/$f.json" "content/$f.json"; then
+    echo "identique  content/$f.json"
   else
-    echo "  ERR $file"
-    failed=1
+    echo "DIFFÉRENT content/$f.json"
+    ok=1
   fi
 done
-
-if [ "$failed" -ne 0 ]; then
-  echo ""
-  echo "Fix JSON syntax errors before previewing."
-  exit 1
-fi
-
-echo ""
-echo "All content files are valid."
+exit "$ok"
