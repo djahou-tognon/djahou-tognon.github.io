@@ -1,9 +1,9 @@
 :root {
-  --bg: #ffffff;
-  --paper: #f6f6f5;
+  --bg: #faf8f4;
+  --paper: #f3efe6;
   --ink: #212121;
-  --muted: #5e5e5e;
-  --line: #e6e6e6;
+  --muted: #5c5852;
+  --line: #e3ddd2;
   --accent: #1f4e3d;
   --accent-soft: #e7f2ec;
   --serif: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
@@ -39,7 +39,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 70% 16rem at 50% -6rem, var(--accent-soft), transparent 72%),
+    var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.0625rem;
@@ -74,9 +76,10 @@ body[data-page="studio"] { --frame: 76rem; }
   position: sticky;
   top: 0;
   z-index: 30;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 3px 0 var(--accent);
 }
 .topbar-inner {
   min-height: 3.6rem;
@@ -114,6 +117,7 @@ body[data-page="studio"] { --frame: 76rem; }
 .nav-list a:hover,
 .lang-btn:hover,
 .nav-list a[aria-current="page"] { color: var(--accent); }
+.nav-list a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); }
 .menu-btn {
   display: none;
   width: 2.4rem;
@@ -147,6 +151,16 @@ body[data-page="studio"] { --frame: 76rem; }
   letter-spacing: -0.025em;
   margin: 0 0 0.35rem;
 }
+.identity h1::after,
+.page-head h1::after {
+  content: "";
+  display: block;
+  width: 2.6rem;
+  height: 3px;
+  margin-top: 0.55rem;
+  background: var(--accent);
+  border-radius: 2px;
+}
 .role { margin: 0; color: var(--muted); }
 .portrait {
   width: 9.25rem;
@@ -155,6 +169,7 @@ body[data-page="studio"] { --frame: 76rem; }
   object-fit: cover;
   object-position: center 18%;
   background: var(--accent-soft);
+  box-shadow: 0 0 0 5px var(--accent-soft);
 }
 .portrait.fallback {
   display: grid;
@@ -179,7 +194,7 @@ body[data-page="studio"] { --frame: 76rem; }
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--ink);
-  background: transparent;
+  background: var(--paper);
   text-decoration: none;
 }
 .social-sq svg { width: 1.4rem; height: 1.4rem; display: block; }
@@ -197,11 +212,22 @@ body[data-page="studio"] { --frame: 76rem; }
 }
 
 .subhead {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--serif);
   font-weight: 560;
   font-size: 1.45rem;
   letter-spacing: -0.02em;
   margin: 2rem 0 0.55rem;
+}
+.subhead::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  flex: none;
+  border-radius: 2px;
+  background: var(--accent);
 }
 .subhead-row {
   display: flex;
@@ -236,10 +262,16 @@ body[data-page="studio"] { --frame: 76rem; }
 .interests { list-style: none; margin: 0; padding: 0; }
 .interests li {
   padding: 0.28rem 0 0.28rem 0.85rem;
-  border-left: 2px solid var(--accent-soft);
+  border-left: 2px solid color-mix(in srgb, var(--accent) 50%, var(--line));
 }
 .interests li + li { margin-top: 0.35rem; }
 
+.contact {
+  padding: 0.85rem 1rem;
+  background: var(--paper);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+}
 .contact p { margin: 0.35rem 0; }
 .contact a { color: var(--accent); }
 .label { color: var(--muted); }
@@ -276,7 +308,7 @@ body[data-page="studio"] { --frame: 76rem; }
   padding: 0.15rem 0;
   cursor: pointer;
 }
-.filter.is-on { color: var(--ink); border-bottom-color: var(--accent); }
+.filter.is-on { color: var(--accent); border-bottom-color: var(--accent); }
 
 .year-block {
   display: grid;
@@ -291,12 +323,14 @@ body[data-page="studio"] { --frame: 76rem; }
   font-size: 1.02rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
+  color: var(--accent);
 }
 .named .year-label {
   font-family: var(--serif);
   font-size: 1.45rem;
   font-weight: 560;
   margin-bottom: 0.35rem;
+  color: var(--ink);
 }
 .entry + .entry { margin-top: 1.15rem; }
 .year-block .entry {
@@ -481,7 +515,12 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.4rem; }
 .size-l { font-size: 1.16rem; }
 .size-xl { font-size: 1.28rem; }
 
-.colophon { border-top: 1px solid var(--line); padding: 1.1rem 0 1.6rem; color: var(--muted); font-size: 0.95rem; }
+.colophon {
+  border-top: 2px solid var(--accent);
+  padding: 1.1rem 0 1.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 .footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .colophon p { margin: 0; }
 .colophon a { color: var(--muted); }
